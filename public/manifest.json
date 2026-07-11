@@ -1,0 +1,9 @@
+{
+  "name": "Premier Event Catering Demo",
+  "short_name": "Premier Demo",
+  "description": "Demo catering website concept by Apex Web Worx",
+  "start_url": "/catering/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a"
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <circle cx="100" cy="100" r="96" stroke="#C8A45D" stroke-width="4"/>
+  <path d="M60 130 L100 55 L140 130 Z" stroke="#C8A45D" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="105" r="8" fill="#C8A45D"/>
+  <text x="100" y="168" text-anchor="middle" fill="#C8A45D" font-family="Georgia, serif" font-size="14" font-weight="600">PREMIER</text>
+</svg>
