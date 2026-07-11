@@ -34,7 +34,7 @@ Local dev serves at `http://localhost:5173/catering/`
 | Setting | Value |
 |---------|-------|
 | Build command | `npm run build` |
-| Output directory | `dist` |
+| Output directory | `dist` (contains `catering/` subfolder + root `_redirects`) |
 | Base path | `/catering/` (configured in `vite.config.ts`) |
 
 SPA routing is handled via `public/_redirects`.
