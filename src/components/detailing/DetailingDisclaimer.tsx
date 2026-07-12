@@ -12,7 +12,7 @@ export default function DetailingDisclaimer({
   if (variant === "inline") {
     return (
       <div className={`text-center ${className}`}>
-        <p className="text-[11px] sm:text-xs text-[#A886CD] font-semibold tracking-wide">
+        <p className="text-[11px] sm:text-xs text-[#E6007A] font-semibold tracking-wide">
           {DETAILING_DISCLAIMER}
         </p>
         <p className="text-[10px] sm:text-[11px] text-gray-400 mt-1 max-w-xl mx-auto leading-snug">
@@ -25,7 +25,7 @@ export default function DetailingDisclaimer({
   if (variant === "footer") {
     return (
       <div className={`text-center ${className}`}>
-        <p className="text-xs text-[#A886CD]/90 font-semibold tracking-wide">{DETAILING_DISCLAIMER}</p>
+        <p className="text-xs text-[#E6007A]/90 font-semibold tracking-wide">{DETAILING_DISCLAIMER}</p>
         <p className="text-[11px] text-gray-500 mt-1.5 max-w-lg mx-auto leading-relaxed">
           {DETAILING_DISCLAIMER_SUB}
         </p>
@@ -34,8 +34,8 @@ export default function DetailingDisclaimer({
   }
 
   return (
-    <div className={`bg-[#0a0a0a]/95 border-b border-white/10 px-3 sm:px-4 py-2 text-center backdrop-blur-sm ${className}`}>
-      <p className="text-[10px] sm:text-xs text-[#A886CD] font-semibold tracking-wide">
+    <div className={`bg-black/95 border-b border-[#E6007A]/20 px-3 sm:px-4 py-2 text-center backdrop-blur-sm ${className}`}>
+      <p className="text-[10px] sm:text-xs text-[#E6007A] font-semibold tracking-wide">
         {DETAILING_DISCLAIMER}
       </p>
       <p className="text-[10px] text-gray-500 mt-0.5 max-w-2xl mx-auto leading-snug hidden sm:block">

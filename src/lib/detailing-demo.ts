@@ -1,12 +1,12 @@
 /**
- * Demo branding for Elite Auto Detailing preview.
+ * Demo branding for Elite Detailing preview.
  * Frontend-only — no real backend, credentials, or customer data.
  */
 
 export const DETAILING_BRAND = {
-  name: "Elite Auto Detailing",
-  shortName: "Elite Auto",
-  tagline: "Precision Care. Showroom Results.",
+  name: "Elite Detailing",
+  shortName: "Elite",
+  tagline: "Elevating Your Ride to Its Peak Shine",
   location: "Metro Area",
   address: "123 Demo Boulevard, Metro Area",
   addressShort: "123 Demo Blvd",

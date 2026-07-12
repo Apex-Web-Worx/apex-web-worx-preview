@@ -13,7 +13,7 @@ const demos = [
   },
   {
     path: "/detailing",
-    title: "Elite Auto Detailing",
+    title: "Elite Detailing",
     description: "Auto detailing demo with online booking, service gallery, add-ons, and scheduling flow.",
     icon: Sparkles,
     live: true,
