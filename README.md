@@ -10,7 +10,7 @@ Public demo website concepts by [Apex Web Worx](https://apexwebworx.com).
 |------|------|
 | `/` | Preview hub |
 | `/catering` | Premier Event Catering (full demo) |
-| `/detailing` | Apex Detailing (placeholder) |
+| `/detailing` | Apex Detailing (full demo) |
 | `/contractor` | Contractor Pro (placeholder) |
 | `/salon` | Salon & Spa (placeholder) |
 | `/restaurant` | Restaurant Reserve (placeholder) |
@@ -41,18 +41,17 @@ npm install
 npm run dev
 ```
 
-## Deploy (Cloudflare Workers + static assets)
+## Deploy (Cloudflare Workers Builds)
+
+This repository is connected to **Cloudflare Workers Builds**. Pushes to `main` are built and deployed automatically.
+
+Local build check:
 
 ```bash
-npm run deploy
+npm run build
 ```
 
-This runs `vite build` then `wrangler deploy`, serving `./dist` with SPA fallback (no Hello World worker script).
-
-### Cloudflare config
-
-- `wrangler.jsonc` — Workers static assets from `./dist`
-- GitHub Actions — runs `wrangler deploy` on push to `main` (requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets)
+`wrangler.jsonc` serves `./dist` as static assets with SPA fallback (`not_found_handling: single-page-application`).
 
 ## Disclaimer
 
