@@ -53,6 +53,8 @@ npm run build
 
 `wrangler.jsonc` serves `./dist` as static assets with SPA fallback (`not_found_handling: single-page-application`).
 
+During Cloudflare Workers Builds, `npm ci` runs the `prepare` script when `WORKERS_CI` is set, which builds `./dist` before `npx wrangler deploy`.
+
 ## Disclaimer
 
 All demos are frontend-only. No real data, payments, or backend connections.
