@@ -24,17 +24,17 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
     <DemoModalContext.Provider value={{ showDemoModal }}>
       {children}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="bg-background border-white/10 rounded-none max-w-md">
+        <DialogContent className="bg-background border-white/10 rounded-none max-w-[calc(100vw-2rem)] sm:max-w-md mx-4 sm:mx-auto">
           <DialogHeader>
-            <DialogTitle className="font-serif text-2xl">Demo Preview</DialogTitle>
-            <DialogDescription className="text-foreground/70 text-base leading-relaxed pt-2">
+            <DialogTitle className="font-serif text-xl sm:text-2xl">Demo Preview</DialogTitle>
+            <DialogDescription className="text-foreground/70 text-sm sm:text-base leading-relaxed pt-2">
               {DEMO_MODAL_MESSAGE}
             </DialogDescription>
           </DialogHeader>
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2">
             <Button
               asChild
-              className="rounded-none bg-primary hover:bg-primary/90 flex-1"
+              className="rounded-none bg-primary hover:bg-primary/90 w-full min-h-12 touch-manipulation"
             >
               <a href="https://apexwebworx.com" target="_blank" rel="noopener noreferrer">
                 Visit Apex Web Worx
@@ -42,7 +42,7 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
             </Button>
             <Button
               variant="outline"
-              className="rounded-none border-white/20 flex-1"
+              className="rounded-none border-white/20 w-full min-h-12 touch-manipulation"
               onClick={() => setOpen(false)}
             >
               Close

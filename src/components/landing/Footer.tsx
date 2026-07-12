@@ -17,7 +17,7 @@ export default function Footer({ dark, compact }: { dark?: boolean; compact?: bo
   if (compact) {
     return (
       <footer className="py-3 border-t" style={bgStyle ? { ...bgStyle, borderColor } : { background: "var(--background)", borderColor: "rgba(255,255,255,0.05)" }}>
-        <div className="container px-6 md:px-12 mx-auto">
+        <div className="container px-4 sm:px-6 md:px-12 mx-auto">
           <DemoDisclaimer className="mb-3" />
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-light" style={mutedColor ? { color: mutedColor } : undefined}>
@@ -32,14 +32,14 @@ export default function Footer({ dark, compact }: { dark?: boolean; compact?: bo
   }
 
   return (
-    <footer className="py-16 border-t text-center md:text-left" style={bgStyle ? { ...bgStyle, borderColor } : { background: "var(--background)", borderColor: "rgba(255,255,255,0.05)" }}>
-      <div className="container px-6 md:px-12 mx-auto">
-        <DemoDisclaimer className="mb-10" />
+    <footer className="py-12 sm:py-16 border-t text-center md:text-left pb-[max(3rem,env(safe-area-inset-bottom))]" style={bgStyle ? { ...bgStyle, borderColor } : { background: "var(--background)", borderColor: "rgba(255,255,255,0.05)" }}>
+      <div className="container px-4 sm:px-6 md:px-12 mx-auto">
+        <DemoDisclaimer className="mb-8 sm:mb-10" />
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 items-center md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 sm:gap-12 items-center md:items-start">
           <div className="md:col-span-1 flex flex-col items-center md:items-start">
             <Link href="/" className="inline-block mb-6">
-              <img src={logoPath} alt={`${DEMO_BRAND.name} Logo`} className="h-16 w-auto object-contain" />
+              <img src={logoPath} alt={`${DEMO_BRAND.name} Logo`} className="h-14 sm:h-16 w-auto object-contain" />
             </Link>
             <p className="font-serif font-bold text-lg tracking-wide">{DEMO_BRAND.name}</p>
           </div>

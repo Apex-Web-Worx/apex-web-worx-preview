@@ -4,8 +4,8 @@ import menuProtein from "@/assets/menu-protein.png";
 import menuSides from "@/assets/menu-sides.jpg";
 import menuSalads from "@/assets/menu-salads.jpg";
 import menuFruits from "@/assets/menu-fruits.jpg";
-import dishBeef from "@/assets/dish-beef-loin.png";
-import weddingCatering from "@/assets/wedding-catering.png";
+import galleryGrilledSalmon from "@/assets/gallery-grilled-salmon.png";
+import galleryCocktailHour from "@/assets/gallery-cocktail-hour.png";
 import corporateEvent from "@/assets/corporate-event.png";
 import heroBrisket from "@/assets/hero-brisket.png";
 
@@ -15,16 +15,16 @@ const galleryImages = [
   { src: menuSides, alt: "Chef-crafted sides" },
   { src: menuSalads, alt: "Fresh salad display" },
   { src: menuFruits, alt: "Seasonal fruit presentation" },
-  { src: dishBeef, alt: "Premium beef loin service" },
-  { src: weddingCatering, alt: "Wedding catering setup" },
+  { src: galleryGrilledSalmon, alt: "Grilled salmon with lemon dill" },
+  { src: galleryCocktailHour, alt: "Cocktail hour champagne and canapés" },
   { src: corporateEvent, alt: "Corporate event buffet" },
   { src: heroBrisket, alt: "Live grill station" },
 ];
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-background border-t border-white/5">
-      <div className="container px-6 md:px-12 mx-auto">
+    <section id="gallery" className="py-16 sm:py-24 md:py-32 bg-background border-t border-white/5">
+      <div className="container px-4 sm:px-6 md:px-12 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

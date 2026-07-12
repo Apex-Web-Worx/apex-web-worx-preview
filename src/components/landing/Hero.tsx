@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="hero-smoke-center"></div>
       <div className="hero-fire-orbs"></div>
 
-      <div className="hero-content container relative z-20 px-4 sm:px-6 md:px-12 text-center mt-16 sm:mt-20">
+      <div className="hero-content container relative z-20 px-4 sm:px-6 md:px-12 text-center pt-[calc(var(--site-header-h,7rem)+0.5rem)]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

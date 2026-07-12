@@ -22,9 +22,9 @@ export const translations = {
     about: {
       badge: "Meet the Chef",
       yearsLabel: "Years of Culinary Excellence",
-      tagline: "Passion in Every Dish.",
-      bio1: "With over 10 years of experience working in luxury restaurants in Ukraine, we bring a refined and professional approach to every private event. Our culinary style is inspired by European cuisine, with a focus on high-quality ingredients, elegant presentation, and carefully crafted flavors.",
-      bio2: "While European dishes are our specialty, our experience allows us to create much more — from customized menus to a wide variety of dishes tailored to your event, guests, and personal preferences. Whether for weddings, private celebrations, or special events, we are dedicated to delivering a high-level dining experience that feels elegant, memorable, and personal.",
+      tagline: "Craft in Every Dish.",
+      bio1: "For more than a decade, our kitchen has been built around one idea: great catering should feel personal. We plan every menu around your guests, your venue, and the mood you want to create — from intimate dinners to large celebrations.",
+      bio2: "Expect premium ingredients, clean presentation, and service that stays out of the way until you need it. Whether you're hosting a wedding, corporate gathering, or private party, we handle the details so your table feels polished, abundant, and memorable.",
       perfectFor: "Perfect For",
       events: ["Weddings", "Private parties", "Birthday celebrations", "Corporate events", "Family gatherings", "Church events", "Special occasions"],
       closing: "Our catering service is designed to bring comfort, quality, and elegance to your event, so you can enjoy the moment while we take care of the food.",
@@ -32,15 +32,15 @@ export const translations = {
     process: {
       badge: "How We Work",
       heading: "The Chef's Process",
-      subheading: "From first inquiry to final plate, every step is designed with precision, care, and passion.",
+      subheading: "From first inquiry to final plate, every step is designed with precision and care.",
       steps: [
         {
           title: "Choose Your Date",
           desc: "Choose your date, people count, event location, and event type, then submit your information. We'll check availability and reach out promptly. If your date isn't available, call us and we'll find a solution.",
         },
         {
-          title: "Choose Your Menu",
-          desc: "Every menu is custom-crafted by our chef to reflect your guests' tastes, dietary needs, and the atmosphere of your special event.",
+          title: "Choose Your Dish",
+          desc: "Every dish is custom-crafted by our chef to reflect your guests' tastes, dietary needs, and the atmosphere of your special event.",
         },
         {
           title: "Preparation",
@@ -48,7 +48,7 @@ export const translations = {
         },
         {
           title: "Service",
-          desc: "We arrive, set up, serve flawlessly, and bring all our own dishes matched to your event type — so you can enjoy your event without lifting a finger.",
+          desc: "We arrive at the venue and set up all the necessary servingware for a buffet-style meal. We also manage the buffet line on-site, replenishing food as it runs out.",
         },
       ],
     },
@@ -60,25 +60,25 @@ export const translations = {
       categories: [
         {
           category: "Appetizers",
-          image: "menu-appetizers",
+          image: "dish-cocktail-hour-platter",
           items: [
-            { name: "Deli Board", desc: "A classic deli board served buffet-style with nuts, green olives, assorted cheeses, cured meats, and gherkins.", dishImage: "dish-cheese-platter", ingredients: ["Nuts", "Green olives", "Cheese mix", "Smoked cheese", "Cheese cubes", "Sliced cheese", "Pepperoni", "Prosciutto", "Jamón", "Salami", "Gherkins"] },
-            { name: "Cocktail Hour Platter", desc: "A premium cocktail hour platter with fruit, cheeses, cured meats, smoked salmon tartlets, bread, crackers, and fresh vegetables.", dishImage: "dish-olives-berries", badge: "Premium", addonId: "cocktail-hour-platter", ingredients: ["Strawberries", "Grapes", "Blueberries", "Nuts", "Green olives", "Cheese mix", "Pepperoni", "Prosciutto", "Jamón", "Salami", "Gherkins", "Smoked salmon tarts", "Sliced bread", "Crackers", "Grape tomatoes", "Fresh cucumber"] },
+            { name: "Deli Board", desc: "A classic deli board served buffet-style with nuts, green olives, assorted cheeses, cured meats, and gherkins.", dishImage: "dish-deli-board", ingredients: ["Nuts", "Green olives", "Cheese mix", "Smoked cheese", "Cheese cubes", "Sliced cheese", "Pepperoni", "Prosciutto", "Jamón", "Salami", "Gherkins"] },
+            { name: "Cocktail Hour Platter", desc: "A premium cocktail hour platter with fruit, cheeses, cured meats, smoked salmon tartlets, bread, crackers, and fresh vegetables.", dishImage: "dish-cocktail-hour-platter", badge: "Premium", addonId: "cocktail-hour-platter", ingredients: ["Strawberries", "Grapes", "Blueberries", "Nuts", "Green olives", "Cheese mix", "Pepperoni", "Prosciutto", "Jamón", "Salami", "Gherkins", "Smoked salmon tarts", "Sliced bread", "Crackers", "Grape tomatoes", "Fresh cucumber"] },
           ],
         },
         {
           category: "Protein",
           image: "menu-protein",
           items: [
-            { name: "Beef Loin Steak", desc: "Prime beef loin with demi-glace sauce.", dishImage: "dish-beef-loin", badge: "Premium", addonId: "beef-loin-steak" },
+            { name: "Beef Loin Steak", desc: "Beef loin steak.", dishImage: "dish-beef-loin", badge: "Premium", addonId: "beef-loin-steak" },
             { name: "Salmon", desc: "Atlantic salmon fillet, lemon dill.", dishImage: "dish-salmon", badge: "Premium", addonId: "salmon" },
             { name: "Pork Ribs", desc: "Slow-smoked pork ribs with signature rub.", dishImage: "dish-pork-ribs" },
-            { name: "Chicken Thighs", desc: "Juicy chicken thighs, seasoned and grilled.", dishImage: "dish-chicken-breast" },
-            { name: "Beef Loin Kebab", desc: "Tender beef loin chunks, marinated and grilled.", dishImage: "dish-beef-loin" },
-            { name: "Pork Loin Kebab", desc: "Savory pork loin cubes, seasoned to perfection.", dishImage: "dish-pork-ribs" },
-            { name: "Chicken Breast Kebab", desc: "Lean chicken breast, marinated and skewered.", dishImage: "dish-chicken-breast" },
-            { name: "Chicken Wings", desc: "Crispy grilled chicken wings, signature rub.", dishImage: "dish-chicken-breast" },
-            { name: "Chicken Drumsticks", desc: "Flavorful drumsticks, slow-grilled and tender.", dishImage: "dish-chicken-breast" },
+            { name: "Chicken Thighs", desc: "Juicy chicken thighs, seasoned and grilled.", dishImage: "dish-chicken-thighs" },
+            { name: "Beef Loin Kebab", desc: "Tender beef loin chunks, marinated and grilled.", dishImage: "dish-beef-loin-kebab" },
+            { name: "Pork Loin Kebab", desc: "Savory pork loin cubes, seasoned to perfection.", dishImage: "dish-pork-loin-kebab" },
+            { name: "Chicken Breast Kebab", desc: "Lean chicken breast, marinated and grilled.", dishImage: "dish-chicken-breast-kebab" },
+            { name: "Chicken Wings", desc: "Crispy grilled chicken wings, signature rub.", dishImage: "dish-chicken-wings" },
+            { name: "Chicken Drumsticks", desc: "Flavorful drumsticks, slow-grilled and tender.", dishImage: "dish-chicken-drumsticks" },
           ],
         },
         {
@@ -90,35 +90,35 @@ export const translations = {
             { name: "Rice with Vegetables", desc: "Seasoned rice mixed with vegetables.", dishImage: "dish-rice-vegetables" },
             { name: "Skin-On Potatoes with Bacon and Fresh Onion", desc: "Skin-on potatoes served with bacon and fresh onion slices.", dishImage: "dish-fried-potatoes" },
             { name: "Asparagus with Parmesan Cheese", desc: "Fresh asparagus topped with parmesan cheese.", dishImage: "dish-grilled-asparagus" },
-            { name: "Asparagus", desc: "Simple fresh asparagus served as a clean vegetable side.", dishImage: "dish-broccoli" },
-            { name: "Macaroni with Tomato and Heavy Cream Sauce", desc: "Macaroni served in creamy tomato sauce.", dishImage: "dish-wild-rice" },
-            { name: "Green Beans with Garlic and Onion", desc: "Green beans sautéed with garlic and onion.", dishImage: "dish-ratatouille" },
-            { name: "Vegetable Mix", desc: "Broccoli, zucchini, yellow squash, red onion, and red pepper.", dishImage: "dish-broccoli" },
+            { name: "Asparagus", desc: "Simple fresh asparagus served as a clean vegetable side.", dishImage: "dish-asparagus" },
+            { name: "Macaroni with Tomato and Heavy Cream Sauce", desc: "Macaroni served in creamy tomato sauce.", dishImage: "dish-macaroni-tomato-sauce" },
+            { name: "Green Beans with Garlic and Onion", desc: "Green beans sautéed with garlic and onion.", dishImage: "dish-green-beans" },
+            { name: "Vegetable Mix", desc: "Broccoli, zucchini, yellow squash, red onion, and red pepper.", dishImage: "dish-vegetable-mix" },
           ],
         },
         {
           category: "Salads",
-          image: "menu-salads",
+          image: "dish-greek-salad",
           items: [
             { name: "Caesar Salad", desc: "Classic Caesar salad.", dishImage: "dish-caesar-salad" },
             { name: "Caprese Salad", desc: "Fresh Caprese salad with tomato, mozzarella, and basil.", dishImage: "dish-caprese-salad" },
             { name: "Greek Salad", desc: "Fresh Greek-style salad with vegetables and Mediterranean flavor.", dishImage: "dish-greek-salad" },
-            { name: "Cabbage Salad", desc: "Fresh cabbage salad served as a light side option.", dishImage: "dish-garden-salad" },
+            { name: "Cabbage Salad", desc: "Fresh cabbage salad served as a light side option.", dishImage: "dish-cabbage-salad" },
             { name: "Olivier Salad", desc: "Traditional Olivier salad served as a premium salad option.", dishImage: "dish-olivier-salad", badge: "Premium", addonId: "olivier-salad" },
-            { name: "Crab Salad", desc: "Crab salad served as a premium salad option.", dishImage: "dish-salmon-cream-cheese", badge: "Premium", addonId: "crab-salad" },
+            { name: "Crab Salad", desc: "Crab salad served as a premium salad option.", dishImage: "dish-crab-salad", badge: "Premium", addonId: "crab-salad" },
           ],
         },
         {
           category: "Breads",
-          image: "menu-breads",
+          image: "dish-fresh-rolls",
           items: [
-            { name: "Fresh Rolls", desc: "Warm dinner rolls with butter, served in a linen-lined basket.", dishImage: "dish-olives-berries" },
-            { name: "Sliced Bread", desc: "Freshly sliced bread, perfect for pairing with any meal.", dishImage: "dish-cheese-platter" },
+            { name: "Classic Rolls", desc: "Warm classic dinner rolls.", dishImage: "dish-fresh-rolls" },
+            { name: "Sliced Bread", desc: "Freshly sliced bread, perfect for pairing with any meal.", dishImage: "dish-sliced-bread" },
           ],
         },
         {
           category: "Fruits",
-          image: "menu-fruits",
+          image: "dish-fruit-platter",
           items: [
             { name: "Fruit Mix", desc: "Fresh fruit mix served buffet-style with grapes, strawberries, blueberries, raspberries, and blackberries.", dishImage: "dish-fruit-platter" },
           ],
@@ -128,23 +128,23 @@ export const translations = {
     services: {
       badge: "Occasions",
       heading: "Catering for Every Scale",
-      subheading: "Serving the greater metro area and other surrounding areas with impeccable logistics and chef-driven cuisine.",
+      subheading: "Premium catering for metro-area weddings, corporate events, and celebrations — with impeccable logistics and chef-driven cuisine.",
       items: [
-        { title: "Weddings", desc: "Make your reception unforgettable with an upscale culinary experience. We handle everything from passed appetizers to the main feast, with elegant presentation and professional staff." },
-        { title: "Corporate Events", desc: "Impress clients and reward your team. Whether it's a board meeting, holiday gala, or company picnic, our premium catering sets a commanding standard." },
-        { title: "Private Celebrations", desc: "Graduations, family reunions, and milestone birthdays. We bring the flavor and the elegance, so you can focus on entertaining your guests." },
-        { title: "Festivals & Public Events", desc: "Large-scale catering with flawless execution. From street festivals to concert series, we serve thousands with the same care and quality." },
-        { title: "Holiday Gatherings", desc: "Transform your holiday celebration into a culinary experience. From Thanksgiving feasts to New Year's Eve galas." },
-        { title: "Charity & Fundraisers", desc: "Make your cause shine with exceptional dining. We understand the unique needs of nonprofit and fundraising events." },
+        { title: "Weddings", desc: "Make your reception unforgettable with an upscale culinary experience. We handle everything from passed appetizers to the main feast, with elegant presentation and professional staff.", imageKey: "event-weddings" },
+        { title: "Corporate Events", desc: "Impress clients and reward your team. Whether it's a board meeting, holiday gala, or company picnic, our premium catering sets a commanding standard.", imageKey: "event-corporate" },
+        { title: "Private Celebrations", desc: "Graduations, family reunions, and milestone birthdays. We bring the flavor and the elegance, so you can focus on entertaining your guests.", imageKey: "event-private" },
+        { title: "Festivals & Public Events", desc: "Large-scale catering with flawless execution. From street festivals to concert series, we serve thousands with the same care and quality.", imageKey: "event-festivals" },
+        { title: "Holiday Gatherings", desc: "Transform your holiday celebration into a culinary experience. From Thanksgiving feasts to New Year's Eve galas.", imageKey: "event-holiday" },
+        { title: "Charity & Fundraisers", desc: "Make your cause shine with exceptional dining. We understand the unique needs of nonprofit and fundraising events.", imageKey: "event-charity" },
       ],
     },
     testimonials: {
       badge: "The Verdict",
       heading: "Words from the Table",
       items: [
-        { quote: "The food was absolutely incredible — our guests couldn't stop talking about the presentation and flavor. A truly premium experience.", author: "Sarah M.", event: "Wedding, 120 Guests" },
-        { quote: "Professional from start to finish. The menu customization and live pricing preview made planning our corporate event effortless.", author: "James T.", event: "Corporate Gala, 85 Guests" },
-        { quote: "Beautiful setup, flawless service, and dishes that exceeded expectations. We will definitely book again for our next celebration.", author: "Emily R.", event: "Private Celebration, 45 Guests" },
+        { quote: "Our guests are still talking about the food. The buffet looked beautiful, everything stayed hot, and the team was so easy to work with from booking to cleanup.", author: "Jordan Hale", event: "Wedding, 140 Guests" },
+        { quote: "We needed a polished corporate lunch with options for every diet — and they delivered. Professional setup, on-time service, and flavors that felt restaurant-quality.", author: "Priya N.", event: "Corporate Summit, 90 Guests" },
+        { quote: "From the first tasting to the last plate, it felt personal. The menu fit our anniversary perfectly, and we never had to worry about a single detail.", author: "Sam & Riley Cole", event: "Private Anniversary Dinner" },
       ],
     },
     booking: {
@@ -215,7 +215,7 @@ export const translations = {
       theMenu: "The Menu",
       events: "Events",
       serviceArea: "Service Area",
-      serviceAreaText: "Proudly serving the greater metro area and other surrounding areas. Available for travel for large-scale events.",
+      serviceAreaText: "Proudly serving Springfield, Ozark, Nixa, Branson and other surrounding areas. Available for travel for large-scale events.",
       rights: "Premier Event Catering. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms & Conditions",
@@ -224,10 +224,10 @@ export const translations = {
     privacyPolicy: {
       backToHome: "Back to Home",
       title: "Privacy Policy",
-      effectiveDate: "Effective May 2, 2026 · Premier Event Catering · Missouri",
+      effectiveDate: "Effective May 2, 2026 · Grill Chef Co · Missouri",
       whoWeAre: {
         title: "Who we are",
-        body1: "Premier Event Catering (\"we,\" \"us,\" or \"our\") is a private catering and event food service business serving clients in Missouri. You can reach us by phone at (555) 123-4567 or by email at hello@premiereventcatering.example. This policy explains what information we collect when you book a catering service with us, how we use it, and the limited situations in which it may be shared.",
+        body1: "Grill Chef Co (\"we,\" \"us,\" or \"our\") is a private catering and event food service business serving clients in Missouri. You can reach us by phone at (417) 340-9621 or by email at grillchefco@gmail.com. This policy explains what information we collect when you book a catering service with us, how we use it, and the limited situations in which it may be shared.",
       },
       information: {
         title: "Information we collect",
@@ -246,8 +246,8 @@ export const translations = {
       },
       sms: {
         title: "SMS / text messaging",
-        consent: "By providing your mobile phone number on the booking form and submitting the form, you consent to receive transactional text messages from Premier Event Catering related to your event or booking, including confirmation, approval, reschedule/cancel notices, event updates, and reminders. Message frequency varies by booking activity and is typically two to four messages per booking. Message and data rates may apply depending on your mobile carrier and plan.",
-        optOut: "You can opt out of all future messages at any time by replying STOP to any text from us. Reply HELP for help, or contact us directly at (555) 123-4567 or hello@premiereventcatering.example.",
+        consent: "By providing your mobile phone number on the booking form and submitting the form, you consent to receive transactional text messages from Grill Chef Co related to your event or booking, including confirmation, approval, reschedule/cancel notices, event updates, and reminders. Message frequency varies by booking activity and is typically two to four messages per booking. Message and data rates may apply depending on your mobile carrier and plan.",
+        optOut: "You can opt out of all future messages at any time by replying STOP to any text from us. Reply HELP for help, or contact us directly at (417) 340-9621 or grillchefco@gmail.com.",
         noSharing: "We do not share, sell, rent, or otherwise transfer your mobile phone number or SMS opt-in status to any third party or affiliate for marketing or promotional purposes. Phone numbers and consent records are used only for the transactional messages described above.",
       },
       providers: {
@@ -260,7 +260,7 @@ export const translations = {
       },
       retention: {
         title: "Data retention",
-        body: "We keep your booking and event records as long as needed to operate our business and meet basic recordkeeping needs. You may request deletion of your records at any time by emailing hello@premiereventcatering.example.",
+        body: "We keep your booking and event records as long as needed to operate our business and meet basic recordkeeping needs. You may request deletion of your records at any time by emailing grillchefco@gmail.com.",
       },
       children: {
         title: "Children",
@@ -272,17 +272,17 @@ export const translations = {
       },
       contact: {
         title: "Contact us",
-        body: "Questions about your data or this policy? Call (555) 123-4567 or email hello@premiereventcatering.example.",
+        body: "Questions about your data or this policy? Call (417) 340-9621 or email grillchefco@gmail.com.",
       },
       termsLink: "See our Terms & Conditions",
     },
     terms: {
       backToHome: "Back to Home",
       title: "Terms & Conditions",
-      effectiveDate: "Effective May 2, 2026 · Premier Event Catering · Missouri",
+      effectiveDate: "Effective May 2, 2026 · Grill Chef Co · Missouri",
       overview: {
         title: "Overview",
-        body: "Premier Event Catering provides private catering and event food services. By submitting an inquiry or booking through our website, you agree to these terms. These terms govern the relationship between you (the client) and Premier Event Catering (the service provider).",
+        body: "Grill Chef Co provides private catering and event food services. By submitting an inquiry or booking through our website, you agree to these terms. These terms govern the relationship between you (the client) and Grill Chef Co (the service provider).",
       },
       booking: {
         title: "Booking & Inquiries",
@@ -331,7 +331,7 @@ export const translations = {
       },
       liability: {
         title: "Liability",
-        body: "Premier Event Catering is responsible for the food and service we provide at your event. We are not liable for issues arising from venue conditions, guest behavior, or circumstances outside our control. We carry appropriate insurance for our catering operations. Any concerns about service quality should be raised with us promptly so we can address them.",
+        body: "Grill Chef Co is responsible for the food and service we provide at your event. We are not liable for issues arising from venue conditions, guest behavior, or circumstances outside our control. We carry appropriate insurance for our catering operations. Any concerns about service quality should be raised with us promptly so we can address them.",
       },
       changes: {
         title: "Changes to These Terms",
@@ -339,7 +339,7 @@ export const translations = {
       },
       contact: {
         title: "Contact Us",
-        body: "Questions about these terms? Call (555) 123-4567 or email hello@premiereventcatering.example.",
+        body: "Questions about these terms? Call (417) 340-9621 or email grillchefco@gmail.com.",
       },
       privacyLink: "See our Privacy Policy",
     },
@@ -402,8 +402,9 @@ export const translations = {
       finalPriceNote: "*Final price may vary based on selections",
       selectItemsAndQuantities: "Select items and set quantities",
       quantitiesRecommended: "Quantities are recommended based on total guests. You can adjust amounts to fit your preferences.",
-      selectItemsRequired: "Please select items from each category to continue.",
-      selectItemsWarning: "Select items from each category",
+      selectItemsRequired: "Please complete all required selections in each category.",
+      selectItemsWarning: "Complete all required selections to continue",
+      selectSidesWarning: "Select 2 sides to continue",
       hoverPreview: "Hover or click a dish to preview",
       dishPreview: "Dish Preview",
       servesAllGuests: "Serves all {n} guests",
@@ -428,7 +429,7 @@ export const translations = {
       importantNotes: "Important Package Notes",
       packageNotes: [
         "Delivery is included in your package price.",
-        "Buffet-style serving tableware (chafing dishes, serving utensils) is included.",
+        "Buffet-style serving tableware is included. Chafing dishes and serving utensils are only provided for buffet-style service.",
       ],
       selected: "selected",
       reset: "Reset",
@@ -444,13 +445,13 @@ export const translations = {
       packages: [
         {
           name: "The Classic Package",
-          description: "Choose 1 appetizer, 2 proteins, 2 sides, and 2 salads. Fresh rolls and sliced bread and fresh fruit mix included complimentary. Perfect for casual gatherings.",
+          description: "Choose 1 appetizer, 2 proteins, 2 sides, and 2 salads. Classic rolls and sliced bread and fresh fruit mix included complimentary. Perfect for casual gatherings.",
           includes: [
             "1 appetizer selection",
             "Choice of 2 grilled proteins (steak, chicken, or pork)",
             "2 signature sides",
             "2 fresh salads",
-            "Sliced bread and fresh rolls (complimentary)",
+            "Sliced bread and classic rolls (complimentary)",
             "Fresh fruit mix (complimentary)",
             "Professional service staff",
           ],
@@ -510,7 +511,7 @@ export const translations = {
               maxSelect: 1,
               complimentary: true,
               items: [
-                "Fresh Rolls",
+                "Classic Rolls",
                 "Sliced Bread",
               ],
             },
@@ -605,7 +606,7 @@ export const translations = {
     },
     hero: {
       tagline: "Премиальный кейтеринг. Индивидуально.",
-      heading: "Больше, чем кейтеринг",
+      heading: "Premier Event Catering",
       subheading: "Персонализированный кулинарный опыт для свадеб, мероприятий и особых торжеств",
       body: "Делаем каждое мероприятие особенным с вкусной едой, красивой подачей и исключительным сервисом. От небольших встреч до крупных торжеств — мы создаём запоминающийся опыт, адаптированный под ваши потребности.",
       bookBtn: "Забронировать мероприятие",
@@ -615,9 +616,9 @@ export const translations = {
     about: {
       badge: "Знакомьтесь с шеф-поваром",
       yearsLabel: "Лет кулинарного совершенства",
-      tagline: "Страсть в каждом блюде.",
-      bio1: "Более 10 лет опыта работы в элитных ресторанах Украины — мы привносим утончённый и профессиональный подход в каждое частное мероприятие. Наш кулинарный стиль вдохновлён европейской кухней с акцентом на высококачественные ингредиенты, элегантную подачу и тщательно проработанные вкусы.",
-      bio2: "Хотя европейская кухня — наша специализация, наш опыт позволяет создавать гораздо больше: от кастомизированных меню до разнообразных блюд, адаптированных под ваше мероприятие, гостей и личные предпочтения. Свадьбы, частные торжества или корпоративные события — мы стремимся создать высококлассный гастрономический опыт, который будет элегантным, запоминающимся и личным.",
+      tagline: "Мастерство в каждом блюде.",
+      bio1: "Более десяти лет наша кухня строится вокруг одной идеи: отличный кейтеринг должен ощущаться личным. Мы планируем каждое меню под ваших гостей, площадку и атмосферу — от камерных ужинов до крупных торжеств.",
+      bio2: "Вас ждут премиальные ингредиенты, аккуратная подача и сервис, который не мешает празднику. Свадьба, корпоратив или частная вечеринка — мы берём детали на себя, чтобы стол выглядел изысканно, щедро и запоминающе.",
       perfectFor: "Идеально подходит для",
       events: ["Свадеб", "Частных вечеринок", "Дней рождения", "Корпоративных мероприятий", "Семейных встреч", "Церковных мероприятий", "Особых событий"],
       closing: "Наш кейтеринговый сервис создан для того, чтобы привнести комфорт, качество и элегантность в ваше мероприятие — наслаждайтесь моментом, пока мы заботимся о еде.",
@@ -625,15 +626,15 @@ export const translations = {
     process: {
       badge: "Как мы работаем",
       heading: "Процесс шеф-повара",
-      subheading: "От первого запроса до последнего блюда — каждый этап выверен с точностью, вниманием и страстью.",
+      subheading: "От первого запроса до последнего блюда — каждый этап выверен с точностью и вниманием.",
       steps: [
         {
           title: "Выберите дату",
           desc: "Укажите дату, количество гостей, место проведения и тип мероприятия, затем отправьте заявку. Мы проверим доступность и оперативно свяжемся с вами. Если дата занята — позвоните нам, найдём решение.",
         },
         {
-          title: "Выберите меню",
-          desc: "Каждое меню индивидуально разрабатывается шеф-поваром с учётом вкусов ваших гостей, диетических требований и атмосферы вашего особого события.",
+          title: "Выберите блюдо",
+          desc: "Каждое блюдо индивидуально разрабатывается шеф-поваром с учётом вкусов ваших гостей, диетических требований и атмосферы вашего особого события.",
         },
         {
           title: "Подготовка",
@@ -641,7 +642,7 @@ export const translations = {
         },
         {
           title: "Обслуживание",
-          desc: "Мы приезжаем, устанавливаем оборудование, безупречно обслуживаем и привозим всю необходимую посуду под тип вашего мероприятия — вам остаётся только наслаждаться.",
+          desc: "Мы приезжаем на ваше торжество, устанавливаем всё необходимое для обслуживания в формате шведского стола и ведём линию раздачи на месте — своевременно пополняя блюда по мере необходимости, чтобы вы могли спокойно наслаждаться праздником.",
         },
       ],
     },
@@ -653,25 +654,25 @@ export const translations = {
       categories: [
         {
           category: "Закуски",
-          image: "menu-appetizers",
+          image: "dish-cocktail-hour-platter",
           items: [
-            { name: "Деликатесная доска", desc: "Классическая деликатесная доска в стиле буфета: орехи, зелёные оливки, ассорти сыров, вяленые мяса и корнишоны.", dishImage: "dish-cheese-platter", ingredients: ["Орехи", "Зелёные оливки", "Сырный микс", "Копчёный сыр", "Сырные кубики", "Нарезанный сыр", "Пепперони", "Прошутто", "Хамон", "Салями", "Корнишоны"] },
-            { name: "Коктейльная тарелка", desc: "Премиальная коктейльная тарелка с фруктами, сырами, вялеными мясами, тарталетками с лососем, хлебом, крекерами и свежими овощами.", dishImage: "dish-olives-berries", badge: "Premium", addonId: "cocktail-hour-platter", ingredients: ["Клубника", "Виноград", "Черника", "Орехи", "Зелёные оливки", "Сырный микс", "Пепперони", "Прошутто", "Хамон", "Салями", "Корнишоны", "Тарталетки с лососем", "Нарезанный хлеб", "Крекеры", "Помидоры черри", "Свежий огурец"] },
+            { name: "Деликатесная доска", desc: "Классическая деликатесная доска в стиле буфета: орехи, зелёные оливки, ассорти сыров, вяленые мяса и корнишоны.", dishImage: "dish-deli-board", ingredients: ["Орехи", "Зелёные оливки", "Сырный микс", "Копчёный сыр", "Сырные кубики", "Нарезанный сыр", "Пепперони", "Прошутто", "Хамон", "Салями", "Корнишоны"] },
+            { name: "Коктейльная тарелка", desc: "Премиальная коктейльная тарелка с фруктами, сырами, вялеными мясами, тарталетками с лососем, хлебом, крекерами и свежими овощами.", dishImage: "dish-cocktail-hour-platter", badge: "Premium", addonId: "cocktail-hour-platter", ingredients: ["Клубника", "Виноград", "Черника", "Орехи", "Зелёные оливки", "Сырный микс", "Пепперони", "Прошутто", "Хамон", "Салями", "Корнишоны", "Тарталетки с лососем", "Нарезанный хлеб", "Крекеры", "Помидоры черри", "Свежий огурец"] },
           ],
         },
         {
           category: "Белки",
           image: "menu-protein",
           items: [
-            { name: "Стейк из говяжьей вырезки", desc: "Прайм-вырезка с соусом демигляс.", dishImage: "dish-beef-loin", badge: "Premium", addonId: "beef-loin-steak" },
+            { name: "Стейк из говяжьей вырезки", desc: "Говяжья вырезка.", dishImage: "dish-beef-loin", badge: "Premium", addonId: "beef-loin-steak" },
             { name: "Лосось", desc: "Филе атлантического лосося, лимон и укроп.", dishImage: "dish-salmon", badge: "Premium", addonId: "salmon" },
             { name: "Свиные рёбра", desc: "Медленно копчёные рёбра с фирменной смесью специй.", dishImage: "dish-pork-ribs" },
-            { name: "Куриные бёдра", desc: "Сочные куриные бёдра, приправленные и зажаренные.", dishImage: "dish-chicken-breast" },
-            { name: "Кебаб из говяжьей вырезки", desc: "Нежные куски вырезки, маринованные и зажаренные.", dishImage: "dish-beef-loin" },
-            { name: "Кебаб из свиной вырезки", desc: "Сочные кубики свиной вырезки, приправленные.", dishImage: "dish-pork-ribs" },
-            { name: "Кебаб из куриной грудки", desc: "Постная куриная грудка, маринованная и на шпажке.", dishImage: "dish-chicken-breast" },
-            { name: "Куриные крылышки", desc: "Хрустящие куриные крылышки, фирменная смесь специй.", dishImage: "dish-chicken-breast" },
-            { name: "Куриные голени", desc: "Сочные голени, медленно зажаренные и нежные.", dishImage: "dish-chicken-breast" },
+            { name: "Куриные бёдра", desc: "Сочные куриные бёдра, приправленные и зажаренные.", dishImage: "dish-chicken-thighs" },
+            { name: "Кебаб из говяжьей вырезки", desc: "Нежные куски вырезки, маринованные и зажаренные.", dishImage: "dish-beef-loin-kebab" },
+            { name: "Кебаб из свиной вырезки", desc: "Сочные кубики свиной вырезки, приправленные.", dishImage: "dish-pork-loin-kebab" },
+            { name: "Кебаб из куриной грудки", desc: "Постная куриная грудка, маринованная и зажаренная.", dishImage: "dish-chicken-breast-kebab" },
+            { name: "Куриные крылышки", desc: "Хрустящие куриные крылышки, фирменная смесь специй.", dishImage: "dish-chicken-wings" },
+            { name: "Куриные голени", desc: "Сочные голени, медленно зажаренные и нежные.", dishImage: "dish-chicken-drumsticks" },
           ],
         },
         {
@@ -683,35 +684,35 @@ export const translations = {
             { name: "Рис с овощами", desc: "Рис с приправами и овощами.", dishImage: "dish-rice-vegetables" },
             { name: "Картофель в мундире с беконом и луком", desc: "Картофель в мундире с беконом и луком.", dishImage: "dish-fried-potatoes" },
             { name: "Спаржа с сыром пармезан", desc: "Свежая спаржа с сыром пармезан.", dishImage: "dish-grilled-asparagus" },
-            { name: "Спаржа", desc: "Простая свежая спаржа в качестве лёгкого овощного гарнира.", dishImage: "dish-broccoli" },
-            { name: "Макароны в томатно-сливочном соусе", desc: "Макароны в сливочном томатном соусе.", dishImage: "dish-wild-rice" },
-            { name: "Зелёные бобы с чесноком и луком", desc: "Зелёные бобы, обжаренные с чесноком и луком.", dishImage: "dish-ratatouille" },
-            { name: "Овощной микс", desc: "Брокколи, цуккини, жёлтая кабачка, красный лук и красный перец.", dishImage: "dish-broccoli" },
+            { name: "Спаржа", desc: "Простая свежая спаржа в качестве лёгкого овощного гарнира.", dishImage: "dish-asparagus" },
+            { name: "Макароны в томатно-сливочном соусе", desc: "Макароны в сливочном томатном соусе.", dishImage: "dish-macaroni-tomato-sauce" },
+            { name: "Зелёные бобы с чесноком и луком", desc: "Зелёные бобы, обжаренные с чесноком и луком.", dishImage: "dish-green-beans" },
+            { name: "Овощной микс", desc: "Брокколи, цуккини, жёлтая кабачка, красный лук и красный перец.", dishImage: "dish-vegetable-mix" },
           ],
         },
         {
           category: "Салаты",
-          image: "menu-salads",
+          image: "dish-greek-salad",
           items: [
             { name: "Салат Цезарь", desc: "Классический салат Цезарь.", dishImage: "dish-caesar-salad" },
             { name: "Салат Капрезе", desc: "Свежий салат Капрезе с помидорами, моцареллой и базиликом.", dishImage: "dish-caprese-salad" },
             { name: "Греческий салат", desc: "Свежий салат в греческом стиле с овощами и средиземномурским вкусом.", dishImage: "dish-greek-salad" },
-            { name: "Салат из капусты", desc: "Свежий салат из капусты — лёгкий вариант гарнира.", dishImage: "dish-garden-salad" },
+            { name: "Салат из капусты", desc: "Свежий салат из капусты — лёгкий вариант гарнира.", dishImage: "dish-cabbage-salad" },
             { name: "Салат Оливье", desc: "Традиционный салат Оливье — премиальный вариант салата.", dishImage: "dish-olivier-salad", badge: "Premium", addonId: "olivier-salad" },
-            { name: "Салат с крабом", desc: "Салат с крабом — премиальный вариант салата.", dishImage: "dish-salmon-cream-cheese", badge: "Premium", addonId: "crab-salad" },
+            { name: "Салат с крабом", desc: "Салат с крабом — премиальный вариант салата.", dishImage: "dish-crab-salad", badge: "Premium", addonId: "crab-salad" },
           ],
         },
         {
           category: "Хлеб",
-          image: "menu-breads",
+          image: "dish-fresh-rolls",
           items: [
-            { name: "Свежие булочки", desc: "Теплые булочки с маслом, поданные в корзинке в льняной салфетке.", dishImage: "dish-olives-berries" },
-            { name: "Нарезанный хлеб", desc: "Свежий нарезанный хлеб, идеальное дополнение к любому блюду.", dishImage: "dish-cheese-platter" },
+            { name: "Классические булочки", desc: "Тёплые классические булочки.", dishImage: "dish-fresh-rolls" },
+            { name: "Нарезанный хлеб", desc: "Свежий нарезанный хлеб, идеальное дополнение к любому блюду.", dishImage: "dish-sliced-bread" },
           ],
         },
         {
           category: "Фрукты",
-          image: "menu-fruits",
+          image: "dish-fruit-platter",
           items: [
             { name: "Фруктовый микс", desc: "Свежий фруктовый микс в стиле буфета с виноградом, клубникой, черникой, малиной и ежевикой.", dishImage: "dish-fruit-platter" },
           ],
@@ -721,23 +722,23 @@ export const translations = {
     services: {
       badge: "Мероприятия",
       heading: "Кейтеринг любого масштаба",
-      subheading: "Обслуживаем Спрингфилд, Озарк, Никса, Брэнсон и прилегающие районы с безупречной логистикой и авторской кухней.",
+      subheading: "Премиальный кейтеринг для свадеб, корпоративов и торжеств — с безупречной логистикой и авторской кухней.",
       items: [
-        { title: "Свадьбы", desc: "Сделайте свой приём незабываемым с изысканным кулинарным опытом. Мы берём на себя всё — от закусок до основного пиршества с элегантной подачей и профессиональным персоналом." },
-        { title: "Корпоративные мероприятия", desc: "Произведите впечатление на клиентов и поощрите команду. Будь то заседание совета, праздничный гала-вечер или корпоративный пикник — наш премиальный кейтеринг задаёт высокую планку." },
-        { title: "Частные торжества", desc: "Выпускные, семейные воссоединения и юбилеи. Мы привносим вкус и элегантность, чтобы вы сосредоточились на общении с гостями." },
-        { title: "Фестивали и публичные мероприятия", desc: "Кейтеринг крупного масштаба с безупречным исполнением. От уличных фестивалей до концертных серий — обслуживаем тысячи гостей с одинаковым вниманием и качеством." },
-        { title: "Праздничные собрания", desc: "Превратите ваше праздничное торжество в кулинарный опыт. От застолья в День благодарения до новогодних гала-вечеров." },
-        { title: "Благотворительность и фандрайзинг", desc: "Сделайте ваше дело ярче с исключительным питанием. Мы понимаем уникальные потребности некоммерческих и благотворительных мероприятий." },
+        { title: "Свадьбы", desc: "Сделайте свой приём незабываемым с изысканным кулинарным опытом. Мы берём на себя всё — от закусок до основного пиршества с элегантной подачей и профессиональным персоналом.", imageKey: "event-weddings" },
+        { title: "Корпоративные мероприятия", desc: "Произведите впечатление на клиентов и поощрите команду. Будь то заседание совета, праздничный гала-вечер или корпоративный пикник — наш премиальный кейтеринг задаёт высокую планку.", imageKey: "event-corporate" },
+        { title: "Частные торжества", desc: "Выпускные, семейные воссоединения и юбилеи. Мы привносим вкус и элегантность, чтобы вы сосредоточились на общении с гостями.", imageKey: "event-private" },
+        { title: "Фестивали и публичные мероприятия", desc: "Кейтеринг крупного масштаба с безупречным исполнением. От уличных фестивалей до концертных серий — обслуживаем тысячи гостей с одинаковым вниманием и качеством.", imageKey: "event-festivals" },
+        { title: "Праздничные собрания", desc: "Превратите ваше праздничное торжество в кулинарный опыт. От застолья в День благодарения до новогодних гала-вечеров.", imageKey: "event-holiday" },
+        { title: "Благотворительность и фандрайзинг", desc: "Сделайте ваше дело ярче с исключительным питанием. Мы понимаем уникальные потребности некоммерческих и благотворительных мероприятий.", imageKey: "event-charity" },
       ],
     },
     testimonials: {
       badge: "Отзывы",
       heading: "Слова со стола",
       items: [
-        { quote: "Добрый вечер, спасибо, я получил похвалу от всех, что еда отличная. Мне очень понравился вкус говяжьего стейка, давно не ел хорошо приготовленный стейк. Спасибо ещё раз 😊👍", author: "Daniel", event: "Свадьба, 170 гостей" },
-        { quote: "Александр, выражаем большую благодарность вам и вашей команде за великолепную организацию и исполнение свадебного меню. Закусочный стол произвёл огромное впечатление на гостей — всё было подано красиво, качественно и очень вкусно. Мы получили множество положительных отзывов, и не раз слышали вопрос: «Кто же ваш шеф-повар?» Спасибо за профессионализм и вклад в создание такого прекрасного праздника! Сытые гости-довольные гости :)", author: "Marina", event: "Свадьба, 180 гостей" },
-        { quote: "Настоящий мастер-класс кулинарного совершенства. Каждое блюдо приготовлено идеально. Чувствуется уважение к ремеслу. Обязательно закажем снова.", author: "Давид Р.", event: "Частный ужин в честь годовщины" },
+        { quote: "Гости до сих пор вспоминают еду. Шведский стол выглядел красиво, всё оставалось горячим, а с командой было легко работать — от бронирования до уборки.", author: "Jordan Hale", event: "Свадьба, 140 гостей" },
+        { quote: "Нужен был стильный корпоративный обед с вариантами для разных диет — и они справились. Профессиональная сервировка, точный тайминг и вкус на уровне ресторана.", author: "Priya N.", event: "Корпоративный саммит, 90 гостей" },
+        { quote: "От первой дегустации до последней тарелки всё ощущалось по-настоящему лично. Меню идеально подошло к годовщине, и мы ни о чём не волновались.", author: "Sam & Riley Cole", event: "Частный ужин в честь годовщины" },
       ],
     },
     booking: {
@@ -817,10 +818,10 @@ export const translations = {
     privacyPolicy: {
       backToHome: "На главную",
       title: "Политика конфиденциальности",
-      effectiveDate: "Вступает в силу 2 мая 2026 \u00b7 Premier Event Catering \u00b7 Missouri",
+      effectiveDate: "Вступает в силу 2 мая 2026 \u00b7 Grill Chef Co \u00b7 Missouri",
       whoWeAre: {
         title: "Кто мы",
-        body1: "Premier Event Catering (\"мы\", \"нас\" или \"наш\") — частный кейтеринговый сервис и сервис питания на мероприятиях в Missouri. Связаться с нами можно по телефону (555) 123-4567 или по email hello@premiereventcatering.example. Эта политика объясняет, какую информацию мы собираем при бронировании кейтеринговых услуг, как мы её используем и в каких случаях она может быть передана третьим лицам.",
+        body1: "Grill Chef Co (\"мы\", \"нас\" или \"наш\") — частный кейтеринговый сервис и сервис питания на мероприятиях в Missouri. Связаться с нами можно по телефону (417) 340-9621 или по email grillchefco@gmail.com. Эта политика объясняет, какую информацию мы собираем при бронировании кейтеринговых услуг, как мы её используем и в каких случаях она может быть передана третьим лицам.",
       },
       information: {
         title: "Информация, которую мы собираем",
@@ -839,8 +840,8 @@ export const translations = {
       },
       sms: {
         title: "SMS / текстовые сообщения",
-        consent: "Указав свой мобильный номер телефона в форме бронирования и отправив форму, вы даёте согласие на получение транзакционных SMS-сообщений от Premier Event Catering, связанных с вашим мероприятием или бронированием, включая подтверждение, одобрение, уведомления о переносе/отмене, обновления и напоминания. Частота сообщений зависит от активности бронирования и обычно составляет от двух до четырёх сообщений на бронирование. В зависимости от вашего тарифного плана мобильного оператора могут применяться плата за сообщения и использование данных.",
-        optOut: "Вы можете отказаться от получения всех будущих сообщений в любое время, отправив ответ STOP на любое наше сообщение. Отправьте HELP для получения справки или свяжитесь с нами напрямую по телефону (555) 123-4567 или по email hello@premiereventcatering.example.",
+        consent: "Указав свой мобильный номер телефона в форме бронирования и отправив форму, вы даёте согласие на получение транзакционных SMS-сообщений от Grill Chef Co, связанных с вашим мероприятием или бронированием, включая подтверждение, одобрение, уведомления о переносе/отмене, обновления и напоминания. Частота сообщений зависит от активности бронирования и обычно составляет от двух до четырёх сообщений на бронирование. В зависимости от вашего тарифного плана мобильного оператора могут применяться плата за сообщения и использование данных.",
+        optOut: "Вы можете отказаться от получения всех будущих сообщений в любое время, отправив ответ STOP на любое наше сообщение. Отправьте HELP для получения справки или свяжитесь с нами напрямую по телефону (417) 340-9621 или по email grillchefco@gmail.com.",
         noSharing: "Мы не передаём, не продаём, не сдаём в аренду и не передаём ваш мобильный номер телефона или статус SMS-согласия какой-либо третьей стороне или аффилированному лицу для маркетинговых или рекламных целей. Номера телефонов и записи о согласии используются только для транзакционных сообщений, описанных выше.",
       },
       providers: {
@@ -853,7 +854,7 @@ export const translations = {
       },
       retention: {
         title: "Хранение данных",
-        body: "Мы храним записи о ваших бронированиях и мероприятиях столько, сколько необходимо для работы нашего бизнеса и ведения базовой документации. Вы можете запросить удаление ваших записей в любое время, отправив email на hello@premiereventcatering.example.",
+        body: "Мы храним записи о ваших бронированиях и мероприятиях столько, сколько необходимо для работы нашего бизнеса и ведения базовой документации. Вы можете запросить удаление ваших записей в любое время, отправив email на grillchefco@gmail.com.",
       },
       children: {
         title: "Дети",
@@ -865,17 +866,17 @@ export const translations = {
       },
       contact: {
         title: "Свяжитесь с нами",
-        body: "Вопросы о ваших данных или этой политике? Позвоните (555) 123-4567 или напишите на hello@premiereventcatering.example.",
+        body: "Вопросы о ваших данных или этой политике? Позвоните (417) 340-9621 или напишите на grillchefco@gmail.com.",
       },
       termsLink: "См. наши Условия использования",
     },
     terms: {
       backToHome: "На главную",
       title: "Условия использования",
-      effectiveDate: "Вступают в силу 2 мая 2026 \u00b7 Premier Event Catering \u00b7 Missouri",
+      effectiveDate: "Вступают в силу 2 мая 2026 \u00b7 Grill Chef Co \u00b7 Missouri",
       overview: {
         title: "Общие положения",
-        body: "Premier Event Catering предоставляет частные кейтеринговые услуги и услуги питания на мероприятиях. Отправляя запрос или бронирование через наш сайт, вы соглашаетесь с этими условиями. Эти условия регулируют отношения между вами (клиентом) и Premier Event Catering (поставщиком услуг).",
+        body: "Grill Chef Co предоставляет частные кейтеринговые услуги и услуги питания на мероприятиях. Отправляя запрос или бронирование через наш сайт, вы соглашаетесь с этими условиями. Эти условия регулируют отношения между вами (клиентом) и Grill Chef Co (поставщиком услуг).",
       },
       booking: {
         title: "Бронирование и запросы",
@@ -924,7 +925,7 @@ export const translations = {
       },
       liability: {
         title: "Ответственность",
-        body: "Premier Event Catering несёт ответственность за еду и сервис, которые мы предоставляем на вашем мероприятии. Мы не несём ответственности за проблемы, возникшие из-за условий площадки, поведения гостей или обстоятельств, не зависящих от нас. Мы имеем соответствующее страхование для нашей кейтеринговой деятельности. Любые вопросы о качестве обслуживания следует поднимать с нами как можно скорее, чтобы мы могли их решить.",
+        body: "Grill Chef Co несёт ответственность за еду и сервис, которые мы предоставляем на вашем мероприятии. Мы не несём ответственности за проблемы, возникшие из-за условий площадки, поведения гостей или обстоятельств, не зависящих от нас. Мы имеем соответствующее страхование для нашей кейтеринговой деятельности. Любые вопросы о качестве обслуживания следует поднимать с нами как можно скорее, чтобы мы могли их решить.",
       },
       changes: {
         title: "Изменения условий",
@@ -932,7 +933,7 @@ export const translations = {
       },
       contact: {
         title: "Свяжитесь с нами",
-        body: "Вопросы об этих условиях? Позвоните (555) 123-4567 или напишите на hello@premiereventcatering.example.",
+        body: "Вопросы об этих условиях? Позвоните (417) 340-9621 или напишите на grillchefco@gmail.com.",
       },
       privacyLink: "См. нашу Политику конфиденциальности",
     },
@@ -995,8 +996,9 @@ export const translations = {
       finalPriceNote: "*Цена может измениться в зависимости от выбора",
       selectItemsAndQuantities: "Выберите блюда и укажите количество",
       quantitiesRecommended: "Количество рекомендовано на основе общего количества гостей. Вы можете настроить по своему желанию.",
-      selectItemsRequired: "Пожалуйста, выберите блюда из каждой категории, чтобы продолжить.",
-      selectItemsWarning: "Выберите блюда из каждой категории",
+      selectItemsRequired: "Пожалуйста, завершите обязательный выбор во всех категориях.",
+      selectItemsWarning: "Завершите обязательный выбор, чтобы продолжить",
+      selectSidesWarning: "Выберите 2 гарнира, чтобы продолжить",
       hoverPreview: "Наведите курсор или нажмите на блюдо для предпросмотра",
       dishPreview: "Предпросмотр блюда",
       servesAllGuests: "На {n} гостей",
@@ -1021,7 +1023,7 @@ export const translations = {
       importantNotes: "Важные примечания",
       packageNotes: [
         "Доставка включена в стоимость вашего пакета.",
-        "Буфетная подача включена (тепловые столы, сервировочные приборы, половой инвентарь).",
+        "Буфетная подача включена. Столовые и сервировочные приборы предоставляются только при буфетной подаче.",
       ],
       selected: "выбрано",
       reset: "Сбросить",
@@ -1037,13 +1039,13 @@ export const translations = {
       packages: [
         {
           name: "Классический пакет",
-          description: "Выберите 1 закуску, 2 белка, 2 гарнира и 2 салата. Свежие булочки и нарезанный хлеб и свежий фруктовый микс включены бесплатно. Идеально для неформальных торжеств.",
+          description: "Выберите 1 закуску, 2 белка, 2 гарнира и 2 салата. Классические булочки и нарезанный хлеб и свежий фруктовый микс включены бесплатно. Идеально для неформальных торжеств.",
           includes: [
             "1 выбор закуска",
             "Выбор 2 белков на гриле (стейк, курица или свинина)",
             "2 фирменных гарнира",
             "2 свежих салата",
-            "Нарезанный хлеб и свежие булочки (бесплатно)",
+            "Нарезанный хлеб и классические булочки (бесплатно)",
             "Свежий фруктовый микс (бесплатно)",
             "Профессиональный персонал",
           ],
@@ -1090,12 +1092,12 @@ export const translations = {
               name: "\u0421\u0430\u043b\u0430\u0442\u044b",
               maxSelect: 2,
               items: [
-                "\u0421\u0430\u043b\u0430\u0442 \u0426\u0435\u0437\u0430\u0440\u044c",
-                "\u0413\u0440\u0435\u0447\u0435\u0441\u043a\u0438\u0439 \u0441\u0430\u043b\u0430\u0442",
-                "\u0421\u0430\u043b\u0430\u0442 \u041a\u0430\u043f\u0440\u0435\u0437\u0435",
-                "\u0421\u0430\u043b\u0430\u0442 \u0438\u0437 \u0441\u0432\u0435\u0436\u0438\u0445 \u043e\u0432\u043e\u0449\u0435\u0439",
-                "\u0421\u0430\u043b\u0430\u0442 \u041e\u043b\u0438\u0432\u044c\u0435",
-                "\u0421\u0430\u043b\u0430\u0442 \u0441 \u043a\u0440\u0430\u0431\u043e\u043c",
+                "Салат Цезарь",
+                "Салат Капрезе",
+                "Греческий салат",
+                "Салат из капусты",
+                "Салат Оливье",
+                "Салат с крабом",
               ],
             },
             {
@@ -1103,8 +1105,8 @@ export const translations = {
               maxSelect: 1,
               complimentary: true,
               items: [
-                "\u041a\u043e\u0440\u0437\u0438\u043d\u0430 \u0441 \u0430\u0440\u0442\u0438\u0437\u0430\u043d\u0441\u043a\u0438\u043c \u0445\u043b\u0435\u0431\u043e\u043c",
-                "\u0421\u0432\u0435\u0436\u0438\u0435 \u0431\u0443\u043b\u043e\u0447\u043a\u0438",
+                "\u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u0443\u043b\u043e\u0447\u043a\u0438",
+                "\u041d\u0430\u0440\u0435\u0437\u0430\u043d\u043d\u044b\u0439 \u0445\u043b\u0435\u0431",
               ],
             },
             {

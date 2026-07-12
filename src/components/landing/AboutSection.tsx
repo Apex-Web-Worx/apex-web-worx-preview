@@ -20,7 +20,7 @@ export default function AboutSection() {
             <div className="aspect-[3/4] overflow-hidden relative">
               <img
                 src="/chef-portrait.png"
-                alt="Chef Oleksandr Lapeikin"
+                alt="Executive Chef"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 border border-white/10 m-6" />

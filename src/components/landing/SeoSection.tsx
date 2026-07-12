@@ -26,13 +26,13 @@ const benefits = [
 
 export default function SeoSection() {
   return (
-    <section id="seo" className="py-24 md:py-32 bg-secondary border-t border-white/5">
-      <div className="container px-6 md:px-12 mx-auto">
+    <section id="seo" className="py-16 sm:py-24 md:py-32 bg-secondary border-t border-white/5">
+      <div className="container px-4 sm:px-6 md:px-12 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <span className="uppercase tracking-[0.2em] text-xs text-[#C8A45D] font-medium mb-4 block">
             Visibility

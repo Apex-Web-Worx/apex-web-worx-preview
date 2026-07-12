@@ -6,8 +6,8 @@ export default function TestimonialSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-background border-t border-white/5">
-      <div className="container px-6 md:px-12 mx-auto">
+    <section className="py-16 sm:py-24 md:py-32 bg-background border-t border-white/5">
+      <div className="container px-4 sm:px-6 md:px-12 mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

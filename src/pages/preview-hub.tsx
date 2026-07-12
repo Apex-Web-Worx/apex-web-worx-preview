@@ -71,11 +71,16 @@ export default function PreviewHub() {
                 {demo.description}
               </p>
               {demo.live ? (
-                <Button asChild className="rounded-none bg-[#C8A45D] hover:bg-[#C8A45D]/90 text-[#0a0a0a] w-full">
-                  <Link href={demo.path}>
-                    View Demo <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
+                <div className="space-y-2">
+                  <Button asChild className="rounded-none bg-[#C8A45D] hover:bg-[#C8A45D]/90 text-[#0a0a0a] w-full">
+                    <Link href={demo.path}>
+                      View Demo <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="rounded-none border-white/20 w-full">
+                    <Link href="/catering/menu-selection?demo=1">Open Menu Builder (Step 2)</Link>
+                  </Button>
+                </div>
               ) : (
                 <Button asChild variant="outline" className="rounded-none border-white/20 w-full">
                   <Link href={demo.path}>Preview Concept</Link>

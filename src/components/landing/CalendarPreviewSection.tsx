@@ -37,8 +37,8 @@ export default function CalendarPreviewSection() {
   }
 
   return (
-    <section id="calendar" className="py-24 md:py-32 bg-secondary border-t border-white/5">
-      <div className="container px-6 md:px-12 mx-auto">
+    <section id="calendar" className="py-16 sm:py-24 md:py-32 bg-secondary border-t border-white/5">
+      <div className="container px-4 sm:px-6 md:px-12 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -24 }}

@@ -12,7 +12,7 @@ export default function DemoDisclaimer({
   if (variant === "inline") {
     return (
       <p
-        className={`text-xs sm:text-sm text-[#C8A45D]/90 font-medium tracking-wide ${className}`}
+        className={`text-[11px] sm:text-sm text-[#C8A45D]/90 font-medium tracking-wide leading-snug ${className}`}
       >
         {DEMO_DISCLAIMER}
       </p>
@@ -21,9 +21,9 @@ export default function DemoDisclaimer({
 
   return (
     <div
-      className={`bg-[#C8A45D]/10 border border-[#C8A45D]/25 px-4 py-3 text-center ${className}`}
+      className={`bg-[#0F0F0D] px-3 sm:px-4 py-2.5 sm:py-3 text-center ${className}`}
     >
-      <p className="text-xs sm:text-sm text-[#C8A45D] font-medium tracking-wide">
+      <p className="text-[11px] leading-snug sm:text-sm text-[#C8A45D] font-medium tracking-wide px-1">
         {DEMO_DISCLAIMER}
       </p>
     </div>

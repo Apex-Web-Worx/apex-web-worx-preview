@@ -65,8 +65,15 @@ export default function MobileBottomSheet({
           />
           {/* Sheet */}
           <motion.div
-            className="relative w-full max-w-lg rounded-t-2xl overflow-hidden"
-            style={{ background: "#171714", borderTop: "1px solid rgba(200,164,93,0.3)" }}
+            className="relative w-full max-w-lg overflow-hidden"
+            style={{
+              background: "#171714",
+              borderTop: "1px solid rgba(200,164,93,0.3)",
+              borderTopLeftRadius: "1rem",
+              borderTopRightRadius: "1rem",
+              paddingBottom: "env(safe-area-inset-bottom)",
+              maxHeight: "90dvh",
+            }}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
@@ -80,16 +87,17 @@ export default function MobileBottomSheet({
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full"
+              className="absolute top-3 right-3 w-11 h-11 flex items-center justify-center rounded-full touch-manipulation"
               style={{ background: "rgba(255,255,255,0.06)" }}
               type="button"
+              aria-label="Close"
             >
               <X className="w-4 h-4" style={{ color: "#B8B2A8" }} />
             </button>
 
-            <div className="p-5 pt-2">
+            <div className="p-4 sm:p-5 pt-2 overflow-y-auto" style={{ maxHeight: "calc(90dvh - 2rem)" }}>
               {/* Image */}
-              <div className="w-full h-48 rounded-lg overflow-hidden mb-4" style={{ background: "#2a2a22" }}>
+              <div className="w-full h-44 sm:h-48 rounded-lg overflow-hidden mb-4" style={{ background: "#2a2a22" }}>
                 <img src={info.image} alt={info.name} className="w-full h-full object-cover" />
               </div>
 
@@ -97,7 +105,7 @@ export default function MobileBottomSheet({
               <h3 className="text-xl font-serif font-bold mb-2" style={{ color: "#F5EFE4" }}>
                 {info.name}
               </h3>
-              <p className="text-sm mb-4" style={{ color: "#B8B2A8" }}>
+              <p className="text-sm mb-4 leading-relaxed" style={{ color: "#B8B2A8" }}>
                 {info.description}
               </p>
 
@@ -123,7 +131,7 @@ export default function MobileBottomSheet({
                     onClick={() => {
                       onToggle();
                     }}
-                    className="flex-1 py-3 text-sm font-medium tracking-wider uppercase rounded-sm"
+                    className="flex-1 min-h-12 py-3 text-sm font-medium tracking-wider uppercase rounded-sm touch-manipulation"
                     style={{ background: "#C8A45D", color: "#0F0F0D" }}
                     type="button"
                   >
@@ -136,7 +144,7 @@ export default function MobileBottomSheet({
                         onRemove();
                         onClose();
                       }}
-                      className="flex-1 py-3 text-sm font-medium tracking-wider uppercase rounded-sm flex items-center justify-center gap-2"
+                      className="flex-1 min-h-12 py-3 text-sm font-medium tracking-wider uppercase rounded-sm flex items-center justify-center gap-2 touch-manipulation"
                       style={{ background: "rgba(192,23,42,0.15)", color: "#C0172A" }}
                       type="button"
                     >
@@ -144,7 +152,7 @@ export default function MobileBottomSheet({
                     </button>
                     <button
                       onClick={onClose}
-                      className="flex-1 py-3 text-sm font-medium tracking-wider uppercase rounded-sm"
+                      className="flex-1 min-h-12 py-3 text-sm font-medium tracking-wider uppercase rounded-sm touch-manipulation"
                       style={{ background: "rgba(200,164,93,0.12)", color: "#C8A45D" }}
                       type="button"
                     >

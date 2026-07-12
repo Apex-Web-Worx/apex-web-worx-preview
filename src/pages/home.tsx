@@ -12,30 +12,26 @@ import SeoSection from "@/components/landing/SeoSection";
 import BookingSection from "@/components/landing/BookingSection";
 import FinalCTASection from "@/components/landing/FinalCTASection";
 import Footer from "@/components/landing/Footer";
-import DemoDisclaimer from "@/components/demo/DemoDisclaimer";
 
 export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground dark selection:bg-primary selection:text-white">
-      <DemoDisclaimer className="fixed top-0 left-0 right-0 z-[120]" />
-      <div className="pt-[52px]">
-        <Navbar />
-        <main>
-          <Hero />
-          <ProcessSection />
-          <AboutSection />
-          <MenuSection />
-          <ServicesSection />
-          <GallerySection />
-          <TestimonialSection />
-          <CalendarPreviewSection />
-          <AdminPreviewSection />
-          <SeoSection />
-          <BookingSection />
-          <FinalCTASection />
-        </main>
-        <Footer />
-      </div>
+      <Navbar />
+      <main>
+        <Hero />
+        <ProcessSection />
+        <AboutSection />
+        <MenuSection />
+        <ServicesSection />
+        <GallerySection />
+        <TestimonialSection />
+        <CalendarPreviewSection />
+        <AdminPreviewSection />
+        <SeoSection />
+        <BookingSection />
+        <FinalCTASection />
+      </main>
+      <Footer />
     </div>
   );
 }

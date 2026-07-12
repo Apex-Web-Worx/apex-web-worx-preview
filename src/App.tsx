@@ -8,6 +8,7 @@ import PreviewHub from "@/pages/preview-hub";
 import DemoPlaceholder from "@/pages/demo-placeholder";
 import Home from "@/pages/home";
 import MenuSelection from "@/pages/menu-selection";
+import MyBooking from "@/pages/my-booking";
 import AdminDashboard from "@/pages/admin/dashboard";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsConditions from "@/pages/terms-conditions";
@@ -58,6 +59,7 @@ function Router() {
             <Switch>
               <Route path="/" component={Home} />
               <Route path="/menu-selection" component={MenuSelection} />
+              <Route path="/my-booking/:token" component={MyBooking} />
               <Route path="/admin" component={AdminDashboard} />
               <Route path="/privacy" component={PrivacyPolicy} />
               <Route path="/terms" component={TermsConditions} />

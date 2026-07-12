@@ -1,5 +1,7 @@
 import { X, Trash2, Eye } from "lucide-react";
+import { LuxuryPanel } from "@/components/landing/LuxuryCardDecor";
 import { getDishInfo } from "./dishData";
+import DishImageFrame from "@/components/DishImageFrame";
 
 interface DishPreviewProps {
   itemName: string | null;
@@ -26,27 +28,23 @@ export default function DishPreview({
 }: DishPreviewProps) {
   if (!itemName || !categoryName) {
     return (
-      <div
-        className="rounded-sm p-5 h-full flex items-center justify-center"
-        style={{ background: "#171714", border: "1px solid rgba(200, 164, 93, 0.18)" }}
-      >
-        <div className="text-center">
-          <Eye className="w-8 h-8 mx-auto mb-2" style={{ color: "rgba(200,164,93,0.3)" }} />
-          <p className="text-sm" style={{ color: "#B8B2A8" }}>
-            {t.menuSelection?.hoverPreview || "Hover or click a dish to preview"}
-          </p>
+      <LuxuryPanel seed={3} topRuleInset={false} className="h-full">
+        <div className="p-5 h-full flex items-center justify-center">
+          <div className="text-center">
+            <Eye className="w-8 h-8 mx-auto mb-2" style={{ color: "rgba(200,164,93,0.3)" }} />
+            <p className="text-sm" style={{ color: "#B8B2A8" }}>
+              {t.menuSelection?.hoverPreview || "Hover or click a dish to preview"}
+            </p>
+          </div>
         </div>
-      </div>
+      </LuxuryPanel>
     );
   }
 
   const info = getDishInfo(itemName, categoryName);
 
   return (
-    <div
-      className="rounded-sm overflow-hidden"
-      style={{ background: "#171714", border: "1px solid rgba(200, 164, 93, 0.18)" }}
-    >
+    <LuxuryPanel seed={4} topRuleInset={false}>
       {/* Header */}
       <div className="flex items-center justify-between p-3" style={{ borderBottom: "1px solid rgba(200,164,93,0.1)" }}>
         <span className="text-xs uppercase tracking-wider font-medium" style={{ color: "#C8A45D" }}>
@@ -59,9 +57,7 @@ export default function DishPreview({
 
       <div className="p-4">
         {/* Image */}
-        <div className="w-full h-40 rounded-sm overflow-hidden mb-3" style={{ background: "#2a2a22" }}>
-          <img src={info.image} alt={info.name} className="w-full h-full object-cover" />
-        </div>
+        <DishImageFrame src={info.image} alt={info.name} className="mb-3" />
 
         {/* Name + Description */}
         <h3 className="text-lg font-serif font-bold mb-1" style={{ color: "#F5EFE4" }}>
@@ -122,6 +118,6 @@ export default function DishPreview({
           )}
         </div>
       </div>
-    </div>
+    </LuxuryPanel>
   );
 }

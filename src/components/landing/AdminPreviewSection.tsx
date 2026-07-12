@@ -28,8 +28,8 @@ export default function AdminPreviewSection() {
   const totalRevenue = DEMO_ADMIN_BOOKINGS.reduce((s, b) => s + (b.totalPrice ?? 0), 0);
 
   return (
-    <section id="admin-preview" className="py-24 md:py-32 bg-background border-t border-white/5">
-      <div className="container px-6 md:px-12 mx-auto">
+    <section id="admin-preview" className="py-16 sm:py-24 md:py-32 bg-background border-t border-white/5">
+      <div className="container px-4 sm:px-6 md:px-12 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

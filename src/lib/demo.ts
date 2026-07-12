@@ -59,3 +59,48 @@ export const DEMO_ADMIN_BOOKINGS = [
     totalPrice: 2250,
   },
 ];
+
+export const DEMO_BOOKING_STORAGE_KEY = "demoBooking";
+
+export interface DemoBookingSelection {
+  clientToken: string;
+  inquiry: {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    eventType: string;
+    eventDate: string;
+    guestCount: number;
+    location: string;
+    message?: string;
+  };
+  packageName: string;
+  packageId: string;
+  selectedItems: { category: string; name: string; quantity: number }[];
+  additionalGuests: number;
+  selectedAddonIds: string[];
+  basePricePerPerson: number;
+  addonsPricePerPerson: number;
+  pricePerPerson: number;
+  estimatedTotal: number;
+  clientNote: string;
+  status: "pending_approval";
+  createdAt: string;
+}
+
+export function saveDemoBooking(booking: DemoBookingSelection) {
+  sessionStorage.setItem(DEMO_BOOKING_STORAGE_KEY, JSON.stringify(booking));
+}
+
+export function loadDemoBooking(token?: string): DemoBookingSelection | null {
+  const raw = sessionStorage.getItem(DEMO_BOOKING_STORAGE_KEY);
+  if (!raw) return null;
+  try {
+    const booking = JSON.parse(raw) as DemoBookingSelection;
+    if (token && booking.clientToken !== token) return null;
+    return booking;
+  } catch {
+    return null;
+  }
+}

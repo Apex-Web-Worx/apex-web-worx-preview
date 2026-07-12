@@ -14,6 +14,7 @@ import { useDemoModal } from "@/contexts/DemoModalContext";
 import Footer from "@/components/landing/Footer";
 import { computeOrderTotals } from "@/lib/pricing";
 import { getDishAddon, DISH_TO_ADDON } from "@/components/menu-selection/dishData";
+import { saveDemoBooking } from "@/lib/demo";
 
 import { InquiryData, MenuBuilderState, PackageConfig, CategoryConfig, CategoryState } from "@/components/menu-selection/types";
 import PackageCard from "@/components/menu-selection/PackageCard";
@@ -56,61 +57,63 @@ export default function MenuSelection() {
       const demoInquiry = {
         id: 1,
         clientToken: "demo",
-        name: "Demo Client",
-        email: "demo@example.com",
-        phone: "(417) 555-0000",
+        name: "Alex Rivera",
+        email: "alex@example.com",
+        phone: "(555) 123-4567",
         eventType: "Wedding",
-        eventDate: "2026-07-15",
-        guestCount: 400,
-        location: "Demo Location",
-        message: "",
+        eventDate: "2026-08-22",
+        guestCount: 120,
+        location: "Garden Venue",
+        message: "Looking for a plated dinner with vegetarian options.",
       };
       setInquiry(demoInquiry);
       setTimeout(() => {
+        const guests = demoInquiry.guestCount;
+        const half = Math.ceil(guests / 2);
         const demoState: MenuBuilderState = {
           classic: {
             selected: true,
             categories: {
               Appetizers: {
-                "Deli Board": { selected: false, quantity: 400 },
-                "Cocktail Hour Platter": { selected: false, quantity: 400 },
+                "Deli Board": { selected: true, quantity: guests },
+                "Cocktail Hour Platter": { selected: false, quantity: guests },
               },
               Proteins: {
-                "Beef Loin Steak": { selected: true, quantity: 200 },
-                "Salmon": { selected: true, quantity: 200 },
-                "Pork Ribs": { selected: false, quantity: 400 },
-                "Chicken Thighs": { selected: false, quantity: 400 },
-                "Beef Loin Kebab": { selected: false, quantity: 400 },
-                "Pork Loin Kebab": { selected: false, quantity: 400 },
-                "Chicken Breast Kebab": { selected: false, quantity: 400 },
-                "Chicken Wings": { selected: false, quantity: 400 },
-                "Chicken Drumsticks": { selected: false, quantity: 400 },
+                "Beef Loin Steak": { selected: true, quantity: half },
+                "Salmon": { selected: true, quantity: half },
+                "Pork Ribs": { selected: false, quantity: guests },
+                "Chicken Thighs": { selected: false, quantity: guests },
+                "Beef Loin Kebab": { selected: false, quantity: guests },
+                "Pork Loin Kebab": { selected: false, quantity: guests },
+                "Chicken Breast Kebab": { selected: false, quantity: guests },
+                "Chicken Wings": { selected: false, quantity: guests },
+                "Chicken Drumsticks": { selected: false, quantity: guests },
               },
               Sides: {
-                "Potatoes with Parmesan and Parsley": { selected: true, quantity: 200 },
-                "Mashed Potatoes with Cheddar": { selected: false, quantity: 400 },
-                "Rice with Vegetables": { selected: true, quantity: 200 },
-                "Skin-On Potatoes with Bacon and Fresh Onion": { selected: false, quantity: 400 },
-                "Asparagus with Parmesan Cheese": { selected: false, quantity: 400 },
-                "Asparagus": { selected: false, quantity: 400 },
-                "Macaroni with Tomato and Heavy Cream Sauce": { selected: false, quantity: 400 },
-                "Green Beans with Garlic and Onion": { selected: false, quantity: 400 },
-                "Vegetable Mix": { selected: false, quantity: 400 },
+                "Potatoes with Parmesan and Parsley": { selected: true, quantity: half },
+                "Mashed Potatoes with Cheddar": { selected: false, quantity: guests },
+                "Rice with Vegetables": { selected: true, quantity: half },
+                "Skin-On Potatoes with Bacon and Fresh Onion": { selected: false, quantity: guests },
+                "Asparagus with Parmesan Cheese": { selected: false, quantity: guests },
+                "Asparagus": { selected: false, quantity: guests },
+                "Macaroni with Tomato and Heavy Cream Sauce": { selected: false, quantity: guests },
+                "Green Beans with Garlic and Onion": { selected: false, quantity: guests },
+                "Vegetable Mix": { selected: false, quantity: guests },
               },
               Salads: {
-                "Caesar Salad": { selected: true, quantity: 400 },
-                "Caprese Salad": { selected: false, quantity: 400 },
-                "Greek Salad": { selected: false, quantity: 400 },
-                "Cabbage Salad": { selected: false, quantity: 400 },
-                "Olivier Salad": { selected: false, quantity: 400 },
-                "Crab Salad": { selected: false, quantity: 400 },
+                "Caesar Salad": { selected: true, quantity: guests },
+                "Caprese Salad": { selected: false, quantity: guests },
+                "Greek Salad": { selected: false, quantity: guests },
+                "Cabbage Salad": { selected: false, quantity: guests },
+                "Olivier Salad": { selected: false, quantity: guests },
+                "Crab Salad": { selected: false, quantity: guests },
               },
               Breads: {
-                "Fresh Rolls": { selected: true, quantity: 400 },
-                "Sliced Bread": { selected: false, quantity: 400 },
+                "Classic Rolls": { selected: true, quantity: guests },
+                "Sliced Bread": { selected: false, quantity: guests },
               },
               "Fruit Mix": {
-                "Fruit Mix": { selected: true, quantity: 400 },
+                "Fruit Mix": { selected: true, quantity: guests },
               },
             },
           },
@@ -153,7 +156,7 @@ export default function MenuSelection() {
       name: string;
       description: string;
       includes: readonly string[];
-      categories?: readonly { name: string; maxSelect: number; items: readonly string[] }[];
+      categories?: readonly { name: string; maxSelect: number; items: readonly string[]; complimentary?: boolean }[];
     }[]
   ).map((pkg, idx) => {
     const cats = pkg.categories || [];
@@ -165,6 +168,38 @@ export default function MenuSelection() {
       categories: cats as CategoryConfig[],
     };
   });
+
+  // After a real booking handoff, auto-select Classic so step 2 is immediately usable
+  useEffect(() => {
+    if (!inquiry) return;
+    if (Object.keys(menuState).length > 0) return;
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("demo") === "1") return;
+
+    const pkg = packages.find((p) => p.id === "classic");
+    if (!pkg) return;
+
+    const guests = inquiry.guestCount;
+    const categories: Record<string, CategoryState> = {};
+    pkg.categories.forEach((cat) => {
+      const catState: CategoryState = {};
+      cat.items.forEach((item) => {
+        catState[item] = { selected: false, quantity: guests };
+      });
+      if (cat.complimentary && cat.items.length > 0) {
+        catState[cat.items[0]] = { selected: true, quantity: guests };
+      }
+      categories[cat.name] = catState;
+    });
+
+    setMenuState({
+      classic: { selected: true, categories },
+    });
+    if (pkg.categories.length > 0) {
+      setActiveCategory(pkg.categories[0].name);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once when inquiry arrives
+  }, [inquiry]);
 
   // Initialize active category on mount (when packages are available)
   useEffect(() => {
@@ -407,15 +442,48 @@ export default function MenuSelection() {
 
     setIsSubmitting(true);
     try {
+      const selectedItems: { category: string; name: string; quantity: number }[] = [];
+      Object.entries(getSelectedItemsByCategory(selected[0])).forEach(([category, items]) => {
+        items.forEach((item) => {
+          selectedItems.push({ category, name: item.name, quantity: item.quantity });
+        });
+      });
+
+      const token = inquiry!.clientToken || "demo-preview";
+      saveDemoBooking({
+        clientToken: token,
+        inquiry: {
+          id: inquiry!.id,
+          name: inquiry!.name,
+          email: inquiry!.email,
+          phone: inquiry!.phone,
+          eventType: inquiry!.eventType,
+          eventDate: inquiry!.eventDate,
+          guestCount: inquiry!.guestCount,
+          location: inquiry!.location,
+          message: inquiry!.message,
+        },
+        packageName: pkg.name,
+        packageId: selected[0],
+        selectedItems,
+        additionalGuests,
+        selectedAddonIds,
+        basePricePerPerson,
+        addonsPricePerPerson,
+        pricePerPerson,
+        estimatedTotal,
+        clientNote,
+        status: "pending_approval",
+        createdAt: new Date().toISOString(),
+      });
+
       showDemoModal();
       toast({
         title: t.menuSelection.menuSelectedTitle,
         description: `${t.menuSelection.menuSelectedDescPrefix} ${pkg.name}. ${t.menuSelection.menuSelectedDescSuffix}`,
       });
       sessionStorage.removeItem("inquiryData");
-      const token = inquiry!.clientToken;
-      if (token) setLocation(`/my-booking/${token}`);
-      else setLocation("/");
+      setLocation(`/my-booking/${token}`);
     } catch {
       toast({
         title: t.menuSelection.errorTitle,
@@ -484,22 +552,22 @@ export default function MenuSelection() {
   // ── MOBILE LAYOUT ──
   if (isMobile) {
     return (
-      <div className="min-h-screen relative" style={{ background: "#0F0F0D" }}>
-        <div className="px-4 py-4">
+      <div className="min-h-screen relative pb-[env(safe-area-inset-bottom)]" style={{ background: "#0F0F0D" }}>
+        <div className="px-3 sm:px-4 pt-3 pb-28">
           {/* Header */}
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between gap-2 mb-3 sticky top-0 z-30 -mx-3 sm:-mx-4 px-3 sm:px-4 py-2.5 bg-[#0F0F0D]/95 backdrop-blur-sm border-b border-white/5">
             <button
               onClick={() => setLocation("/")}
-              className="flex items-center gap-2 text-sm transition-colors"
+              className="flex items-center gap-2 text-sm transition-colors min-h-11 touch-manipulation"
               style={{ color: "#B8B2A8" }}
             >
               <ArrowLeft className="w-4 h-4" />
-              {t.menuSelection.backToHome}
+              {t.menuSelection.back}
             </button>
             <div className="flex items-center gap-1 text-xs uppercase tracking-wider">
-              <button onClick={() => setLanguage("en")} className="px-2 py-1 font-medium" style={{ color: language === "en" ? "#C0172A" : "#B8B2A8" }}>EN</button>
+              <button onClick={() => setLanguage("en")} className="min-h-11 min-w-11 px-2 py-1 font-medium touch-manipulation" style={{ color: language === "en" ? "#C0172A" : "#B8B2A8" }}>EN</button>
               <span style={{ color: "#B8B2A8" }}>|</span>
-              <button onClick={() => setLanguage("ru")} className="px-2 py-1 font-medium" style={{ color: language === "ru" ? "#C0172A" : "#B8B2A8" }}>RU</button>
+              <button onClick={() => setLanguage("ru")} className="min-h-11 min-w-11 px-2 py-1 font-medium touch-manipulation" style={{ color: language === "ru" ? "#C0172A" : "#B8B2A8" }}>RU</button>
             </div>
           </div>
 
@@ -600,13 +668,16 @@ export default function MenuSelection() {
                     </p>
                   </div>
 
-                  {/* Tab bar - mobile: wrap, desktop: horizontal */}
-                  <div className="flex flex-wrap items-center gap-0 px-4" style={{ borderBottom: "1px solid rgba(200, 164, 93, 0.12)" }}>
+                  {/* Tab bar - horizontal scroll on mobile */}
+                  <div
+                    className="flex items-center gap-0 px-2 overflow-x-auto no-scrollbar overscroll-x-contain"
+                    style={{ borderBottom: "1px solid rgba(200, 164, 93, 0.12)", WebkitOverflowScrolling: "touch" }}
+                  >
                     {selectedPkg.categories.map((cat) => (
                       <button
                         key={cat.name}
                         onClick={() => setActiveCategory(cat.name)}
-                        className="px-3 py-2.5 text-xs font-medium uppercase tracking-wider transition-colors"
+                        className="px-3 py-3 text-[11px] font-medium uppercase tracking-wider transition-colors whitespace-nowrap shrink-0 touch-manipulation"
                         style={{
                           color: activeCategory === cat.name ? "#C8A45D" : "#B8B2A8",
                           borderBottom: activeCategory === cat.name ? "2px solid #C8A45D" : "2px solid transparent",
@@ -652,9 +723,15 @@ export default function MenuSelection() {
           )}
 
           {/* Sticky bottom bar */}
-          <div className="sticky bottom-0 left-0 right-0 z-40 p-3" style={{ background: "#0F0F0D", borderTop: "1px solid rgba(200, 164, 93, 0.15)" }}>
+          <div
+            className="fixed bottom-0 left-0 right-0 z-40 p-3 bg-[#0F0F0D]"
+            style={{
+              borderTop: "1px solid rgba(200, 164, 93, 0.15)",
+              paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+            }}
+          >
             {hasAllRequiredItems && (
-              <div className="mb-3 space-y-3">
+              <div className="mb-3 space-y-3 max-h-[40vh] overflow-y-auto overscroll-contain">
                 <OrderSummary
                   selectedPkg={selectedPkg || null}
                   basePricePerPerson={basePricePerPerson}
@@ -687,7 +764,7 @@ export default function MenuSelection() {
             <button
               onClick={handleConfirm}
               disabled={isSubmitting || !isAnyPackageSelected || !hasAllRequiredItems}
-              className="w-full flex items-center justify-center gap-3 py-3 text-sm tracking-[0.1em] uppercase font-medium transition-all duration-300 rounded-sm"
+              className="w-full flex items-center justify-center gap-3 min-h-12 py-3 text-sm tracking-[0.1em] uppercase font-medium transition-all duration-300 rounded-sm touch-manipulation"
               style={{
                 background: (isAnyPackageSelected && hasAllRequiredItems) ? "#C0172A" : "rgba(192, 23, 42, 0.3)",
                 color: "#F5EFE4",

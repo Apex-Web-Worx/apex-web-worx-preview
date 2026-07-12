@@ -20,7 +20,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { DatePicker } from "@/components/ui/date-picker";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useDemoModal } from "@/contexts/DemoModalContext";
 import DemoDisclaimer from "@/components/demo/DemoDisclaimer";
 import { DEMO_BOOKED_DATES, DEMO_BRAND } from "@/lib/demo";
 import { getPricePerPerson } from "@/lib/pricing";
@@ -35,7 +34,6 @@ function calculatePrice(guestCount: string): { pricePerPerson: number; totalPric
 export default function BookingSection() {
   const { t } = useLanguage();
   const { toast } = useToast();
-  const { showDemoModal } = useDemoModal();
   const [, setLocation] = useLocation();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -112,7 +110,10 @@ export default function BookingSection() {
           message: data.message,
         }),
       );
-      showDemoModal();
+      toast({
+        title: t.menuSelection.stepLabel2,
+        description: t.menuSelection.subheading,
+      });
       setLocation("/menu-selection");
     } catch {
       toast({
@@ -126,15 +127,15 @@ export default function BookingSection() {
   }
 
   return (
-    <section id="book" className="py-24 md:py-32 relative bg-secondary border-t border-white/5">
+    <section id="book" className="py-16 sm:py-24 md:py-32 relative bg-secondary border-t border-white/5">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
         <div className="absolute -top-[50%] -right-[10%] w-[70%] h-[150%] bg-primary/20 blur-[150px] rounded-full" />
       </div>
 
-      <div className="container px-6 md:px-12 mx-auto relative z-10">
-        <DemoDisclaimer className="mb-10" />
+      <div className="container px-4 sm:px-6 md:px-12 mx-auto relative z-10">
+        <DemoDisclaimer className="mb-8 sm:mb-10" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -142,23 +143,23 @@ export default function BookingSection() {
             transition={{ duration: 0.6 }}
           >
             <span className="uppercase tracking-[0.2em] text-xs text-[#C8A45D] font-medium mb-4 block">{t.booking.badge}</span>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{t.booking.heading}</h2>
-            <p className="text-foreground/70 text-lg font-light mb-8 max-w-md leading-relaxed">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">{t.booking.heading}</h2>
+            <p className="text-foreground/70 text-base sm:text-lg font-light mb-6 sm:mb-8 max-w-md leading-relaxed">
               {t.booking.subheading}
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-5 sm:space-y-6">
               <div className="flex flex-col gap-1">
                 <span className="text-sm tracking-wider uppercase text-foreground/50">{t.booking.emailLabel}</span>
-                <span className="text-xl font-serif flex items-center gap-3 text-foreground/80">
-                  <Mail className="w-5 h-5 text-[#C8A45D]" />
+                <span className="text-lg sm:text-xl font-serif flex items-center gap-3 text-foreground/80 break-all">
+                  <Mail className="w-5 h-5 text-[#C8A45D] shrink-0" />
                   {DEMO_BRAND.email}
                 </span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-sm tracking-wider uppercase text-foreground/50">{t.booking.phoneLabel}</span>
-                <span className="text-xl font-serif flex items-center gap-3 text-foreground/80">
-                  <Phone className="w-5 h-5 text-[#C8A45D]" />
+                <span className="text-lg sm:text-xl font-serif flex items-center gap-3 text-foreground/80">
+                  <Phone className="w-5 h-5 text-[#C8A45D] shrink-0" />
                   {DEMO_BRAND.phone}
                 </span>
               </div>
