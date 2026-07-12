@@ -5,6 +5,12 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/apex-webworx-logo.webp
+  Cache-Control: public, max-age=0, must-revalidate
+
+/apex-webworx-logo.png
+  Cache-Control: public, max-age=0, must-revalidate
+
 /elite-detailing-logo.webp
   Cache-Control: public, max-age=0, must-revalidate
 

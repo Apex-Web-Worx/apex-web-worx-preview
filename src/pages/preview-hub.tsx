@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, UtensilsCrossed, Sparkles, Hammer, Scissors, ChefHat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const APEX_LOGO = `${import.meta.env.BASE_URL}apex-webworx-logo.png`;
+const APEX_LOGO = `${import.meta.env.BASE_URL}apex-webworx-logo.webp?v=4`;
+const HUB_BUILD = "2026-07-12-hubv4";
 
 const demos = [
   {
@@ -53,24 +54,26 @@ export default function PreviewHub() {
         </div>
 
         <div className="container relative mx-auto px-6 py-8 md:py-12">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[#00EAFF]/60 mb-4">
+            Build {HUB_BUILD}
+          </p>
           <a
             href="https://apexwebworx.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 sm:gap-4 mb-8 group"
+            className="inline-flex items-center gap-4 sm:gap-5 mb-8 group"
             aria-label="Apex Web Worx"
           >
             <img
               src={APEX_LOGO}
-              alt=""
-              aria-hidden="true"
-              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              alt="Apex Web Worx"
+              className="h-16 sm:h-20 md:h-24 w-auto max-w-[280px] object-contain drop-shadow-[0_0_24px_rgba(79,143,247,0.45)] transition-transform duration-300 group-hover:scale-[1.02]"
             />
-            <span className="hidden sm:flex flex-col leading-none">
-              <span className="text-[10px] font-bold tracking-[0.45em] uppercase text-[#00EAFF]/80">
+            <span className="hidden sm:flex flex-col leading-none border-l border-white/15 pl-5">
+              <span className="text-xs font-bold tracking-[0.4em] uppercase text-[#00EAFF]">
                 Web Worx
               </span>
-              <span className="mt-1 text-xs tracking-[0.2em] uppercase text-white/50">
+              <span className="mt-1.5 text-sm tracking-[0.15em] uppercase text-white/60">
                 Digital Studio
               </span>
             </span>
@@ -158,7 +161,7 @@ export default function PreviewHub() {
             <img
               src={APEX_LOGO}
               alt="Apex Web Worx"
-              className="h-14 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+              className="h-16 sm:h-20 w-auto max-w-[240px] object-contain drop-shadow-[0_0_20px_rgba(79,143,247,0.35)] opacity-90 group-hover:opacity-100 transition-opacity"
             />
             <span className="text-xs uppercase tracking-[0.35em] text-white/40 group-hover:text-[#00EAFF] transition-colors">
               apexwebworx.com
