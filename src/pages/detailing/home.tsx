@@ -900,19 +900,7 @@ export default function DetailingHome() {
             </button>
 
             <div className="hidden xl:flex items-center justify-center gap-5 lg:gap-6">
-              {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Admin"].map((item) => {
-                if (item === "Admin") {
-                  return (
-                    <Link
-                      key={item}
-                      href={DETAILING_BRAND.adminLoginPath}
-                      className="font-semibold text-xs lg:text-sm tracking-wider uppercase transition-colors relative group whitespace-nowrap text-gray-300 hover:text-white"
-                    >
-                      {item}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] transition-all duration-300 group-hover:w-full" />
-                    </Link>
-                  );
-                }
+              {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ"].map((item) => {
                 const href = `#${item.toLowerCase()}`;
                 return (
                   <a
