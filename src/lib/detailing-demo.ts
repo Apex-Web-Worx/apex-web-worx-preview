@@ -20,9 +20,90 @@ export const DETAILING_BRAND = {
   email: "hello@eliteautodetailing.example",
   previewUrl: "https://preview.apexwebworx.com/detailing",
   bookPath: "/detailing/book",
+  adminPath: "/detailing/admin",
 } as const;
 
-export const DETAILING_BUILD = "2026-07-12-logobg";
+export const DETAILING_BUILD = "2026-07-12-admin";
+
+export type DetailingBookingStatus =
+  | "new_inquiry"
+  | "pending_approval"
+  | "approved"
+  | "scheduled"
+  | "completed";
+
+export interface DetailingAdminBooking {
+  id: number;
+  name: string;
+  service: string;
+  vehicle: string;
+  appointmentDate: string;
+  appointmentTime: string;
+  status: DetailingBookingStatus;
+  totalPrice: number;
+  phone?: string;
+  notes?: string;
+}
+
+export const DETAILING_ADMIN_BOOKINGS: DetailingAdminBooking[] = [
+  {
+    id: 2001,
+    name: "Marcus J.",
+    service: "Full Detailing",
+    vehicle: "2024 BMW M4",
+    appointmentDate: "2026-07-16",
+    appointmentTime: "9:30 AM",
+    status: "pending_approval",
+    totalPrice: 385,
+    phone: "(555) 234-8891",
+    notes: "Pet hair removal add-on requested",
+  },
+  {
+    id: 2002,
+    name: "Sarah K.",
+    service: "Ceramic Coating",
+    vehicle: "2023 Tesla Model Y",
+    appointmentDate: "2026-07-18",
+    appointmentTime: "8:00 AM",
+    status: "approved",
+    totalPrice: 1299,
+    phone: "(555) 441-2200",
+  },
+  {
+    id: 2003,
+    name: "David R.",
+    service: "Paint Correction",
+    vehicle: "2021 Porsche 911",
+    appointmentDate: "2026-07-14",
+    appointmentTime: "1:00 PM",
+    status: "new_inquiry",
+    totalPrice: 450,
+    phone: "(555) 902-1144",
+    notes: "Swirl marks on hood and doors",
+  },
+  {
+    id: 2004,
+    name: "Emily T.",
+    service: "Interior Detailing",
+    vehicle: "2022 Range Rover Sport",
+    appointmentDate: "2026-07-12",
+    appointmentTime: "11:00 AM",
+    status: "scheduled",
+    totalPrice: 225,
+    phone: "(555) 778-3301",
+  },
+  {
+    id: 2005,
+    name: "James W.",
+    service: "Wash, Clay & Wax",
+    vehicle: "2020 Audi A5",
+    appointmentDate: "2026-07-10",
+    appointmentTime: "2:30 PM",
+    status: "completed",
+    totalPrice: 275,
+    phone: "(555) 661-0098",
+  },
+];
 
 export const DETAILING_DISCLAIMER =
   "Demo Website Concept by Apex Web Worx";

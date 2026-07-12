@@ -17,7 +17,7 @@ const demos = [
   {
     path: "/detailing",
     title: "Elite Detailing",
-    description: "Auto detailing demo with online booking, service gallery, add-ons, and scheduling flow.",
+    description: "Auto detailing demo with online booking, admin dashboard, service gallery, add-ons, and scheduling flow.",
     icon: Sparkles,
     live: true,
   },
@@ -127,13 +127,22 @@ export default function PreviewHub() {
                     </Button>
                   )}
                   {demo.path === "/detailing" && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
-                    >
-                      <Link href="/detailing/book">Open Booking (Schedule)</Link>
-                    </Button>
+                    <>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
+                      >
+                        <Link href="/detailing/book">Open Booking (Schedule)</Link>
+                      </Button>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
+                      >
+                        <Link href="/detailing/admin">Open Admin Dashboard</Link>
+                      </Button>
+                    </>
                   )}
                 </div>
               ) : (

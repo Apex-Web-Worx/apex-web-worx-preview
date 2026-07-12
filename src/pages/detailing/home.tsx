@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDetailingModal } from "@/contexts/DetailingModalContext";
 import DetailingDisclaimer from "@/components/detailing/DetailingDisclaimer";
+import DetailingAdminPreviewSection from "@/components/detailing/DetailingAdminPreviewSection";
 import "@/styles/detailing.css";
 import { DETAILING_BRAND } from "@/lib/detailing-demo";
 import { Link } from "wouter";
@@ -899,7 +900,19 @@ export default function DetailingHome() {
             </button>
 
             <div className="hidden xl:flex items-center justify-center gap-5 lg:gap-6">
-              {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ"].map((item) => {
+              {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Admin"].map((item) => {
+                if (item === "Admin") {
+                  return (
+                    <Link
+                      key={item}
+                      href={DETAILING_BRAND.adminPath}
+                      className="font-semibold text-xs lg:text-sm tracking-wider uppercase transition-colors relative group whitespace-nowrap text-gray-300 hover:text-white"
+                    >
+                      {item}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] transition-all duration-300 group-hover:w-full" />
+                    </Link>
+                  );
+                }
                 const href = `#${item.toLowerCase()}`;
                 return (
                   <a
@@ -959,7 +972,19 @@ export default function DetailingHome() {
           style={{ top: "calc(var(--detail-disclaimer-h) + var(--detail-nav-h))" }}
         >
           <div className="flex flex-col space-y-4 px-6">
-            {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Buy Gift Card"].map((item) => {
+            {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Admin", "Buy Gift Card"].map((item) => {
+              if (item === "Admin") {
+                return (
+                  <Link
+                    key={item}
+                    href={DETAILING_BRAND.adminPath}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-left text-gray-300 hover:text-white font-semibold text-lg tracking-wider uppercase"
+                  >
+                    {item}
+                  </Link>
+                );
+              }
               const isGiftCard = item === "Buy Gift Card";
               const href = isGiftCard ? "#gift-cards" : `#${item.toLowerCase()}`;
               return (
@@ -1914,6 +1939,9 @@ export default function DetailingHome() {
         </div>
       </section>
 
+      {/* Admin Preview Section */}
+      <DetailingAdminPreviewSection />
+
       {/* FAQ Section */}
       <section id="faq" className="py-20 sm:py-24 relative bg-[#0a0a0f] border-t border-white/5 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -2078,7 +2106,19 @@ export default function DetailingHome() {
             <div>
               <h4 className="font-black text-lg uppercase tracking-wider mb-6">Quick Links</h4>
               <ul className="space-y-3 font-medium text-gray-400">
-                {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Buy Gift Card"].map((item) => {
+                {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Admin", "Buy Gift Card"].map((item) => {
+                  if (item === "Admin") {
+                    return (
+                      <li key={item}>
+                        <Link
+                          href={DETAILING_BRAND.adminPath}
+                          className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"
+                        >
+                          <ChevronRight className="w-3 h-3 text-[#00EAFF]" /> {item}
+                        </Link>
+                      </li>
+                    );
+                  }
                   const isGiftCard = item === "Buy Gift Card";
                   const href = isGiftCard
                     ? "#gift-cards"
