@@ -1,4 +1,4 @@
-import { DEMO_DISCLAIMER } from "@/lib/demo";
+import { DEMO_DISCLAIMER, DEMO_BUILD } from "@/lib/demo";
 
 interface DemoDisclaimerProps {
   className?: string;
@@ -25,6 +25,7 @@ export default function DemoDisclaimer({
     >
       <p className="text-[11px] leading-snug sm:text-sm text-[#C8A45D] font-medium tracking-wide px-1">
         {DEMO_DISCLAIMER}
+        <span className="hidden sm:inline text-[#C8A45D]/50"> · Build {DEMO_BUILD}</span>
       </p>
     </div>
   );

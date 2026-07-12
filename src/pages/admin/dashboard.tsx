@@ -32,7 +32,7 @@ export default function AdminDashboard() {
   const totalRevenue = DEMO_ADMIN_BOOKINGS.reduce((s, b) => s + (b.totalPrice ?? 0), 0);
 
   return (
-    <div className="min-h-screen bg-[#0F0F0D] text-foreground">
+    <div className="catering-site min-h-screen bg-[#0F0F0D] text-foreground">
       <header className="border-b border-white/10 px-4 md:px-8 py-4 flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <Link href="~/">

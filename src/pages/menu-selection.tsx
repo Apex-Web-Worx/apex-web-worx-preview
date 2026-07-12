@@ -497,7 +497,7 @@ export default function MenuSelection() {
 
   if (!inquiry) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "#0F0F0D" }}>
+      <div className="catering-site min-h-screen flex items-center justify-center" style={{ background: "#0F0F0D" }}>
         <div className="animate-pulse text-[#C8A45D]">{t.menuSelection.loading}</div>
       </div>
     );
@@ -552,7 +552,7 @@ export default function MenuSelection() {
   // ── MOBILE LAYOUT ──
   if (isMobile) {
     return (
-      <div className="min-h-screen relative pb-[env(safe-area-inset-bottom)]" style={{ background: "#0F0F0D" }}>
+      <div className="catering-site min-h-screen relative pb-[env(safe-area-inset-bottom)]" style={{ background: "#0F0F0D" }}>
         <div className="px-3 sm:px-4 pt-3 pb-28">
           {/* Header */}
           <div className="flex items-center justify-between gap-2 mb-3 sticky top-0 z-30 -mx-3 sm:-mx-4 px-3 sm:px-4 py-2.5 bg-[#0F0F0D]/95 backdrop-blur-sm border-b border-white/5">
@@ -798,7 +798,7 @@ export default function MenuSelection() {
 
   // ── DESKTOP LAYOUT ──
   return (
-    <div className="min-h-screen relative" style={{ background: "#0F0F0D" }}>
+    <div className="catering-site min-h-screen relative" style={{ background: "#0F0F0D" }}>
       <div className="container px-6 md:px-12 mx-auto py-6 md:py-8 relative z-10">
         {/* Header bar */}
         <div className="flex items-center justify-between mb-8">

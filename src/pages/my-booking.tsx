@@ -34,7 +34,7 @@ export default function MyBooking() {
 
   if (!loaded) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="catering-site min-h-screen flex items-center justify-center bg-background">
         <div className="animate-pulse text-[#C8A45D]">{t.dashboard.loading}</div>
       </div>
     );
@@ -42,7 +42,7 @@ export default function MyBooking() {
 
   if (!booking) {
     return (
-      <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <div className="catering-site min-h-screen bg-background text-foreground flex flex-col">
         <div className="container mx-auto px-6 py-16 max-w-2xl flex-1">
           <DemoDisclaimer className="mb-8" />
           <h1 className="font-serif text-3xl md:text-4xl font-bold mb-4">{t.dashboard.notFound}</h1>
@@ -73,7 +73,7 @@ export default function MyBooking() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
+    <div className="catering-site min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
       <header className="border-b border-white/10 sticky top-0 z-30 bg-[#0F0F0D]">
         <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 max-w-4xl">
           <Link

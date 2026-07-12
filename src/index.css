@@ -251,6 +251,23 @@
     @apply font-serif;
   }
 
+  .catering-site {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .catering-site h1,
+  .catering-site h2,
+  .catering-site h3,
+  .catering-site h4,
+  .catering-site h5,
+  .catering-site h6,
+  .catering-site .font-serif {
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: normal;
+  }
+
   section[id] {
     scroll-margin-top: calc(var(--site-header-h, 7rem) + 0.5rem);
   }

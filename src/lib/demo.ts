@@ -18,6 +18,8 @@ export const DEMO_BRAND = {
   facebook: "#",
 } as const;
 
+export const DEMO_BUILD = "2026-07-12-catering-fonts";
+
 export const DEMO_DISCLAIMER =
   "Demo Website Concept by Apex Web Worx — not an official business website.";
 

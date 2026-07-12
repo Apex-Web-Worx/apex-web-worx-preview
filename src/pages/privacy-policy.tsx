@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background text-foreground dark selection:bg-primary selection:text-white">
+    <div className="catering-site min-h-screen bg-background text-foreground dark selection:bg-primary selection:text-white">
       <div className="container px-6 md:px-12 mx-auto py-16 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,11 +8,11 @@ import NotFound from "@/pages/not-found";
 import PreviewHub from "@/pages/preview-hub";
 import DemoPlaceholder from "@/pages/demo-placeholder";
 import Home from "@/pages/home";
-import DetailingHome from "@/pages/detailing/home";
-import DetailingBooking from "@/pages/detailing/booking";
-import DetailingBookRedirect from "@/pages/detailing/book-redirect";
-import DetailingAdminDashboard from "@/pages/detailing/admin";
-import DetailingAdminLogin from "@/pages/detailing/admin-login";
+const DetailingHome = lazy(() => import("@/pages/detailing/home"));
+const DetailingBooking = lazy(() => import("@/pages/detailing/booking"));
+const DetailingBookRedirect = lazy(() => import("@/pages/detailing/book-redirect"));
+const DetailingAdminDashboard = lazy(() => import("@/pages/detailing/admin"));
+const DetailingAdminLogin = lazy(() => import("@/pages/detailing/admin-login"));
 import { DetailingModalProvider } from "@/contexts/DetailingModalContext";
 import MenuSelection from "@/pages/menu-selection";
 import MyBooking from "@/pages/my-booking";
@@ -46,6 +47,14 @@ function RestaurantDemo() {
   );
 }
 
+function DetailingRouteFallback() {
+  return (
+    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <p className="text-sm text-gray-400 tracking-widest uppercase">Loading…</p>
+    </div>
+  );
+}
+
 function Router() {
   return (
     <Switch>
@@ -66,13 +75,15 @@ function Router() {
         </LanguageProvider>
       </Route>
       <DetailingModalProvider>
-        <Switch>
-          <Route path="/detailing/detailing/book" component={DetailingBookRedirect} />
-          <Route path="/detailing/book" component={DetailingBooking} />
-          <Route path="/detailing/admin/login" component={DetailingAdminLogin} />
-          <Route path="/detailing/admin" component={DetailingAdminDashboard} />
-          <Route path="/detailing" component={DetailingHome} />
-        </Switch>
+        <Suspense fallback={<DetailingRouteFallback />}>
+          <Switch>
+            <Route path="/detailing/detailing/book" component={DetailingBookRedirect} />
+            <Route path="/detailing/book" component={DetailingBooking} />
+            <Route path="/detailing/admin/login" component={DetailingAdminLogin} />
+            <Route path="/detailing/admin" component={DetailingAdminDashboard} />
+            <Route path="/detailing" component={DetailingHome} />
+          </Switch>
+        </Suspense>
       </DetailingModalProvider>
       <Route path="/contractor" component={ContractorDemo} />
       <Route path="/salon" component={SalonDemo} />
