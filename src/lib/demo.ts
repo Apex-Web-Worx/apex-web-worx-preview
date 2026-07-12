@@ -1,3 +1,9 @@
+/**
+ * Central demo branding for Premier Event Catering (public preview).
+ * Restore point: git tag `demo-baseline` / branch `demo/premier-event-catering`.
+ * For a real client, branch off that tag and override these values + assets.
+ * See DEMO.md.
+ */
 export const DEMO_BRAND = {
   name: "Premier Event Catering",
   shortName: "Premier Catering",
