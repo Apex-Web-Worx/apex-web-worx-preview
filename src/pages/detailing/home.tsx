@@ -875,53 +875,52 @@ export default function DetailingHome() {
       <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
       {/* Navigation */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 w-full z-50 transition-all duration-300 flex items-center ${
           isScrolled
-            ? "bg-black/95 backdrop-blur-md py-3 shadow-[0_4px_32px_rgba(230,0,122,0.35),0_0_48px_rgba(0,234,255,0.15)]"
-            : "bg-black/50 backdrop-blur-sm py-5"
+            ? "bg-black/95 backdrop-blur-md shadow-[0_4px_32px_rgba(230,0,122,0.35),0_0_48px_rgba(0,234,255,0.15)]"
+            : "bg-black/70 backdrop-blur-sm"
         }`}
       >
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#E6007A] via-[#00EAFF] to-[#E6007A]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <div
-              className="flex items-center cursor-pointer"
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex justify-between items-center gap-4 min-h-[var(--detail-nav-h)]">
+            <button
+              type="button"
+              className="flex items-center shrink-0"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              aria-label="Scroll to top"
             >
               <img
                 src={LOGO_URL}
-                alt="Elite Detailing Logo"
-                className="h-12 md:h-16 lg:h-[4.5rem] w-auto object-contain logo-shine"
-                
+                alt=""
+                aria-hidden="true"
+                className="h-9 w-9 sm:h-10 sm:w-10 object-cover object-top rounded-md logo-shine shrink-0"
               />
-            </div>
+              <span className="nav-brand ml-2 sm:ml-3 hidden sm:block whitespace-nowrap">
+                ELITE DETAILING
+              </span>
+            </button>
 
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden xl:flex items-center gap-5 lg:gap-6">
               <a
                 href="tel:+15550000000"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#00EAFF] transition-colors"
+                className="inline-flex items-center gap-2.5 text-sm font-semibold text-white hover:text-[#00EAFF] transition-colors shrink-0"
                 aria-label="Call Elite Detailing"
               >
-                <Phone className="w-4 h-4 text-[#00EAFF]" />
+                <Phone className="w-4 h-4 text-[#00EAFF] shrink-0" />
                 <span>Call</span>
               </a>
-              {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Buy Gift Card"].map((item) => {
-                const isGiftCard = item === "Buy Gift Card";
-                const href = isGiftCard ? "#gift-cards" : `#${item.toLowerCase()}`;
+              {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ"].map((item) => {
+                const href = `#${item.toLowerCase()}`;
                 return (
                   <a
                     key={item}
                     href={href}
                     onClick={(e) => {
-                      if (isGiftCard) {
-                        e.preventDefault();
-                        showDetailingModal();
-                        return;
-                      }
                       e.preventDefault();
                       scrollToSection(item.toLowerCase());
                     }}
-                    className={`font-semibold text-sm tracking-wider uppercase transition-colors relative group ${
+                    className={`font-semibold text-xs lg:text-sm tracking-wider uppercase transition-colors relative group whitespace-nowrap ${
                       activeSection === item.toLowerCase()
                         ? "text-white header-shine"
                         : "text-gray-300 hover:text-white"
@@ -932,16 +931,22 @@ export default function DetailingHome() {
                   </a>
                 );
               })}
-              <Link
-                href={DETAILING_BRAND.bookPath}
-                className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white rounded-md group cursor-pointer"
-              >
-                <span className="absolute w-full h-full bg-gradient-to-br from-[#E6007A] via-[#00EAFF] to-[#E6007A] group-hover:from-[#00EAFF] group-hover:via-[#E6007A] group-hover:to-[#00EAFF] transition-all duration-500 bg-[length:200%_200%] bg-[0%_0%] group-hover:bg-[100%_100%]" />
-                <span className="absolute inset-1 bg-black rounded-[4px] transition-all duration-300 group-hover:bg-opacity-0" />
-                <span className="relative flex items-center gap-2 group-hover:text-white transition-colors duration-300">
-                  BOOK NOW <ChevronRight className="w-4 h-4" />
-                </span>
+              <Link href={DETAILING_BRAND.bookPath} className="btn-elite-primary text-sm px-5 py-2.5 shrink-0">
+                BOOK NOW <ChevronRight className="w-4 h-4 ml-1" />
               </Link>
+            </div>
+
+            <div className="hidden md:flex xl:hidden items-center gap-3">
+              <Link href={DETAILING_BRAND.bookPath} className="btn-elite-primary text-sm px-4 py-2">
+                BOOK NOW
+              </Link>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-white p-2 focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
             </div>
 
             <div className="md:hidden flex items-center gap-2">
@@ -964,9 +969,10 @@ export default function DetailingHome() {
         </div>
 
         <div
-          className={`md:hidden fixed top-20 left-0 right-0 w-full bg-black border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden z-40 ${
-            mobileMenuOpen ? "max-h-[400px] opacity-100 py-4" : "max-h-0 opacity-0 py-0"
+          className={`xl:hidden fixed left-0 right-0 w-full bg-black border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden z-40 ${
+            mobileMenuOpen ? "max-h-[480px] opacity-100 py-4" : "max-h-0 opacity-0 py-0"
           }`}
+          style={{ top: "calc(var(--detail-disclaimer-h) + var(--detail-nav-h))" }}
         >
           <div className="flex flex-col space-y-4 px-6">
             {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Buy Gift Card"].map((item) => {
@@ -995,7 +1001,7 @@ export default function DetailingHome() {
             <Link
               href={DETAILING_BRAND.bookPath}
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 text-center py-3 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-bold rounded-md shadow-[0_0_15px_rgba(0,234,255,0.4)] cursor-pointer block"
+              className="btn-elite-primary mt-4 w-full text-center"
             >
               BOOK NOW
             </Link>
@@ -1004,7 +1010,10 @@ export default function DetailingHome() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center overflow-hidden pt-[calc(var(--detail-disclaimer-h)+var(--detail-nav-h))]"
+      >
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -1035,64 +1044,50 @@ export default function DetailingHome() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black" />
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center py-6 sm:py-10">
           <img
             src={LOGO_URL}
             alt="Elite Detailing"
-            className="h-40 sm:h-48 md:h-56 lg:h-64 w-auto object-contain logo-shine mb-4 sm:mb-6"
+            className="w-full max-w-[220px] sm:max-w-[260px] md:max-w-[300px] h-auto object-contain logo-shine mb-4 sm:mb-5"
           />
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-[#E6007A]/30 mb-6 sm:mb-8 max-w-full">
-            <span className="flex h-2 w-2 rounded-full bg-[#00EAFF] animate-pulse" />
-            <span className="text-[10px] sm:text-sm font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#E6007A] to-[#00EAFF] uppercase text-center tech-label">
-              {DETAILING_BRAND.tagline}
-            </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.92] sm:leading-[0.9] mb-5 sm:mb-6 drop-shadow-2xl uppercase">
-            Elevating Your Ride to <br />
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-4 sm:mb-5 drop-shadow-2xl uppercase max-w-4xl">
+            Elevating Your Ride to{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-white to-[#00EAFF]">
               Peak Shine
             </span>
           </h1>
 
-          <p className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 font-medium px-1">
+          <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-[#E6007A]/30 mb-6 max-w-xl">
+            <span className="flex h-2 w-2 rounded-full bg-[#00EAFF] animate-pulse shrink-0" />
+            <span className="text-[10px] sm:text-xs font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#E6007A] to-[#00EAFF] uppercase tech-label">
+              {DETAILING_BRAND.tagline}
+            </span>
+          </p>
+
+          <p className="max-w-2xl text-sm sm:text-base md:text-lg text-gray-300 mb-8 font-medium px-1">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#FF1493] to-[#00EAFF]">Premium auto detailing, ceramic coating, and paint correction</span> services serving
             <span className="text-[#00EAFF] font-bold"> the greater metro area</span>. We bring the showroom shine to your vehicle.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
-              <Link
-                href={DETAILING_BRAND.bookPath}
-              className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-4 font-black text-white transition-all duration-300 ease-in-out bg-transparent border-0 rounded-lg cursor-pointer overflow-hidden text-base sm:text-lg w-full sm:w-auto"
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-3xl">
+              <Link href={DETAILING_BRAND.bookPath} className="btn-elite-primary w-full sm:w-auto sm:flex-1 sm:max-w-[220px]">
+                BOOK YOUR DETAIL <ChevronRight className="w-5 h-5 ml-1" />
+              </Link>
+            <button
+              type="button"
+              onClick={() => showDetailingModal()}
+              className="btn-elite-outline w-full sm:w-auto sm:flex-1 sm:max-w-[220px]"
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#E6007A] to-[#00EAFF] opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="absolute inset-0 w-full h-full rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_30px_rgba(0,234,255,0.6)]" />
-              <span className="relative flex items-center gap-2">
-                BOOK YOUR DETAIL{" "}
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-            <a
-              href="#gift-cards" onClick={(e) => { e.preventDefault(); showDetailingModal(); }}
-              className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white rounded-md group"
-            >
-              <span className="absolute w-full h-full bg-gradient-to-br from-[#00EAFF] via-[#E6007A] to-[#00EAFF] group-hover:from-[#E6007A] group-hover:via-[#00EAFF] group-hover:to-[#E6007A] transition-all duration-500 bg-[length:200%_200%] bg-[0%_0%] group-hover:bg-[100%_100%]" />
-              <span className="absolute inset-1 bg-black rounded-[4px] transition-all duration-300 group-hover:bg-opacity-0" />
-              <span className="relative flex items-center gap-2 group-hover:text-white transition-colors duration-300">
-                BUY GIFT CARD <ChevronRight className="w-4 h-4" />
-              </span>
-            </a>
-            <a
-              href={`${import.meta.env.BASE_URL}#services`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("services");
-              }}
-              className="inline-flex items-center justify-center px-6 sm:px-8 py-4 font-bold text-white transition-all duration-300 ease-in-out bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-white/20 backdrop-blur-sm text-base sm:text-lg w-full sm:w-auto"
+              BUY GIFT CARD <ChevronRight className="w-4 h-4 ml-1" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("services")}
+              className="btn-elite-outline w-full sm:w-auto sm:flex-1 sm:max-w-[220px]"
             >
               EXPLORE SERVICES
-            </a>
+            </button>
           </div>
 
           {/* Google Reviews Badge */}
@@ -2051,13 +2046,14 @@ export default function DetailingHome() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 sm:mb-16">
             <div className="col-span-1 md:col-span-2 lg:col-span-1">
-              <div className="flex items-center mb-6">
+              <div className="flex items-center gap-3 mb-6">
                 <img
                   src={LOGO_URL}
-                  alt="Elite Detailing Logo"
-                  className="h-14 w-auto object-contain logo-shine"
-                  
+                  alt=""
+                  aria-hidden="true"
+                  className="h-10 w-10 object-cover object-top rounded-md logo-shine shrink-0"
                 />
+                <span className="nav-brand text-lg">ELITE DETAILING</span>
               </div>
               <p className="text-gray-400 mb-6 font-medium">
                 Prestige vehicle detailing and ceramic coating services. Expert craftsmanship,
