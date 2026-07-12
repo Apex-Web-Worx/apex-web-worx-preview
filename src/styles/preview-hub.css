@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+.preview-hub-site {
+  --hub-bg: #08080f;
+  --hub-bg-elevated: #0f0f18;
+  --hub-magenta: #b5309b;
+  --hub-purple: #7d34f1;
+  --hub-text: #ffffff;
+  --hub-text-muted: rgba(255, 255, 255, 0.62);
+  --hub-border: rgba(255, 255, 255, 0.08);
+  --hub-gradient: linear-gradient(90deg, var(--hub-magenta), var(--hub-purple));
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--hub-bg);
+  color: var(--hub-text);
+  font-style: normal;
+}
+
+.preview-hub-site h1,
+.preview-hub-site h2,
+.preview-hub-site h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.preview-hub-site .hub-gradient-text {
+  background: var(--hub-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.preview-hub-site .hub-bokeh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.preview-hub-site .hub-bokeh-dot {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+  opacity: 0.35;
+}
+
+.preview-hub-site .hub-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #fff;
+  border-radius: 0.625rem;
+  background: var(--hub-gradient);
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(181, 48, 155, 0.25);
+}
+
+.preview-hub-site .hub-btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 32px rgba(125, 52, 241, 0.35);
+}
+
+.preview-hub-site .hub-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--hub-text-muted);
+  border-radius: 0.625rem;
+  border: 1px solid var(--hub-border);
+  background: transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.preview-hub-site .hub-btn-outline:hover {
+  color: #fff;
+  border-color: rgba(181, 48, 155, 0.45);
+}
+
+.preview-hub-site .hub-card {
+  border: 1px solid var(--hub-border);
+  background: var(--hub-bg-elevated);
+  border-radius: 0.875rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.preview-hub-site .hub-card:hover {
+  border-color: rgba(181, 48, 155, 0.35);
+  box-shadow: 0 0 40px rgba(125, 52, 241, 0.12);
+}

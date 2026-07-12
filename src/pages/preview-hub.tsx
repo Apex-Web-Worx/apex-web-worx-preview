@@ -1,10 +1,10 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, UtensilsCrossed, Sparkles, Hammer, Scissors, ChefHat } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import "@/styles/preview-hub.css";
 
 const APEX_LOGO = `${import.meta.env.BASE_URL}apex-webworx-logo.webp?v=4`;
-const HUB_BUILD = "2026-07-12-hubv4";
+const HUB_BUILD = "2026-07-12-magenta";
 
 const demos = [
   {
@@ -46,120 +46,96 @@ const demos = [
 
 export default function PreviewHub() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <header className="relative border-b border-white/10 overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-[#4F8FF7]/20 blur-[120px]" />
-          <div className="absolute -top-16 right-1/4 h-72 w-72 rounded-full bg-[#B46BFF]/15 blur-[120px]" />
-        </div>
+    <div className="preview-hub-site min-h-screen relative">
+      <div className="hub-bokeh" aria-hidden="true">
+        <div className="hub-bokeh-dot w-64 h-64 bg-[#B5309B] top-[8%] left-[12%]" />
+        <div className="hub-bokeh-dot w-48 h-48 bg-[#7D34F1] top-[18%] right-[18%]" />
+        <div className="hub-bokeh-dot w-32 h-32 bg-[#B5309B] bottom-[30%] left-[35%]" />
+        <div className="hub-bokeh-dot w-56 h-56 bg-[#7D34F1] bottom-[12%] right-[8%]" />
+        <div className="hub-bokeh-dot w-20 h-20 bg-[#B5309B] top-[45%] left-[55%]" />
+      </div>
 
-        <div className="container relative mx-auto px-6 py-8 md:py-12">
-          <p className="text-[10px] uppercase tracking-[0.25em] text-[#00EAFF]/60 mb-4">
+      <header className="relative z-10 border-b border-white/[0.08]">
+        <div className="container mx-auto px-6 py-10 md:py-14 lg:py-16">
+          <p className="text-[10px] uppercase tracking-[0.28em] text-white/35 mb-6 font-semibold">
             Build {HUB_BUILD}
           </p>
+
           <a
             href="https://apexwebworx.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 sm:gap-5 mb-8 group"
+            className="inline-block mb-10 group"
             aria-label="Apex Web Worx"
           >
             <img
               src={APEX_LOGO}
               alt="Apex Web Worx"
-              className="h-16 sm:h-20 md:h-24 w-auto max-w-[280px] object-contain drop-shadow-[0_0_24px_rgba(79,143,247,0.45)] transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-14 sm:h-16 md:h-[4.5rem] w-auto max-w-[260px] object-contain drop-shadow-[0_0_28px_rgba(181,48,155,0.35)] transition-transform duration-300 group-hover:scale-[1.02]"
             />
-            <span className="hidden sm:flex flex-col leading-none border-l border-white/15 pl-5">
-              <span className="text-xs font-bold tracking-[0.4em] uppercase text-[#00EAFF]">
-                Web Worx
-              </span>
-              <span className="mt-1.5 text-sm tracking-[0.15em] uppercase text-white/60">
-                Digital Studio
-              </span>
-            </span>
           </a>
 
-          <h1 className="text-4xl md:text-6xl font-black italic tracking-tight mb-4 max-w-3xl">
-            Demo{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5B9FFF] via-[#00EAFF] to-[#B46BFF]">
-              Preview Hub
-            </span>
+          <h1 className="text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[0.95] max-w-4xl mb-6">
+            <span className="block text-white">Website Demo</span>
+            <span className="block text-white">Concepts &</span>
+            <span className="block hub-gradient-text">Interactive Previews</span>
+            <span className="block hub-gradient-text">That Inspire Growth</span>
           </h1>
-          <p className="max-w-2xl text-base md:text-lg text-white/65 font-medium leading-relaxed">
+
+          <p className="max-w-2xl text-base md:text-lg text-white/60 font-medium leading-relaxed">
             Explore website concepts built by Apex Web Worx. Each demo is frontend-only — no real
             data, payments, or backend connections.
           </p>
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <main className="relative z-10 container mx-auto px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {demos.map((demo, index) => (
             <motion.article
               key={demo.path}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
-              className="group border border-white/10 bg-[#0a0a0f] p-6 flex flex-col hover:border-[#00EAFF]/35 hover:shadow-[0_0_32px_rgba(79,143,247,0.12)] transition-all duration-300"
+              className="hub-card p-6 flex flex-col"
             >
-              <demo.icon className="w-8 h-8 text-[#00EAFF] mb-4 transition-colors group-hover:text-[#B46BFF]" />
-              <h2 className="text-2xl font-bold italic tracking-wide mb-2">{demo.title}</h2>
+              <demo.icon className="w-8 h-8 text-[#B5309B] mb-4" />
+              <h2 className="text-xl md:text-2xl font-bold mb-2 tracking-tight">{demo.title}</h2>
               <p className="text-sm text-white/55 font-medium leading-relaxed mb-6 flex-1">
                 {demo.description}
               </p>
               {demo.live ? (
                 <div className="space-y-2">
-                  <Button
-                    asChild
-                    className="rounded-lg w-full font-bold bg-gradient-to-r from-[#4F8FF7] via-[#00EAFF] to-[#B46BFF] text-black hover:opacity-95 border-0"
-                  >
-                    <Link href={demo.path}>
-                      View Demo <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </Button>
+                  <Link href={demo.path} className="hub-btn-primary">
+                    View Demo <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
                   {demo.path === "/catering" && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
-                    >
-                      <Link href="/catering/menu-selection?demo=1">Open Menu Builder (Step 2)</Link>
-                    </Button>
+                    <Link href="/catering/menu-selection?demo=1" className="hub-btn-outline">
+                      Open Menu Builder (Step 2)
+                    </Link>
                   )}
                   {demo.path === "/detailing" && (
                     <>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
-                      >
-                        <Link href="/detailing/book">Open Booking (Schedule)</Link>
-                      </Button>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
-                      >
-                        <Link href="/detailing/admin">Open Admin Dashboard</Link>
-                      </Button>
+                      <Link href="/detailing/book" className="hub-btn-outline">
+                        Open Booking (Schedule)
+                      </Link>
+                      <Link href="/detailing/admin" className="hub-btn-outline">
+                        Open Admin Dashboard
+                      </Link>
                     </>
                   )}
                 </div>
               ) : (
-                <Button
-                  asChild
-                  variant="outline"
-                  className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
-                >
-                  <Link href={demo.path}>Preview Concept</Link>
-                </Button>
+                <Link href={demo.path} className="hub-btn-outline">
+                  Preview Concept
+                </Link>
               )}
             </motion.article>
           ))}
         </div>
       </main>
 
-      <footer className="border-t border-white/10 py-10">
+      <footer className="relative z-10 border-t border-white/[0.08] py-10">
         <div className="container mx-auto px-6 flex flex-col items-center gap-4 text-center">
           <a
             href="https://apexwebworx.com"
@@ -170,9 +146,9 @@ export default function PreviewHub() {
             <img
               src={APEX_LOGO}
               alt="Apex Web Worx"
-              className="h-16 sm:h-20 w-auto max-w-[240px] object-contain drop-shadow-[0_0_20px_rgba(79,143,247,0.35)] opacity-90 group-hover:opacity-100 transition-opacity"
+              className="h-14 sm:h-16 w-auto max-w-[220px] object-contain opacity-85 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_20px_rgba(125,52,241,0.3)]"
             />
-            <span className="text-xs uppercase tracking-[0.35em] text-white/40 group-hover:text-[#00EAFF] transition-colors">
+            <span className="text-xs uppercase tracking-[0.32em] text-white/35 group-hover:text-[#B5309B] transition-colors font-semibold">
               apexwebworx.com
             </span>
           </a>
