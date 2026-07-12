@@ -1,24 +1,19 @@
-# Premier Event Catering — Demo Preview
+# Apex Web Worx — Demo Preview Hub
 
-Public demo website concept by [Apex Web Worx](https://apexwebworx.com).
+Public demo website concepts by [Apex Web Worx](https://apexwebworx.com).
 
-**Live URL:** https://preview.apexwebworx.com/catering
+**Live URL:** https://preview.apexwebworx.com
 
-This is a **frontend-only** showcase — no real database, emails, payments, or API keys. All forms display a demo modal instead of submitting data.
+## Routes
 
-## Features
-
-- Premium catering landing page
-- Menu & package preview with live guest-count pricing
-- Event booking form (frontend demo)
-- Calendar availability preview
-- Admin dashboard preview with sample data
-- Reviews, gallery, SEO benefits section
-- Mobile-friendly, Cloudflare Pages ready
-
-## Disclaimer
-
-> Demo Website Concept by Apex Web Worx — not an official business website.
+| Path | Demo |
+|------|------|
+| `/` | Preview hub |
+| `/catering` | Premier Event Catering (full demo) |
+| `/detailing` | Apex Detailing (placeholder) |
+| `/contractor` | Contractor Pro (placeholder) |
+| `/salon` | Salon & Spa (placeholder) |
+| `/restaurant` | Restaurant Reserve (placeholder) |
 
 ## Development
 
@@ -27,18 +22,19 @@ npm install
 npm run dev
 ```
 
-Local dev serves at `http://localhost:5173/catering/`
+## Deploy (Cloudflare Workers + static assets)
 
-## Cloudflare Pages
+```bash
+npm run deploy
+```
 
-| Setting | Value |
-|---------|-------|
-| Build command | `npm run build` |
-| Output directory | `dist` (contains `catering/` subfolder + root `_redirects`) |
-| Base path | `/catering/` (configured in `vite.config.ts`) |
+This runs `vite build` then `wrangler deploy`, serving `./dist` with SPA fallback (no Hello World worker script).
 
-SPA routing is handled via `public/_redirects`.
+### Cloudflare config
 
-## Production Client
+- `wrangler.jsonc` — Workers static assets from `./dist`
+- GitHub Actions — runs `wrangler deploy` on push to `main` (requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets)
 
-The real catering platform lives in a separate private repository and is not part of this demo.
+## Disclaimer
+
+All demos are frontend-only. No real data, payments, or backend connections.

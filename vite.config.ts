@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-  base: "/catering/",
+  base: "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -13,7 +13,7 @@ export default defineConfig({
     dedupe: ["react", "react-dom"],
   },
   build: {
-    outDir: "dist/catering",
+    outDir: "dist",
     emptyOutDir: true,
   },
 });

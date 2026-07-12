@@ -35,9 +35,9 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-[#0F0F0D] text-foreground">
       <header className="border-b border-white/10 px-4 md:px-8 py-4 flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <Link href="/">
+          <Link href="~/">
             <Button variant="ghost" size="sm" className="rounded-none text-foreground/70 hover:text-[#C8A45D]">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Demo
+              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Demo Hub
             </Button>
           </Link>
           <img src={logoPath} alt={DEMO_BRAND.name} className="h-10 w-auto hidden sm:block" />
