@@ -9,6 +9,7 @@ import DemoPlaceholder from "@/pages/demo-placeholder";
 import Home from "@/pages/home";
 import DetailingHome from "@/pages/detailing/home";
 import DetailingBooking from "@/pages/detailing/booking";
+import DetailingBookRedirect from "@/pages/detailing/book-redirect";
 import { DetailingModalProvider } from "@/contexts/DetailingModalContext";
 import MenuSelection from "@/pages/menu-selection";
 import MyBooking from "@/pages/my-booking";
@@ -62,15 +63,13 @@ function Router() {
           </DemoModalProvider>
         </LanguageProvider>
       </Route>
-      <Route path="/detailing" nest>
-        <DetailingModalProvider>
-          <Switch>
-            <Route path="/" component={DetailingHome} />
-            <Route path="/book" component={DetailingBooking} />
-            <Route component={NotFound} />
-          </Switch>
-        </DetailingModalProvider>
-      </Route>
+      <DetailingModalProvider>
+        <Switch>
+          <Route path="/detailing/detailing/book" component={DetailingBookRedirect} />
+          <Route path="/detailing/book" component={DetailingBooking} />
+          <Route path="/detailing" component={DetailingHome} />
+        </Switch>
+      </DetailingModalProvider>
       <Route path="/contractor" component={ContractorDemo} />
       <Route path="/salon" component={SalonDemo} />
       <Route path="/restaurant" component={RestaurantDemo} />

@@ -933,7 +933,7 @@ export default function DetailingHome() {
                 );
               })}
               <Link
-                href={DETAILING_BRAND.bookPathNested}
+                href={DETAILING_BRAND.bookPath}
                 className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white rounded-md group cursor-pointer"
               >
                 <span className="absolute w-full h-full bg-gradient-to-br from-[#E6007A] via-[#00EAFF] to-[#E6007A] group-hover:from-[#00EAFF] group-hover:via-[#E6007A] group-hover:to-[#00EAFF] transition-all duration-500 bg-[length:200%_200%] bg-[0%_0%] group-hover:bg-[100%_100%]" />
@@ -993,7 +993,7 @@ export default function DetailingHome() {
               );
             })}
             <Link
-              href={DETAILING_BRAND.bookPathNested}
+              href={DETAILING_BRAND.bookPath}
               onClick={() => setMobileMenuOpen(false)}
               className="mt-4 text-center py-3 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-bold rounded-md shadow-[0_0_15px_rgba(0,234,255,0.4)] cursor-pointer block"
             >
@@ -1063,7 +1063,7 @@ export default function DetailingHome() {
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
               <Link
-                href={DETAILING_BRAND.bookPathNested}
+                href={DETAILING_BRAND.bookPath}
               className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-4 font-black text-white transition-all duration-300 ease-in-out bg-transparent border-0 rounded-lg cursor-pointer overflow-hidden text-base sm:text-lg w-full sm:w-auto"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#E6007A] to-[#00EAFF] opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1227,7 +1227,7 @@ export default function DetailingHome() {
                     ))}
                   </ul>
                   <Link
-                    href={DETAILING_BRAND.bookPathNested}
+                    href={DETAILING_BRAND.bookPath}
                     className="mt-auto inline-flex items-center gap-2 font-bold text-sm tracking-widest text-white uppercase group/btn cursor-pointer"
                   >
                     Book Now{" "}
@@ -2033,7 +2033,7 @@ export default function DetailingHome() {
                 </p>
               </div>
               <Link
-                href={DETAILING_BRAND.bookPathNested}
+                href={DETAILING_BRAND.bookPath}
                 className="group relative inline-flex items-center justify-center px-10 py-5 font-black text-white text-xl transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(230,0,122,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] hover:scale-105 cursor-pointer"
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00EAFF] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -2268,7 +2268,7 @@ export default function DetailingHome() {
           CALL NOW
         </a>
           <Link
-            href={DETAILING_BRAND.bookPathNested}
+            href={DETAILING_BRAND.bookPath}
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-black text-sm text-white shadow-[0_0_15px_rgba(0,234,255,0.4)]"
           >

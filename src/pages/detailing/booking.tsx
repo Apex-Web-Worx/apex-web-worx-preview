@@ -116,7 +116,7 @@ export default function DetailingBooking() {
       <header className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/detailing"
             className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -411,7 +411,7 @@ export default function DetailingBooking() {
                   <div className="p-4 rounded-xl bg-[#00EAFF]/10 border border-[#00EAFF]/30 text-center">
                     <Check className="w-8 h-8 text-[#00EAFF] mx-auto mb-2" />
                     <p className="font-bold text-white">Demo booking submitted!</p>
-                    <Link href="/" className="inline-block mt-4 text-[#00EAFF] hover:underline text-sm">
+                    <Link href="/detailing" className="inline-block mt-4 text-[#00EAFF] hover:underline text-sm">
                       Return to homepage
                     </Link>
                   </div>

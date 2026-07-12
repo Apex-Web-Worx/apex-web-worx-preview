@@ -20,11 +20,9 @@ export const DETAILING_BRAND = {
   email: "hello@eliteautodetailing.example",
   previewUrl: "https://preview.apexwebworx.com/detailing",
   bookPath: "/detailing/book",
-  /** Relative path for wouter navigate inside /detailing nest */
-  bookPathNested: "/book",
 } as const;
 
-export const DETAILING_BUILD = "2026-07-12-pink";
+export const DETAILING_BUILD = "2026-07-12-bookfix";
 
 export const DETAILING_DISCLAIMER =
   "Demo Website Concept by Apex Web Worx";
