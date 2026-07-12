@@ -3,7 +3,7 @@ import { useDetailingModal } from "@/contexts/DetailingModalContext";
 import DetailingDisclaimer from "@/components/detailing/DetailingDisclaimer";
 import "@/styles/detailing.css";
 import { DETAILING_BRAND } from "@/lib/detailing-demo";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 import {
   Menu,
   X,
@@ -862,7 +862,7 @@ export default function DetailingHome() {
   const [, navigate] = useLocation();
 
   const goToBooking = () => {
-    navigate(DETAILING_BRAND.bookPath);
+    navigate(DETAILING_BRAND.bookPathNested);
   };
 
   const openGoogleMaps = () => {
@@ -939,12 +939,8 @@ export default function DetailingHome() {
                   </a>
                 );
               })}
-              <a
-                href={BOOKING_LINK}
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToBooking();
-                }}
+              <Link
+                href={DETAILING_BRAND.bookPathNested}
                 className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white rounded-md group cursor-pointer"
               >
                 <span className="absolute w-full h-full bg-gradient-to-br from-[#E6007A] via-[#00EAFF] to-[#E6007A] group-hover:from-[#00EAFF] group-hover:via-[#E6007A] group-hover:to-[#00EAFF] transition-all duration-500 bg-[length:200%_200%] bg-[0%_0%] group-hover:bg-[100%_100%]" />
@@ -952,7 +948,7 @@ export default function DetailingHome() {
                 <span className="relative flex items-center gap-2 group-hover:text-white transition-colors duration-300">
                   BOOK NOW <ChevronRight className="w-4 h-4" />
                 </span>
-              </a>
+              </Link>
             </div>
 
             <div className="md:hidden flex items-center gap-2">
@@ -1003,16 +999,13 @@ export default function DetailingHome() {
                 </a>
               );
             })}
-            <a
-              href={BOOKING_LINK}
-              onClick={(e) => {
-                e.preventDefault();
-                goToBooking();
-              }}
-              className="mt-4 text-center py-3 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-bold rounded-md shadow-[0_0_15px_rgba(0,234,255,0.4)] cursor-pointer"
+            <Link
+              href={DETAILING_BRAND.bookPathNested}
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-4 text-center py-3 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-bold rounded-md shadow-[0_0_15px_rgba(0,234,255,0.4)] cursor-pointer block"
             >
               BOOK NOW
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -1076,12 +1069,8 @@ export default function DetailingHome() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
-              <a
-                href={BOOKING_LINK}
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToBooking();
-                }}
+              <Link
+                href={DETAILING_BRAND.bookPathNested}
               className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-4 font-black text-white transition-all duration-300 ease-in-out bg-transparent border-0 rounded-lg cursor-pointer overflow-hidden text-base sm:text-lg w-full sm:w-auto"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#E6007A] to-[#00EAFF] opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1090,7 +1079,7 @@ export default function DetailingHome() {
                 BOOK YOUR DETAIL{" "}
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
-            </a>
+            </Link>
             <a
               href="#gift-cards" onClick={(e) => { e.preventDefault(); showDetailingModal(); }}
               className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white rounded-md group"
@@ -1244,17 +1233,13 @@ export default function DetailingHome() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={BOOKING_LINK}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      showDetailingModal();
-                    }}
+                  <Link
+                    href={DETAILING_BRAND.bookPathNested}
                     className="mt-auto inline-flex items-center gap-2 font-bold text-sm tracking-widest text-white uppercase group/btn cursor-pointer"
                   >
                     Book Now{" "}
                     <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:text-[#00EAFF] transition-all" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -2054,19 +2039,15 @@ export default function DetailingHome() {
                   <span className="font-black text-[#00EAFF]">Important:</span> All scheduling needs to be done prior to your visit. We appreciate your understanding and encourage you to book ahead to secure your preferred time.
                 </p>
               </div>
-              <a
-                href={BOOKING_LINK}
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToBooking();
-                }}
-                className="group relative inline-flex items-center justify-center px-10 py-5 font-black text-white text-xl transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(168,134,205,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] hover:scale-105 cursor-pointer"
+              <Link
+                href={DETAILING_BRAND.bookPathNested}
+                className="group relative inline-flex items-center justify-center px-10 py-5 font-black text-white text-xl transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(230,0,122,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] hover:scale-105 cursor-pointer"
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00EAFF] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative flex items-center gap-3">
                   BOOK APPOINTMENT NOW <ChevronRight className="w-6 h-6" />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -2293,17 +2274,14 @@ export default function DetailingHome() {
           <Phone className="w-4 h-4 text-[#00EAFF]" />
           CALL NOW
         </a>
-        <a
-          href={BOOKING_LINK}
-          onClick={(e) => {
-            e.preventDefault();
-            goToBooking();
-          }}
-          className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-black text-sm text-white shadow-[0_0_15px_rgba(0,234,255,0.4)]"
-        >
-          BOOK NOW
-          <ChevronRight className="w-4 h-4" />
-        </a>
+          <Link
+            href={DETAILING_BRAND.bookPathNested}
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-black text-sm text-white shadow-[0_0_15px_rgba(0,234,255,0.4)]"
+          >
+            BOOK NOW
+            <ChevronRight className="w-4 h-4" />
+          </Link>
       </div>
       {/* Spacer so sticky bar doesn't overlap content on mobile */}
       <div className="md:hidden h-20" aria-hidden="true" />
