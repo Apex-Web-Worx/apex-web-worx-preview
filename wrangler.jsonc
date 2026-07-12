@@ -2,6 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "apex-web-worx-preview",
   "compatibility_date": "2026-07-11",
+  "routes": [
+    {
+      "pattern": "preview.apexwebworx.com/*",
+      "zone_name": "apexwebworx.com"
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "single-page-application"
