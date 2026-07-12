@@ -963,19 +963,7 @@ export default function DetailingHome() {
           style={{ top: "calc(var(--detail-disclaimer-h) + var(--detail-nav-h))" }}
         >
           <div className="flex flex-col space-y-4 px-6">
-            {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Admin", "Buy Gift Card"].map((item) => {
-              if (item === "Admin") {
-                return (
-                  <Link
-                    key={item}
-                    href={DETAILING_BRAND.adminLoginPath}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-left text-gray-300 hover:text-white font-semibold text-lg tracking-wider uppercase"
-                  >
-                    Admin Login
-                  </Link>
-                );
-              }
+            {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Buy Gift Card"].map((item) => {
               const isGiftCard = item === "Buy Gift Card";
               const href = isGiftCard ? "#gift-cards" : `#${item.toLowerCase()}`;
               return (
@@ -2097,19 +2085,7 @@ export default function DetailingHome() {
             <div>
               <h4 className="font-black text-lg uppercase tracking-wider mb-6">Quick Links</h4>
               <ul className="space-y-3 font-medium text-gray-400">
-                {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Admin", "Buy Gift Card"].map((item) => {
-                  if (item === "Admin") {
-                    return (
-                      <li key={item}>
-                        <Link
-                          href={DETAILING_BRAND.adminLoginPath}
-                          className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"
-                        >
-                          <ChevronRight className="w-3 h-3 text-[#00EAFF]" /> Admin Login
-                        </Link>
-                      </li>
-                    );
-                  }
+                {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Buy Gift Card"].map((item) => {
                   const isGiftCard = item === "Buy Gift Card";
                   const href = isGiftCard
                     ? "#gift-cards"
