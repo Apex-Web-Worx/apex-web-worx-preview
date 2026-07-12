@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, UtensilsCrossed, Sparkles, Hammer, Scissors, ChefHat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const APEX_LOGO = `${import.meta.env.BASE_URL}apex-webworx-logo.png`;
+
 const demos = [
   {
     path: "/catering",
@@ -43,12 +45,44 @@ const demos = [
 
 export default function PreviewHub() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#F5EFE4]">
-      <header className="border-b border-white/10">
-        <div className="container mx-auto px-6 py-8 md:py-12">
-          <p className="text-[#C8A45D] text-xs uppercase tracking-[0.3em] mb-3">Apex Web Worx</p>
-          <h1 className="font-serif text-4xl md:text-6xl font-bold mb-4">Demo Preview Hub</h1>
-          <p className="text-[#F5EFE4]/70 max-w-2xl text-lg font-light">
+    <div className="min-h-screen bg-black text-white">
+      <header className="relative border-b border-white/10 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-[#4F8FF7]/20 blur-[120px]" />
+          <div className="absolute -top-16 right-1/4 h-72 w-72 rounded-full bg-[#B46BFF]/15 blur-[120px]" />
+        </div>
+
+        <div className="container relative mx-auto px-6 py-8 md:py-12">
+          <a
+            href="https://apexwebworx.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 sm:gap-4 mb-8 group"
+            aria-label="Apex Web Worx"
+          >
+            <img
+              src={APEX_LOGO}
+              alt=""
+              aria-hidden="true"
+              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+            <span className="hidden sm:flex flex-col leading-none">
+              <span className="text-[10px] font-bold tracking-[0.45em] uppercase text-[#00EAFF]/80">
+                Web Worx
+              </span>
+              <span className="mt-1 text-xs tracking-[0.2em] uppercase text-white/50">
+                Digital Studio
+              </span>
+            </span>
+          </a>
+
+          <h1 className="text-4xl md:text-6xl font-black italic tracking-tight mb-4 max-w-3xl">
+            Demo{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5B9FFF] via-[#00EAFF] to-[#B46BFF]">
+              Preview Hub
+            </span>
+          </h1>
+          <p className="max-w-2xl text-base md:text-lg text-white/65 font-medium leading-relaxed">
             Explore website concepts built by Apex Web Worx. Each demo is frontend-only — no real
             data, payments, or backend connections.
           </p>
@@ -63,33 +97,48 @@ export default function PreviewHub() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
-              className="border border-white/10 bg-[#111] p-6 flex flex-col hover:border-[#C8A45D]/40 transition-colors"
+              className="group border border-white/10 bg-[#0a0a0f] p-6 flex flex-col hover:border-[#00EAFF]/35 hover:shadow-[0_0_32px_rgba(79,143,247,0.12)] transition-all duration-300"
             >
-              <demo.icon className="w-8 h-8 text-[#C8A45D] mb-4" />
-              <h2 className="font-serif text-2xl font-bold mb-2">{demo.title}</h2>
-              <p className="text-sm text-[#F5EFE4]/60 font-light leading-relaxed mb-6 flex-1">
+              <demo.icon className="w-8 h-8 text-[#00EAFF] mb-4 transition-colors group-hover:text-[#B46BFF]" />
+              <h2 className="text-2xl font-bold italic tracking-wide mb-2">{demo.title}</h2>
+              <p className="text-sm text-white/55 font-medium leading-relaxed mb-6 flex-1">
                 {demo.description}
               </p>
               {demo.live ? (
                 <div className="space-y-2">
-                  <Button asChild className="rounded-none bg-[#C8A45D] hover:bg-[#C8A45D]/90 text-[#0a0a0a] w-full">
+                  <Button
+                    asChild
+                    className="rounded-lg w-full font-bold bg-gradient-to-r from-[#4F8FF7] via-[#00EAFF] to-[#B46BFF] text-black hover:opacity-95 border-0"
+                  >
                     <Link href={demo.path}>
                       View Demo <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
                   {demo.path === "/catering" && (
-                    <Button asChild variant="outline" className="rounded-none border-white/20 w-full">
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
+                    >
                       <Link href="/catering/menu-selection?demo=1">Open Menu Builder (Step 2)</Link>
                     </Button>
                   )}
                   {demo.path === "/detailing" && (
-                    <Button asChild variant="outline" className="rounded-none border-white/20 w-full">
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
+                    >
                       <Link href="/detailing/book">Open Booking (Schedule)</Link>
                     </Button>
                   )}
                 </div>
               ) : (
-                <Button asChild variant="outline" className="rounded-none border-white/20 w-full">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-lg border-white/15 bg-transparent text-white/80 hover:text-white hover:border-[#00EAFF]/40 w-full"
+                >
                   <Link href={demo.path}>Preview Concept</Link>
                 </Button>
               )}
@@ -98,10 +147,24 @@ export default function PreviewHub() {
         </div>
       </main>
 
-      <footer className="border-t border-white/10 py-8 text-center text-xs text-[#F5EFE4]/40 uppercase tracking-widest">
-        <a href="https://apexwebworx.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C8A45D] transition-colors">
-          apexwebworx.com
-        </a>
+      <footer className="border-t border-white/10 py-10">
+        <div className="container mx-auto px-6 flex flex-col items-center gap-4 text-center">
+          <a
+            href="https://apexwebworx.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex flex-col items-center gap-3"
+          >
+            <img
+              src={APEX_LOGO}
+              alt="Apex Web Worx"
+              className="h-14 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+            />
+            <span className="text-xs uppercase tracking-[0.35em] text-white/40 group-hover:text-[#00EAFF] transition-colors">
+              apexwebworx.com
+            </span>
+          </a>
+        </div>
       </footer>
     </div>
   );
