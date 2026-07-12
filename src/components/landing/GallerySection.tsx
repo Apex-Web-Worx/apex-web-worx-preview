@@ -5,6 +5,9 @@ import menuSides from "@/assets/menu-sides.jpg";
 import menuSalads from "@/assets/menu-salads.jpg";
 import menuFruits from "@/assets/menu-fruits.jpg";
 import dishBeef from "@/assets/dish-beef-loin.png";
+import weddingCatering from "@/assets/wedding-catering.png";
+import corporateEvent from "@/assets/corporate-event.png";
+import heroBrisket from "@/assets/hero-brisket.png";
 
 const galleryImages = [
   { src: menuAppetizers, alt: "Elegant appetizer spread" },
@@ -13,6 +16,9 @@ const galleryImages = [
   { src: menuSalads, alt: "Fresh salad display" },
   { src: menuFruits, alt: "Seasonal fruit presentation" },
   { src: dishBeef, alt: "Premium beef loin service" },
+  { src: weddingCatering, alt: "Wedding catering setup" },
+  { src: corporateEvent, alt: "Corporate event buffet" },
+  { src: heroBrisket, alt: "Live grill station" },
 ];
 
 export default function GallerySection() {

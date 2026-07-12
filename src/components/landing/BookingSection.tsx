@@ -246,6 +246,12 @@ export default function BookingSection() {
                           }}
                         />
                       </FormControl>
+                      {field.value && isDateBooked(field.value) && (
+                        <p className="text-sm text-red-500 mt-1">{t.booking.dateBooked}</p>
+                      )}
+                      {field.value && isDateTooSoon(field.value) && (
+                        <p className="text-sm text-red-500 mt-1">{t.booking.dateTooSoonInline}</p>
+                      )}
                       <p className="text-xs text-foreground/40 mt-1">{t.booking.minDateNote}</p>
                       <FormMessage />
                     </FormItem>

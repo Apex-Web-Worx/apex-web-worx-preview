@@ -1,5 +1,89 @@
 import { DishInfo } from "./types";
 import { ADDONS, type AddOn } from "@/lib/pricing";
+import dishBeefLoin from "@/assets/dish-beef-loin.png";
+import dishBroccoli from "@/assets/dish-broccoli.png";
+import dishCaesarSalad from "@/assets/dish-caesar-salad.png";
+import dishCapreseSalad from "@/assets/dish-caprese-salad.png";
+import dishCheesePlatter from "@/assets/dish-cheese-platter.png";
+import dishChickenBreast from "@/assets/dish-chicken-breast.png";
+import dishFriedPotatoes from "@/assets/dish-fried-potatoes.png";
+import dishFruitPlatter from "@/assets/dish-fruit-platter.png";
+import dishGardenSalad from "@/assets/dish-garden-salad.png";
+import dishGreekSalad from "@/assets/dish-greek-salad.png";
+import dishGrilledAsparagus from "@/assets/dish-grilled-asparagus.png";
+import dishMashedPotatoes from "@/assets/dish-mashed-potatoes.png";
+import dishOlivesBerries from "@/assets/dish-olives-berries.png";
+import dishOlivierSalad from "@/assets/dish-olivier-salad.png";
+import dishPorkRibs from "@/assets/dish-pork-ribs.png";
+import dishRatatouille from "@/assets/dish-ratatouille.png";
+import dishRiceVegetables from "@/assets/dish-rice-vegetables.png";
+import dishRoastedPotatoes from "@/assets/dish-roasted-potatoes.png";
+import dishSalmon from "@/assets/dish-salmon.png";
+import dishSalmonCreamCheese from "@/assets/dish-salmon-cream-cheese.png";
+import dishWildRice from "@/assets/dish-wild-rice.png";
+
+/** Same dish photos as the landing menu section (grill-chef assets). */
+const dishImagesByName: Record<string, string> = {
+  "Deli Board": dishCheesePlatter,
+  "Cocktail Hour Platter": dishOlivesBerries,
+  "Beef Loin Steak": dishBeefLoin,
+  Salmon: dishSalmon,
+  "Pork Ribs": dishPorkRibs,
+  "Chicken Thighs": dishChickenBreast,
+  "Beef Loin Kebab": dishBeefLoin,
+  "Pork Loin Kebab": dishPorkRibs,
+  "Chicken Breast Kebab": dishChickenBreast,
+  "Chicken Wings": dishChickenBreast,
+  "Chicken Drumsticks": dishChickenBreast,
+  "Potatoes with Parmesan and Parsley": dishRoastedPotatoes,
+  "Mashed Potatoes with Cheddar": dishMashedPotatoes,
+  "Rice with Vegetables": dishRiceVegetables,
+  "Skin-On Potatoes with Bacon and Fresh Onion": dishFriedPotatoes,
+  "Asparagus with Parmesan Cheese": dishGrilledAsparagus,
+  Asparagus: dishBroccoli,
+  "Macaroni with Tomato and Heavy Cream Sauce": dishWildRice,
+  "Green Beans with Garlic and Onion": dishRatatouille,
+  "Vegetable Mix": dishBroccoli,
+  "Caesar Salad": dishCaesarSalad,
+  "Caprese Salad": dishCapreseSalad,
+  "Greek Salad": dishGreekSalad,
+  "Cabbage Salad": dishGardenSalad,
+  "Olivier Salad": dishOlivierSalad,
+  "Crab Salad": dishSalmonCreamCheese,
+  "Fresh Rolls": dishOlivesBerries,
+  "Sliced Bread": dishCheesePlatter,
+  "Fruit Mix": dishFruitPlatter,
+  // RU
+  "\u0414\u0435\u043b\u0438\u043a\u0430\u0442\u0435\u0441\u043d\u0430\u044f \u0434\u043e\u0441\u043a\u0430": dishCheesePlatter,
+  "\u041a\u043e\u043a\u0442\u0435\u0439\u043b\u044c\u043d\u0430\u044f \u0442\u0430\u0440\u0435\u043b\u043a\u0430": dishOlivesBerries,
+  "\u0421\u0442\u0435\u0439\u043a \u0438\u0437 \u0433\u043e\u0432\u044f\u0436\u044c\u0435\u0439 \u0432\u044b\u0440\u0435\u0437\u043a\u0438": dishBeefLoin,
+  "\u041b\u043e\u0441\u043e\u0441\u044c": dishSalmon,
+  "\u0421\u0432\u0438\u043d\u044b\u0435 \u0440\u0451\u0431\u0440\u0430": dishPorkRibs,
+  "\u041a\u0443\u0440\u0438\u043d\u044b\u0435 \u0431\u0451\u0434\u0440\u0430": dishChickenBreast,
+  "\u041a\u0435\u0431\u0430\u0431 \u0438\u0437 \u0433\u043e\u0432\u044f\u0436\u044c\u0435\u0439 \u0432\u044b\u0440\u0435\u0437\u043a\u0438": dishBeefLoin,
+  "\u041a\u0435\u0431\u0430\u0431 \u0438\u0437 \u0441\u0432\u0438\u043d\u043e\u0439 \u0432\u044b\u0440\u0435\u0437\u043a\u0438": dishPorkRibs,
+  "\u041a\u0435\u0431\u0430\u0431 \u0438\u0437 \u043a\u0443\u0440\u0438\u043d\u043e\u0439 \u0433\u0440\u0443\u0434\u043a\u0438": dishChickenBreast,
+  "\u041a\u0443\u0440\u0438\u043d\u044b\u0435 \u043a\u0440\u044b\u043b\u044b\u0448\u043a\u0438": dishChickenBreast,
+  "\u041a\u0443\u0440\u0438\u043d\u044b\u0435 \u0433\u043e\u043b\u0435\u043d\u0438": dishChickenBreast,
+  "\u041a\u0430\u0440\u0442\u043e\u0444\u0435\u043b\u044c \u0441 \u043f\u0430\u0440\u043c\u0435\u0437\u0430\u043d\u043e\u043c \u0438 \u043f\u0435\u0442\u0440\u0443\u0448\u043a\u043e\u0439": dishRoastedPotatoes,
+  "\u041a\u0430\u0440\u0442\u043e\u0444\u0435\u043b\u044c\u043d\u043e\u0435 \u043f\u044e\u0440\u0435 \u0441 \u0447\u0435\u0434\u0434\u0435\u0440\u043e\u043c": dishMashedPotatoes,
+  "\u0420\u0438\u0441 \u0441 \u043e\u0432\u043e\u0449\u0430\u043c\u0438": dishRiceVegetables,
+  "\u041a\u0430\u0440\u0442\u043e\u0444\u0435\u043b\u044c \u0432 \u043c\u0443\u043d\u0434\u0438\u0440\u0435 \u0441 \u0431\u0435\u043a\u043e\u043d\u043e\u043c \u0438 \u043b\u0443\u043a\u043e\u043c": dishFriedPotatoes,
+  "\u0421\u043f\u0430\u0440\u0436\u0430 \u0441 \u0441\u044b\u0440\u043e\u043c \u043f\u0430\u0440\u043c\u0435\u0437\u0430\u043d": dishGrilledAsparagus,
+  "\u0421\u043f\u0430\u0440\u0436\u0430": dishBroccoli,
+  "\u041c\u0430\u043a\u0430\u0440\u043e\u043d\u044b \u0432 \u0442\u043e\u043c\u0430\u0442\u043d\u043e-\u0441\u043b\u0438\u0432\u043e\u0447\u043d\u043e\u043c \u0441\u043e\u0443\u0441\u0435": dishWildRice,
+  "\u0417\u0435\u043b\u0451\u043d\u044b\u0435 \u0431\u043e\u0431\u044b \u0441 \u0447\u0435\u0441\u043d\u043e\u043a\u043e\u043c \u0438 \u043b\u0443\u043a\u043e\u043c": dishRatatouille,
+  "\u041e\u0432\u043e\u0449\u043d\u043e\u0439 \u043c\u0438\u043a\u0441": dishBroccoli,
+  "\u0421\u0430\u043b\u0430\u0442 \u0426\u0435\u0437\u0430\u0440\u044c": dishCaesarSalad,
+  "\u0421\u0430\u043b\u0430\u0442 \u041a\u0430\u043f\u0440\u0435\u0437\u0435": dishCapreseSalad,
+  "\u0413\u0440\u0435\u0447\u0435\u0441\u043a\u0438\u0439 \u0441\u0430\u043b\u0430\u0442": dishGreekSalad,
+  "\u0421\u0430\u043b\u0430\u0442 \u0438\u0437 \u043a\u0430\u043f\u0443\u0441\u0442\u044b": dishGardenSalad,
+  "\u0421\u0430\u043b\u0430\u0442 \u041e\u043b\u0438\u0432\u044c\u0435": dishOlivierSalad,
+  "\u0421\u0430\u043b\u0430\u0442 \u0441 \u043a\u0440\u0430\u0431\u043e\u043c": dishSalmonCreamCheese,
+  "\u0421\u0432\u0435\u0436\u0438\u0435 \u0431\u0443\u043b\u043e\u0447\u043a\u0438": dishOlivesBerries,
+  "\u041d\u0430\u0440\u0435\u0437\u0430\u043d\u043d\u044b\u0439 \u0445\u043b\u0435\u0431": dishCheesePlatter,
+  "\u0424\u0440\u0443\u043a\u0442\u043e\u0432\u044b\u0439 \u043c\u0438\u043a\u0441": dishFruitPlatter,
+};
 
 const proteinImages = [
   "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
@@ -163,6 +247,15 @@ function hashString(str: string): number {
 }
 
 export function getDishInfo(name: string, categoryName: string): DishInfo {
+  const localImage = dishImagesByName[name];
+  if (localImage) {
+    return {
+      name,
+      description: dishDescriptions[name] || "A premium dish prepared with the finest ingredients.",
+      image: localImage,
+    };
+  }
+
   const images = categoryImages[categoryName] || proteinImages;
   const idx = hashString(name) % images.length;
   return {

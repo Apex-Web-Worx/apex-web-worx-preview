@@ -19,8 +19,8 @@ export default function AboutSection() {
           >
             <div className="aspect-[3/4] overflow-hidden relative">
               <img
-                src={`${import.meta.env.BASE_URL}chef-portrait.png`}
-                alt="Executive Chef, Premier Event Catering demo"
+                src="/chef-portrait.png"
+                alt="Chef Oleksandr Lapeikin"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 border border-white/10 m-6" />
