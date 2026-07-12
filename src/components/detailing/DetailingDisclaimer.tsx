@@ -1,4 +1,4 @@
-import { DETAILING_DISCLAIMER, DETAILING_DISCLAIMER_SUB } from "@/lib/detailing-demo";
+import { DETAILING_DISCLAIMER, DETAILING_DISCLAIMER_SUB, DETAILING_BUILD } from "@/lib/detailing-demo";
 
 interface DetailingDisclaimerProps {
   className?: string;
@@ -39,7 +39,7 @@ export default function DetailingDisclaimer({
         {DETAILING_DISCLAIMER}
       </p>
       <p className="text-[10px] text-gray-500 mt-0.5 max-w-2xl mx-auto leading-snug hidden sm:block">
-        {DETAILING_DISCLAIMER_SUB}
+        {DETAILING_DISCLAIMER_SUB} · Build {DETAILING_BUILD}
       </p>
     </div>
   );

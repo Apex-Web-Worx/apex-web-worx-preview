@@ -26,7 +26,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const LOGO_URL = `${import.meta.env.BASE_URL}elite-detailing-logo.png?v=1`;
+const LOGO_URL = `${import.meta.env.BASE_URL}elite-detailing-logo.webp?v=2`;
 const BOOKING_LINK = DETAILING_BRAND.bookPath;
 const INSTAGRAM_LINK = DETAILING_BRAND.instagram;
 const FACEBOOK_LINK = "#";
@@ -884,10 +884,11 @@ export default function DetailingHome() {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-black/90 backdrop-blur-md border-b border-white/10 py-3 shadow-[0_0_20px_rgba(0,234,255,0.1)]"
-            : "bg-transparent py-5"
+            ? "bg-black/95 backdrop-blur-md py-3 shadow-[0_4px_32px_rgba(230,0,122,0.35),0_0_48px_rgba(0,234,255,0.15)]"
+            : "bg-black/50 backdrop-blur-sm py-5"
         }`}
       >
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#E6007A] via-[#00EAFF] to-[#E6007A]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div
@@ -1042,7 +1043,7 @@ export default function DetailingHome() {
           <div className="soap-bubble absolute bottom-[20%] left-[60%] w-7 h-7" style={{ animationDuration: '16s', animationDelay: '1.2s' }} />
         </div>
 
-        <div className="absolute inset-0 z-0 opacity-40">
+          <div className="absolute inset-0 z-0 opacity-50">
           <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-[#E6007A] rounded-full mix-blend-screen filter blur-[100px] animate-[pulse_8s_ease-in-out_infinite]" />
           <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-[#00EAFF] rounded-full mix-blend-screen filter blur-[100px] animate-[pulse_8s_ease-in-out_infinite_1s]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black" />

@@ -22,6 +22,8 @@ export const DETAILING_BRAND = {
   bookPath: "/detailing/book",
 } as const;
 
+export const DETAILING_BUILD = "2026-07-12-pink";
+
 export const DETAILING_DISCLAIMER =
   "Demo Website Concept by Apex Web Worx";
 

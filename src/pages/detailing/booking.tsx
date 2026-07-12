@@ -123,7 +123,7 @@ export default function DetailingBooking() {
             Back to site
           </Link>
           <img
-            src={`${import.meta.env.BASE_URL}elite-detailing-logo.png?v=1`}
+            src={`${import.meta.env.BASE_URL}elite-detailing-logo.webp?v=2`}
             alt="Elite Detailing"
             className="h-10 sm:h-12 w-auto object-contain logo-shine"
           />
