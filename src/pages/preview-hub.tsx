@@ -14,9 +14,9 @@ const demos = [
   {
     path: "/detailing",
     title: "Apex Detailing",
-    description: "Auto detailing booking with appointments, gift cards, and admin tools.",
+    description: "Auto detailing booking with appointments, service gallery, add-ons, and admin dashboard.",
     icon: Sparkles,
-    live: false,
+    live: true,
   },
   {
     path: "/contractor",
@@ -77,9 +77,11 @@ export default function PreviewHub() {
                       View Demo <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" className="rounded-none border-white/20 w-full">
-                    <Link href="/catering/menu-selection?demo=1">Open Menu Builder (Step 2)</Link>
-                  </Button>
+                  {demo.path === "/catering" && (
+                    <Button asChild variant="outline" className="rounded-none border-white/20 w-full">
+                      <Link href="/catering/menu-selection?demo=1">Open Menu Builder (Step 2)</Link>
+                    </Button>
+                  )}
                 </div>
               ) : (
                 <Button asChild variant="outline" className="rounded-none border-white/20 w-full">

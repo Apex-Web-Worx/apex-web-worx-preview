@@ -7,20 +7,13 @@ import NotFound from "@/pages/not-found";
 import PreviewHub from "@/pages/preview-hub";
 import DemoPlaceholder from "@/pages/demo-placeholder";
 import Home from "@/pages/home";
+import DetailingHome from "@/pages/detailing/home";
+import { DetailingModalProvider } from "@/contexts/DetailingModalContext";
 import MenuSelection from "@/pages/menu-selection";
 import MyBooking from "@/pages/my-booking";
 import AdminDashboard from "@/pages/admin/dashboard";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsConditions from "@/pages/terms-conditions";
-
-function DetailingDemo() {
-  return (
-    <DemoPlaceholder
-      title="Apex Detailing"
-      description="Auto detailing booking platform with online appointments, gift cards, admin dashboard, and notifications — coming soon to this preview hub."
-    />
-  );
-}
 
 function ContractorDemo() {
   return (
@@ -68,7 +61,14 @@ function Router() {
           </DemoModalProvider>
         </LanguageProvider>
       </Route>
-      <Route path="/detailing" component={DetailingDemo} />
+      <Route path="/detailing" nest>
+        <DetailingModalProvider>
+          <Switch>
+            <Route path="/" component={DetailingHome} />
+            <Route component={NotFound} />
+          </Switch>
+        </DetailingModalProvider>
+      </Route>
       <Route path="/contractor" component={ContractorDemo} />
       <Route path="/salon" component={SalonDemo} />
       <Route path="/restaurant" component={RestaurantDemo} />
