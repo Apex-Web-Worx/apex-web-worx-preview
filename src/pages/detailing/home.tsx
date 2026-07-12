@@ -27,7 +27,6 @@ import {
 } from "lucide-react";
 
 const LOGO_URL = `${import.meta.env.BASE_URL}elite-detailing-logo.webp?v=2`;
-const BOOKING_LINK = DETAILING_BRAND.bookPath;
 const INSTAGRAM_LINK = DETAILING_BRAND.instagram;
 const FACEBOOK_LINK = "#";
 const GOOGLE_REVIEWS_LINK = "#";
@@ -857,12 +856,6 @@ export default function DetailingHome() {
 
   const openMapChooser = () => {
     setMapChooserOpen(true);
-  };
-
-  const [, navigate] = useLocation();
-
-  const goToBooking = () => {
-    navigate(DETAILING_BRAND.bookPathNested);
   };
 
   const openGoogleMaps = () => {
