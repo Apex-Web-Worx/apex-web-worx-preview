@@ -12,10 +12,10 @@ export default function DetailingDisclaimer({
   if (variant === "inline") {
     return (
       <div className={`text-center ${className}`}>
-        <p className="text-[11px] sm:text-xs text-[#00e5ff]/90 font-medium tracking-wide">
+        <p className="text-[11px] sm:text-xs text-[#A886CD] font-semibold tracking-wide">
           {DETAILING_DISCLAIMER}
         </p>
-        <p className="text-[10px] sm:text-[11px] text-[#94a3b8]/80 mt-1 max-w-xl mx-auto leading-snug">
+        <p className="text-[10px] sm:text-[11px] text-gray-400 mt-1 max-w-xl mx-auto leading-snug">
           {DETAILING_DISCLAIMER_SUB}
         </p>
       </div>
@@ -25,8 +25,8 @@ export default function DetailingDisclaimer({
   if (variant === "footer") {
     return (
       <div className={`text-center ${className}`}>
-        <p className="text-xs text-[#00e5ff]/80 font-medium tracking-wide">{DETAILING_DISCLAIMER}</p>
-        <p className="text-[11px] text-[#94a3b8]/70 mt-1.5 max-w-lg mx-auto leading-relaxed">
+        <p className="text-xs text-[#A886CD]/90 font-semibold tracking-wide">{DETAILING_DISCLAIMER}</p>
+        <p className="text-[11px] text-gray-500 mt-1.5 max-w-lg mx-auto leading-relaxed">
           {DETAILING_DISCLAIMER_SUB}
         </p>
       </div>
@@ -34,11 +34,11 @@ export default function DetailingDisclaimer({
   }
 
   return (
-    <div className={`bg-[#0d0d12] border-b border-white/5 px-3 sm:px-4 py-2 sm:py-2.5 text-center ${className}`}>
-      <p className="text-[11px] sm:text-xs text-[#00e5ff]/90 font-medium tracking-wide">
+    <div className={`bg-[#0a0a0a]/95 border-b border-white/10 px-3 sm:px-4 py-2 text-center backdrop-blur-sm ${className}`}>
+      <p className="text-[10px] sm:text-xs text-[#A886CD] font-semibold tracking-wide">
         {DETAILING_DISCLAIMER}
       </p>
-      <p className="text-[10px] sm:text-[11px] text-[#94a3b8]/70 mt-0.5 max-w-2xl mx-auto leading-snug hidden sm:block">
+      <p className="text-[10px] text-gray-500 mt-0.5 max-w-2xl mx-auto leading-snug hidden sm:block">
         {DETAILING_DISCLAIMER_SUB}
       </p>
     </div>

@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" fill="none">
   <defs>
-    <linearGradient id="apexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00E5FF"/>
-      <stop offset="50%" stop-color="#3B82F6"/>
-      <stop offset="100%" stop-color="#A855F7"/>
+    <linearGradient id="apexPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A886CD"/>
+      <stop offset="100%" stop-color="#3496FF"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-  <path d="M8 52 L28 8 L38 8 L58 52 L48 52 L44 42 L22 42 L18 52 Z M26 34 L40 34 L33 16 Z" fill="url(#apexGrad)" filter="url(#glow)"/>
-  <text x="68" y="28" font-family="Rajdhani, sans-serif" font-size="22" font-weight="700" fill="#F0F4F8" letter-spacing="2">APEX</text>
-  <text x="68" y="48" font-family="Rajdhani, sans-serif" font-size="14" font-weight="500" fill="#00E5FF" letter-spacing="4">DETAILING</text>
+  <path d="M20 100 L55 15 L75 15 L110 100 L92 100 L84 78 L46 78 L38 100 Z M52 62 L78 62 L65 28 Z" fill="url(#apexPurple)" filter="url(#glow)"/>
+  <text x="130" y="52" font-family="Mulish, sans-serif" font-size="42" font-weight="900" fill="#FFFFFF" letter-spacing="3">APEX</text>
+  <text x="130" y="92" font-family="Mulish, sans-serif" font-size="28" font-weight="700" fill="url(#apexPurple)" letter-spacing="8">DETAILING</text>
+  <text x="130" y="112" font-family="Mulish, sans-serif" font-size="10" font-weight="600" fill="#666" letter-spacing="2">DEMO PREVIEW</text>
 </svg>
