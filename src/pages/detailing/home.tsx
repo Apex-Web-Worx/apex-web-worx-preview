@@ -871,7 +871,7 @@ export default function DetailingHome() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-['Mulish'] overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
+    <div className="detailing-site min-h-screen bg-[#0a0a0a] text-white font-['Mulish'] overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
       {/* Texture Overlay */}
       <div className="texture-overlay" />
       <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
@@ -1232,13 +1232,17 @@ export default function DetailingHome() {
                       </li>
                     ))}
                   </ul>
-                  <Link
+                  <a
                     href={BOOKING_LINK}
-                    className="mt-auto inline-flex items-center gap-2 font-bold text-sm tracking-widest text-white uppercase group/btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      showDetailingModal();
+                    }}
+                    className="mt-auto inline-flex items-center gap-2 font-bold text-sm tracking-widest text-white uppercase group/btn cursor-pointer"
                   >
                     Book Now{" "}
                     <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:text-[#3496FF] transition-all" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
