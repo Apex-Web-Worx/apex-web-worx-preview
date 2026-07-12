@@ -41,13 +41,13 @@ export default function DetailingAdminLogin() {
   return (
     <div className="detailing-site min-h-screen bg-black text-white flex flex-col">
       <div className="texture-overlay" />
+      <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
 
-      <header className="relative border-b border-white/10 bg-black/90 backdrop-blur-md">
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#E6007A] via-[#00EAFF] to-[#E6007A]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+      <header className="detail-subheader">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between gap-4 min-h-[var(--detail-nav-h)]">
           <Link
             href="/detailing"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-[#00EAFF] transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-300 hover:text-[#00EAFF] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Site
@@ -56,7 +56,7 @@ export default function DetailingAdminLogin() {
         </div>
       </header>
 
-      <main className="flex-1 flex items-center justify-center px-4 py-10 sm:py-16">
+      <main className="flex-1 flex items-center justify-center px-4 py-8 sm:py-16 detail-page-main pb-[max(2rem,env(safe-area-inset-bottom))]">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <span className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#E6007A]/20 to-[#00EAFF]/20 border border-[#00EAFF]/30 mb-4">

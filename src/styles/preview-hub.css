@@ -52,6 +52,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 2.75rem;
   padding: 0.75rem 1.25rem;
   font-weight: 700;
   font-size: 0.875rem;
@@ -73,6 +74,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 2.75rem;
   padding: 0.75rem 1.25rem;
   font-weight: 600;
   font-size: 0.875rem;
@@ -86,6 +88,13 @@
 .preview-hub-site .hub-btn-outline:hover {
   color: #fff;
   border-color: rgba(181, 48, 155, 0.45);
+}
+
+@media (min-width: 640px) {
+  .preview-hub-site .hub-btn-primary,
+  .preview-hub-site .hub-btn-outline {
+    width: 100%;
+  }
 }
 
 .preview-hub-site .hub-card {

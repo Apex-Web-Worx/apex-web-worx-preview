@@ -34,21 +34,39 @@ const GOOGLE_REVIEWS_LINK = "#";
 
 const AddonCard = ({ addon }: { addon: { name: string; price: string; description?: string } }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const toggleExpanded = () => {
+    if (addon.description) setIsExpanded((prev) => !prev);
+  };
   return (
     <div
+      role={addon.description ? "button" : undefined}
+      tabIndex={addon.description ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (addon.description && (e.key === "Enter" || e.key === " ")) {
+          e.preventDefault();
+          toggleExpanded();
+        }
+      }}
       className="p-4 rounded-lg bg-white/5 border border-white/10 hover:border-[#00EAFF] transition-all cursor-pointer group"
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
+      onMouseEnter={() => addon.description && setIsExpanded(true)}
+      onMouseLeave={() => addon.description && setIsExpanded(false)}
+      onClick={toggleExpanded}
     >
-      <h4 className="text-base font-bold text-white mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#E6007A] group-hover:to-[#00EAFF] transition-all duration-300">{addon.name}</h4>
+      <div className="flex items-start justify-between gap-2">
+        <h4 className="text-base font-bold text-white mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#E6007A] group-hover:to-[#00EAFF] transition-all duration-300">{addon.name}</h4>
+        {addon.description && (
+          <ChevronRight
+            className={`w-4 h-4 shrink-0 text-[#00EAFF] transition-transform duration-300 mt-0.5 ${
+              isExpanded ? "rotate-90" : ""
+            }`}
+            aria-hidden="true"
+          />
+        )}
+      </div>
       <p className="text-[#00EAFF] font-bold text-sm">{addon.price}</p>
       {addon.description && (
-        <div 
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsExpanded(!isExpanded);
-          }}
-          className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-96' : 'max-h-0'}`}
+        <div
+          className={`overflow-hidden transition-all duration-300 ${isExpanded ? "max-h-96" : "max-h-0"}`}
         >
           <p className="text-gray-300 text-xs mt-3 leading-relaxed">
             {addon.description}
@@ -634,10 +652,13 @@ export default function DetailingHome() {
 
   const handleSliderDrag = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     const container = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-    const pos = e.type.includes('touch') 
-      ? (e as React.TouchEvent<HTMLDivElement>).touches[0].clientX 
-      : (e as React.MouseEvent<HTMLDivElement>).clientX;
-    const newPos = Math.max(0, Math.min(100, ((pos - container.left) / container.width) * 100));
+    const clientX =
+      "touches" in e && e.touches.length > 0
+        ? e.touches[0].clientX
+        : "changedTouches" in e && e.changedTouches.length > 0
+          ? e.changedTouches[0].clientX
+          : (e as React.MouseEvent<HTMLDivElement>).clientX;
+    const newPos = Math.max(0, Math.min(100, ((clientX - container.left) / container.width) * 100));
     setSliderPosition(newPos);
   };
 
@@ -842,11 +863,20 @@ export default function DetailingHome() {
   }, [paintCorrectionImages.length]);
 
 
+  const getHeaderOffset = () => {
+    const root = document.querySelector(".detailing-site");
+    if (!root) return 80;
+    const styles = getComputedStyle(root);
+    const disclaimer = parseFloat(styles.getPropertyValue("--detail-disclaimer-h")) || 0;
+    const nav = parseFloat(styles.getPropertyValue("--detail-nav-h")) || 0;
+    return disclaimer + nav + 8;
+  };
+
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
+      const offset = getHeaderOffset();
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -940,14 +970,14 @@ export default function DetailingHome() {
               </Link>
               <a
                 href="tel:+15550000000"
-                className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-white hover:text-[#00EAFF] hover:border-[#00EAFF] transition-colors"
+                className="md:hidden inline-flex items-center justify-center detail-touch-target rounded-full bg-white/5 border border-white/10 text-white hover:text-[#00EAFF] hover:border-[#00EAFF] transition-colors"
                 aria-label="Call Elite Detailing"
               >
                 <Phone className="w-5 h-5" />
               </a>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="xl:hidden text-white p-2 focus:outline-none"
+                className="xl:hidden text-white detail-touch-target inline-flex items-center justify-center focus:outline-none"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -987,9 +1017,16 @@ export default function DetailingHome() {
               );
             })}
             <Link
+              href={DETAILING_BRAND.adminLoginPath}
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn-elite-outline w-full text-center"
+            >
+              ADMIN LOGIN
+            </Link>
+            <Link
               href={DETAILING_BRAND.bookPath}
               onClick={() => setMobileMenuOpen(false)}
-              className="btn-elite-primary mt-4 w-full text-center"
+              className="btn-elite-primary mt-2 w-full text-center"
             >
               BOOK NOW
             </Link>
@@ -1000,7 +1037,7 @@ export default function DetailingHome() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center overflow-hidden pt-[calc(var(--detail-disclaimer-h)+var(--detail-nav-h))]"
+        className="relative min-h-[calc(100dvh-var(--detail-header-offset))] sm:min-h-screen flex items-center overflow-hidden pt-[var(--detail-header-offset)]"
       >
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
@@ -1416,7 +1453,7 @@ export default function DetailingHome() {
           <div className="max-w-4xl mx-auto">
             {/* Slider */}
             <div
-              className="relative aspect-[4/3] rounded-3xl overflow-hidden cursor-col-resize bg-black/50 border border-white/10 group"
+              className="detail-slider relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden cursor-col-resize bg-black/50 border border-white/10 group"
               onMouseMove={isDraggingSlider ? handleSliderDrag : undefined}
               onMouseDown={() => {
                 setIsDraggingSlider(true);
@@ -1430,15 +1467,19 @@ export default function DetailingHome() {
                 setIsDraggingSlider(false);
                 setIsAnimatingSlider(true);
               }}
-              onTouchStart={() => {
+              onTouchStart={(e) => {
                 setIsDraggingSlider(true);
                 setIsAnimatingSlider(false);
+                handleSliderDrag(e);
               }}
               onTouchEnd={() => {
                 setIsDraggingSlider(false);
                 setIsAnimatingSlider(true);
               }}
-              onTouchMove={isDraggingSlider ? handleSliderDrag : undefined}
+              onTouchMove={(e) => {
+                e.preventDefault();
+                handleSliderDrag(e);
+              }}
               onClick={handleSliderDrag}
             >
               {/* After Image (Background) */}
@@ -1457,8 +1498,8 @@ export default function DetailingHome() {
                 <img
                   src={beforeAfterPairs[currentSliderIndex].before}
                   alt="Before"
-                  className="w-screen h-full object-cover"
-                  style={{ width: `${100 / (sliderPosition / 100)}%` }}
+                  className="absolute top-0 left-0 h-full max-w-none object-cover object-left"
+                  style={{ width: `${sliderPosition > 0 ? 100 / (sliderPosition / 100) : 100}%` }}
                 />
               </div>
 
@@ -1495,33 +1536,36 @@ export default function DetailingHome() {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-center gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
               <button
                 onClick={() => setCurrentSliderIndex((prev) => (prev - 1 + beforeAfterPairs.length) % beforeAfterPairs.length)}
-                className="px-6 py-3 rounded-lg bg-white/5 border border-white/10 hover:border-[#00EAFF] hover:text-white transition-all font-bold text-sm"
+                className="w-full sm:w-auto px-6 py-3 min-h-[44px] rounded-lg bg-white/5 border border-white/10 hover:border-[#00EAFF] hover:text-white transition-all font-bold text-sm"
               >
                 ← Previous
               </button>
               <button
                 onClick={() => setCurrentSliderIndex((prev) => (prev + 1) % beforeAfterPairs.length)}
-                className="px-6 py-3 rounded-lg bg-white/5 border border-white/10 hover:border-[#00EAFF] hover:text-white transition-all font-bold text-sm"
+                className="w-full sm:w-auto px-6 py-3 min-h-[44px] rounded-lg bg-white/5 border border-white/10 hover:border-[#00EAFF] hover:text-white transition-all font-bold text-sm"
               >
                 Next →
               </button>
             </div>
 
             {/* Indicators */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-6">
               {beforeAfterPairs.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentSliderIndex(idx)}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-full transition-all ${
                     idx === currentSliderIndex
-                      ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF] w-8"
-                      : "bg-white/30 hover:bg-white/50"
+                      ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF] scale-110"
+                      : "bg-white/20 hover:bg-white/40"
                   }`}
-                />
+                  aria-label={`Show transformation ${idx + 1}`}
+                >
+                  <span className={`block rounded-full ${idx === currentSliderIndex ? "w-2.5 h-2.5 bg-white" : "w-2 h-2 bg-white/80"}`} />
+                </button>
               ))}
             </div>
           </div>
@@ -1636,7 +1680,7 @@ export default function DetailingHome() {
               href={INSTAGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center px-10 py-5 font-black text-white text-lg transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(168,134,205,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] hover:scale-105"
+              className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 font-black text-white text-base sm:text-lg transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(168,134,205,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] sm:hover:scale-105"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00EAFF] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative flex items-center gap-3">
@@ -1656,7 +1700,7 @@ export default function DetailingHome() {
         >
           <button
             onClick={() => setSelectedGalleryItem(null)}
-            className="absolute top-4 right-20 md:top-6 md:right-24 text-white hover:text-[#00EAFF] transition-colors z-10 p-1"
+            className="absolute top-4 right-4 md:top-6 md:right-6 detail-touch-target inline-flex items-center justify-center text-white hover:text-[#00EAFF] transition-colors z-10"
             aria-label="Close"
           >
             <X className="w-6 h-6 md:w-8 md:h-8" />
@@ -1937,7 +1981,7 @@ export default function DetailingHome() {
           </div>
 
           {/* Category pills */}
-          <div className="flex items-center justify-center gap-3 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 px-2">
             {(["General", "Paint Correction", "Ceramic Coating"] as const).map((cat) => (
               <button
                 key={cat}
@@ -1945,7 +1989,7 @@ export default function DetailingHome() {
                   setActiveFaqCategory(cat);
                   setOpenFaq(null);
                 }}
-                className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 border ${
+                className={`px-4 sm:px-5 py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 border ${
                   activeFaqCategory === cat
                     ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF] text-white border-transparent shadow-[0_0_20px_rgba(0,234,255,0.3)]"
                     : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30 hover:text-white"
@@ -2020,7 +2064,7 @@ export default function DetailingHome() {
               </div>
               <Link
                 href={DETAILING_BRAND.bookPath}
-                className="group relative inline-flex items-center justify-center px-10 py-5 font-black text-white text-xl transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(230,0,122,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] hover:scale-105 cursor-pointer"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 font-black text-white text-lg sm:text-xl transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(230,0,122,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] sm:hover:scale-105 cursor-pointer"
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00EAFF] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative flex items-center gap-3">
@@ -2241,10 +2285,10 @@ export default function DetailingHome() {
       </footer>
 
       {/* Sticky Mobile Action Bar */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-black/95 backdrop-blur-md border-t border-white/10 px-3 py-2 grid grid-cols-2 gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-black/95 backdrop-blur-md border-t border-white/10 detail-sticky-bar grid grid-cols-2 gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
         <a
           href="tel:+15550000000"
-          className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-white/10 border border-white/15 font-bold text-sm text-white"
+          className="flex items-center justify-center gap-2 px-3 py-3 min-h-[48px] rounded-lg bg-white/10 border border-white/15 font-bold text-sm text-white"
           aria-label="Call Elite Detailing"
         >
           <Phone className="w-4 h-4 text-[#00EAFF]" />
@@ -2253,14 +2297,14 @@ export default function DetailingHome() {
           <Link
             href={DETAILING_BRAND.bookPath}
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-black text-sm text-white shadow-[0_0_15px_rgba(0,234,255,0.4)]"
+            className="flex items-center justify-center gap-2 px-3 py-3 min-h-[48px] rounded-lg bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-black text-sm text-white shadow-[0_0_15px_rgba(0,234,255,0.4)]"
           >
             BOOK NOW
             <ChevronRight className="w-4 h-4" />
           </Link>
       </div>
       {/* Spacer so sticky bar doesn't overlap content on mobile */}
-      <div className="md:hidden h-20" aria-hidden="true" />
+      <div className="md:hidden detail-mobile-spacer" aria-hidden="true" />
 
       {/* Legal Modal: Privacy / Terms */}
       {legalModal && (

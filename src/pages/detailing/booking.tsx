@@ -113,23 +113,23 @@ export default function DetailingBooking() {
       <div className="texture-overlay" />
       <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
 
-      <header className="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+      <header className="detail-subheader">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between gap-2 sm:gap-4 min-h-[var(--detail-nav-h)]">
           <Link
             href="/detailing"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-300 hover:text-white transition-colors shrink-0"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to site
+            <span className="hidden sm:inline">Back to site</span>
           </Link>
           <img
             src={`${import.meta.env.BASE_URL}elite-detailing-logo.webp?v=3`}
             alt="Elite Detailing"
-            className="logo-img logo-nav logo-shine"
+            className="logo-img logo-nav logo-shine max-h-10 sm:max-h-none"
           />
           <a
             href={`tel:${DETAILING_BRAND.phoneTel}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#00EAFF] transition-colors"
+            className="detail-touch-target inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-white hover:text-[#00EAFF] transition-colors shrink-0"
           >
             <Phone className="w-4 h-4 text-[#00EAFF]" />
             <span className="hidden sm:inline">{DETAILING_BRAND.phone}</span>
@@ -137,7 +137,7 @@ export default function DetailingBooking() {
         </div>
       </header>
 
-      <main className="relative z-10 pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+      <main className="relative z-10 detail-page-main pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-10">
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#00EAFF] mb-2">
@@ -155,16 +155,16 @@ export default function DetailingBooking() {
           </div>
 
           {/* Progress */}
-          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-10">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-4 mb-8 sm:mb-10 overflow-x-auto pb-1">
             {STEPS.map((s, i) => (
-              <div key={s.id} className="flex items-center gap-2 sm:gap-4">
+              <div key={s.id} className="flex items-center gap-1.5 sm:gap-4 shrink-0">
                 <div
-                  className={`flex items-center gap-2 ${
+                  className={`flex items-center gap-1.5 sm:gap-2 ${
                     i <= stepIndex ? "text-white" : "text-gray-500"
                   }`}
                 >
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-colors ${
+                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-colors ${
                       i < stepIndex
                         ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF] border-transparent"
                         : i === stepIndex
@@ -174,7 +174,7 @@ export default function DetailingBooking() {
                   >
                     {i < stepIndex ? <Check className="w-4 h-4" /> : i + 1}
                   </div>
-                  <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider">
+                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider max-w-[4.5rem] sm:max-w-none truncate sm:whitespace-normal">
                     {s.label}
                   </span>
                 </div>
@@ -243,7 +243,7 @@ export default function DetailingBooking() {
                 <p className="text-sm text-gray-400 mb-4">
                   Available from {todayStr()}. Sundays and blocked dates are unavailable in this demo.
                 </p>
-                <div className="grid grid-cols-3 sm:grid-cols-7 gap-2 mb-8">
+                <div className="grid grid-cols-4 sm:grid-cols-7 gap-1.5 sm:gap-2 mb-8">
                   {calendarDays.map((day) => (
                     <button
                       key={day.date}
@@ -253,7 +253,7 @@ export default function DetailingBooking() {
                         setSelectedDate(day.date);
                         setSelectedTime(null);
                       }}
-                      className={`p-3 rounded-xl border text-center transition-all ${
+                      className={`p-2 sm:p-3 min-h-[52px] rounded-lg sm:rounded-xl border text-center transition-all ${
                         day.blocked
                           ? "border-white/5 bg-white/[0.02] text-gray-600 cursor-not-allowed line-through"
                           : selectedDate === day.date
@@ -428,23 +428,23 @@ export default function DetailingBooking() {
             )}
 
             {step !== "confirm" && (
-              <div className="flex items-center justify-between gap-4 mt-8 pt-6 border-t border-white/10">
+              <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 mt-8 pt-6 border-t border-white/10">
                 {step !== "service" ? (
                   <button
                     type="button"
                     onClick={goBack}
-                    className="px-5 py-3 rounded-xl border border-white/10 text-gray-300 hover:text-white hover:border-white/30 font-bold text-sm transition-colors"
+                    className="w-full sm:w-auto px-5 py-3 min-h-[48px] rounded-xl border border-white/10 text-gray-300 hover:text-white hover:border-white/30 font-bold text-sm transition-colors"
                   >
                     Back
                   </button>
                 ) : (
-                  <div />
+                  <div className="hidden sm:block" />
                 )}
                 <button
                   type="button"
                   onClick={goNext}
                   disabled={!canContinue}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black text-sm uppercase tracking-wide bg-gradient-to-r from-[#E6007A] to-[#00EAFF] disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-[0_0_20px_rgba(0,234,255,0.3)] transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 min-h-[48px] rounded-xl font-black text-sm uppercase tracking-wide bg-gradient-to-r from-[#E6007A] to-[#00EAFF] disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-[0_0_20px_rgba(0,234,255,0.3)] transition-all"
                 >
                   Continue <ChevronRight className="w-4 h-4" />
                 </button>

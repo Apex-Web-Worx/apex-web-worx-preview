@@ -4,7 +4,7 @@ import { ArrowRight, UtensilsCrossed, Sparkles, Hammer, Scissors, ChefHat } from
 import "@/styles/preview-hub.css";
 
 const APEX_LOGO = `${import.meta.env.BASE_URL}apex-webworx-logo.webp?v=4`;
-const HUB_BUILD = "2026-07-12-magenta";
+const HUB_BUILD = "2026-07-12-mobile";
 
 const demos = [
   {
@@ -46,7 +46,7 @@ const demos = [
 
 export default function PreviewHub() {
   return (
-    <div className="preview-hub-site min-h-screen relative">
+    <div className="preview-hub-site min-h-screen relative pb-[env(safe-area-inset-bottom)]">
       <div className="hub-bokeh" aria-hidden="true">
         <div className="hub-bokeh-dot w-64 h-64 bg-[#B5309B] top-[8%] left-[12%]" />
         <div className="hub-bokeh-dot w-48 h-48 bg-[#7D34F1] top-[18%] right-[18%]" />
@@ -55,8 +55,8 @@ export default function PreviewHub() {
         <div className="hub-bokeh-dot w-20 h-20 bg-[#B5309B] top-[45%] left-[55%]" />
       </div>
 
-      <header className="relative z-10 border-b border-white/[0.08]">
-        <div className="container mx-auto px-6 py-10 md:py-14 lg:py-16">
+      <header className="relative z-10 border-b border-white/[0.08] pt-[env(safe-area-inset-top)]">
+        <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-14 lg:py-16">
           <p className="text-[10px] uppercase tracking-[0.28em] text-white/35 mb-6 font-semibold">
             Build {HUB_BUILD}
           </p>
@@ -75,7 +75,7 @@ export default function PreviewHub() {
             />
           </a>
 
-          <h1 className="text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[0.95] max-w-4xl mb-6">
+          <h1 className="text-[1.85rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05] sm:leading-[0.95] max-w-4xl mb-6">
             <span className="block text-white">Website Demo</span>
             <span className="block text-white">Concepts &</span>
             <span className="block hub-gradient-text">Interactive Previews</span>
@@ -89,7 +89,7 @@ export default function PreviewHub() {
         </div>
       </header>
 
-      <main className="relative z-10 container mx-auto px-6 py-12 md:py-16">
+      <main className="relative z-10 container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {demos.map((demo, index) => (
             <motion.article
@@ -135,8 +135,8 @@ export default function PreviewHub() {
         </div>
       </main>
 
-      <footer className="relative z-10 border-t border-white/[0.08] py-10">
-        <div className="container mx-auto px-6 flex flex-col items-center gap-4 text-center">
+      <footer className="relative z-10 border-t border-white/[0.08] py-8 sm:py-10 pb-[max(2.5rem,env(safe-area-inset-bottom))]">
+        <div className="container mx-auto px-4 sm:px-6 flex flex-col items-center gap-4 text-center">
           <a
             href="https://apexwebworx.com"
             target="_blank"

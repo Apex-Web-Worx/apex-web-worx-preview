@@ -99,14 +99,14 @@ export default function DetailingAdminDashboard() {
   return (
     <div className="detailing-site min-h-screen bg-black text-white">
       <div className="texture-overlay" />
+      <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
 
-      <header className="relative border-b border-white/10 bg-black/90 backdrop-blur-md">
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#E6007A] via-[#00EAFF] to-[#E6007A]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+      <header className="detail-subheader">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between gap-2 sm:gap-4 min-h-[var(--detail-nav-h)]">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
             <Link
               href="/detailing"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-[#00EAFF] transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-300 hover:text-[#00EAFF] transition-colors shrink-0"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Back to Site</span>
@@ -115,18 +115,18 @@ export default function DetailingAdminDashboard() {
           </div>
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {session ? (
-              <span className="hidden md:inline text-xs text-gray-500 mr-1">
+              <span className="hidden md:inline text-xs text-gray-500 mr-1 truncate max-w-[120px]">
                 {session.name}
               </span>
             ) : null}
-            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#00EAFF] tech-label">
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs uppercase tracking-widest text-[#00EAFF] tech-label">
               <LayoutDashboard className="w-4 h-4" />
               <span className="hidden sm:inline">Dashboard</span>
             </span>
             <button
               type="button"
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-[#E6007A] transition-colors px-2 py-1"
+              className="detail-touch-target inline-flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-[#E6007A] transition-colors px-2"
             >
               <LogOut className="w-4 h-4" />
               <span className="hidden sm:inline">Log Out</span>
@@ -135,8 +135,7 @@ export default function DetailingAdminDashboard() {
         </div>
       </header>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
-        <DetailingDisclaimer className="mb-8" />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10 detail-page-main">
 
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tight mb-2">
@@ -204,29 +203,29 @@ export default function DetailingAdminDashboard() {
                     <p className="text-xs text-gray-600 mt-1 italic">{booking.notes}</p>
                   ) : null}
                 </div>
-                <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                <div className="flex flex-wrap items-start sm:items-center gap-2 sm:gap-4 shrink-0 w-full sm:w-auto">
                   <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-full ${style.bg} ${style.text}`}
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-full ${style.bg} ${style.text}`}
                   >
                     {style.icon}
                     {formatStatus(booking.status)}
                   </span>
-                  <span className="font-bold text-[#00EAFF]">${booking.totalPrice.toLocaleString()}</span>
-                  <ChevronRight className="w-4 h-4 text-gray-600 hidden md:block group-hover:text-[#00EAFF] transition-colors" />
+                  <span className="font-bold text-[#00EAFF] text-sm sm:text-base">${booking.totalPrice.toLocaleString()}</span>
+                  <ChevronRight className="w-4 h-4 text-gray-600 hidden md:block group-hover:text-[#00EAFF] transition-colors ml-auto sm:ml-0" />
                 </div>
               </button>
             );
           })}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <button type="button" onClick={showDetailingModal} className="btn-elite-primary text-sm">
+        <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+          <button type="button" onClick={showDetailingModal} className="btn-elite-primary text-sm w-full sm:w-auto">
             Approve Booking (Demo)
           </button>
-          <button type="button" onClick={showDetailingModal} className="btn-elite-outline text-sm">
+          <button type="button" onClick={showDetailingModal} className="btn-elite-outline text-sm w-full sm:w-auto">
             Block Date (Demo)
           </button>
-          <Link href={DETAILING_BRAND.bookPath} className="btn-elite-outline text-sm">
+          <Link href={DETAILING_BRAND.bookPath} className="btn-elite-outline text-sm w-full sm:w-auto text-center">
             View Client Booking Flow
           </Link>
         </div>

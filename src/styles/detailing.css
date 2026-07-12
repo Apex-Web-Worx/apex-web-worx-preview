@@ -10,6 +10,8 @@
   --detail-card: #0a0a0f;
   --detail-disclaimer-h: 2.75rem;
   --detail-nav-h: 3.5rem;
+  --detail-header-offset: calc(var(--detail-disclaimer-h) + var(--detail-nav-h));
+  --detail-sticky-bar-h: 4.25rem;
 
   --background: 0 0% 0%;
   --foreground: 0 0% 98%;
@@ -281,6 +283,59 @@
     --detail-disclaimer-h: 3.25rem;
     --detail-nav-h: 4rem;
   }
+}
+
+/* Fixed sub-page header (booking, admin) below disclaimer */
+.detailing-site .detail-subheader {
+  position: fixed;
+  top: var(--detail-disclaimer-h);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detailing-site .detail-subheader::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--detail-pink), var(--detail-cyan), var(--detail-pink));
+}
+
+.detailing-site .detail-page-main {
+  padding-top: calc(var(--detail-header-offset) + 1rem);
+}
+
+@media (min-width: 640px) {
+  .detailing-site .detail-page-main {
+    padding-top: calc(var(--detail-header-offset) + 1.5rem);
+  }
+}
+
+.detailing-site .detail-touch-target {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+.detailing-site .detail-sticky-bar {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  padding-left: max(0.75rem, env(safe-area-inset-left));
+  padding-right: max(0.75rem, env(safe-area-inset-right));
+}
+
+.detailing-site .detail-slider {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.detailing-site .detail-mobile-spacer {
+  height: calc(var(--detail-sticky-bar-h) + env(safe-area-inset-bottom, 0px));
 }
 
 .detailing-site .header-shine {
