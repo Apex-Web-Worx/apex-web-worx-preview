@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useDetailingModal } from "@/contexts/DetailingModalContext";
 import DetailingDisclaimer from "@/components/detailing/DetailingDisclaimer";
 import "@/styles/detailing.css";
+import { DETAILING_BRAND } from "@/lib/detailing-demo";
+import { useLocation } from "wouter";
 import {
   Menu,
   X,
@@ -24,10 +26,10 @@ import {
   Zap,
 } from "lucide-react";
 
-const BOOKING_LINK = "#book";
-const INSTAGRAM_LINK = "https://instagram.com/apexdetailing_net";
-const FACEBOOK_LINK = "https://www.facebook.com/profile.php?id=61556776603500";
-const GOOGLE_REVIEWS_LINK = "https://share.google/1Kz8Ag5wVniNZ3oyb";
+const BOOKING_LINK = DETAILING_BRAND.bookPath;
+const INSTAGRAM_LINK = DETAILING_BRAND.instagram;
+const FACEBOOK_LINK = "#";
+const GOOGLE_REVIEWS_LINK = "#";
 
 const AddonCard = ({ addon }: { addon: { name: string; price: string; description?: string } }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -59,7 +61,7 @@ const AddonCard = ({ addon }: { addon: { name: string; price: string; descriptio
 const services = [
   {
     id: "full-detailing",
-    title: "Apex Full Detailing",
+    title: "Full Detailing",
     description:
       "The ultimate package! Includes interior and exterior detailed cleaning and protection. Get your vehicle looking showroom fresh inside and out. Add-ons available to customize your package.",
     icon: <Wand2 className="w-10 h-10 text-[#A886CD]" />,
@@ -75,7 +77,7 @@ const services = [
   },
   {
     id: "interior-detailing",
-    title: "Apex Interior Detailing",
+    title: "Interior Detailing",
     description:
       "Comprehensive interior cleaning that transforms every surface. From carpets to leather to air vents. Add-ons available to customize your package.",
     icon: <Droplets className="w-10 h-10 text-[#A886CD]" />,
@@ -98,8 +100,8 @@ const services = [
     ],
   },
   {
-    id: "apex-express-interior-detailing",
-    title: "Apex Express Interior Detailing",
+    id: "express-interior-detailing",
+    title: "Express Interior Detailing",
     description: (
       <>
         A fast, high-quality interior refresh designed to keep your vehicle clean, fresh, and presentable—without the time commitment of a full detail. This service includes a thorough vacuum, wipe-down of all interior surfaces, floor mats cleaned, interior glass polished, and a light refresh of high-touch areas. Perfect for well-maintained vehicles or as a maintenance service between full details.{" "}
@@ -121,7 +123,7 @@ const services = [
   },
   {
     id: "exterior-detailing",
-    title: "Apex Exterior Detailing",
+    title: "Exterior Detailing",
     description:
       "Comprehensive exterior cleaning and protection to make your car turn heads everywhere you go. Includes detailed hand wash, exterior windows and mirrors cleaning, wheels and tires cleaned, polished, and dressed, door jambs wiped down, and spray sealant for 1-month protection.",
     icon: <Car className="w-10 h-10 text-[#3496FF]" />,
@@ -137,7 +139,7 @@ const services = [
   },
   {
     id: "wash-clay-wax",
-    title: "Apex Wash, Clay & Wax",
+    title: "Wash, Clay & Wax",
     description:
       "First, the vehicle receives a thorough hand wash to remove dirt, dust, and road grime. Next, a clay bar treatment is used to safely remove embedded contaminants such as tar, brake dust, and industrial fallout that normal washing cannot remove. Finally, a protective wax coating is applied to enhance shine, protect the paint, and help repel water and dirt.",
     icon: <Sparkles className="w-10 h-10 text-[#A886CD]" />,
@@ -153,7 +155,7 @@ const services = [
   },
   {
     id: "headlight-restoration",
-    title: "Apex Headlight Restoration",
+    title: "Headlight Restoration",
     description:
       "Fix foggy, yellowed headlights to improve nighttime visibility and dramatically improve your car's appearance.",
     icon: <CheckCircle2 className="w-10 h-10 text-[#3496FF]" />,
@@ -162,7 +164,7 @@ const services = [
   },
   {
     id: "ceramic-coating",
-    title: "Apex Ceramic Coating",
+    title: "Ceramic Coating",
     description:
       "Ultimate protection and extreme gloss for your vehicle's paint. Lasts for years, making maintenance washes a breeze.",
     icon: <Shield className="w-10 h-10 text-[#3496FF]" />,
@@ -171,7 +173,7 @@ const services = [
   },
   {
     id: "paint-correction",
-    title: "Apex Paint Correction",
+    title: "Paint Correction",
     description:
       "Restore your paint to a flawless, mirror-like finish. We offer four levels of correction depending on the condition of your vehicle and the result you're after — from a quick gloss refresh to full show-level restoration.",
     icon: <Sparkles className="w-10 h-10 text-[#A886CD]" />,
@@ -240,59 +242,59 @@ const gallery = [
 
   const testimonials = [
     {
-      text: "Apex Detailing detailed and waxed our work vehicles, including two F-250s, a Honda Accord, an Odyssey, and a GMC Yukon. We were thrilled with the results - every vehicle looked brand new. We'll definitely be bringing our personal vehicles to Apex too.",
-      author: "Sight & Sound Theater",
-      name: "Sight & Sound Theater",
-      location: "Branson, MO",
+      text: "Elite Auto Detailing detailed our fleet vehicles — two trucks, a sedan, a minivan, and an SUV. Every vehicle looked brand new. We'll definitely be back with our personal cars.",
+      author: "Local Business Client",
+      name: "Local Business Client",
+      location: "Metro Area",
     },
   {
     name: "Sarah W.",
-    location: "Nixa, MO",
+    location: "Metro Area",
     text: "The interior detail was mind-blowing. With two kids, my SUV was a disaster zone. They got out stains I thought were permanent and it smells brand new again.",
   },
   {
     name: "Jennifer M.",
-    location: "Nixa, MO",
+    location: "Metro Area",
     text: "They completely restored my headlights and the difference is night and day. Professional, thorough, and they even took care to protect my vehicle. Highly recommend!",
   },
 ];
 
 const googleReviews = [
   {
-    name: "David Sallee",
+    name: "David S.",
     rating: 5,
     date: "Google Review",
-    text: "Misha's waxing was fantastic and very, very reasonable. I would recommend him to anyone. Made my BMW X5 look like brand new. Also did extra treatment on wheels at no charge. Misha was very professional and he knows his stuff on detailing. Great young man and father of three.",
+    text: "The waxing service was fantastic and very reasonable. Made my BMW X5 look brand new. Extra wheel treatment at no charge. Very professional team that knows detailing inside and out.",
   },
   {
-    name: "larry perkins",
+    name: "Larry P.",
     rating: 5,
     date: "Google Review",
-    text: "Apex Detailing detailed and waxed our work vehicles, including two F-250s, a Honda Accord, an Odyssey, and a GMC Yukon. We were thrilled with the results - every vehicle looked brand new. We'll definitely be bringing our personal vehicles to Apex too.",
+    text: "Elite Auto Detailing detailed our work vehicles including trucks, sedans, and an SUV. Every vehicle looked brand new. We'll definitely be bringing our personal vehicles back.",
   },
   {
-    name: "Mark Coble",
+    name: "Mark C.",
     rating: 5,
     date: "Google Review",
-    text: "Apex Detailing made our Honda look like the day it was new! We are very satisfied with the quality of workmanship and would highly recommend Apex for anyone looking to restore their vehicle's appearance to showroom condition.",
+    text: "Elite Auto Detailing made our Honda look like the day it was new. Highly recommend for anyone looking to restore their vehicle to showroom condition.",
   },
   {
-    name: "Darrell Coad",
+    name: "Darrell C.",
     rating: 5,
     date: "Google Review",
-    text: "Mikhail with Apex Detailing did the exterior of my truck and when I went to pick it up I could not believe how great my truck looked, like brand new. He is a Christian and such a delightful person, I give him top of the scale performance, will definitely be going back.",
+    text: "Had the exterior of my truck detailed and could not believe how great it looked — like brand new. Top-tier performance and attention to detail. Will definitely be going back.",
   },
   {
-    name: "Zach Maddox",
+    name: "Zach M.",
     rating: 5,
     date: "Google Review",
-    text: "Apex did a great job detailing our SUV. Very professional and reasonably priced.",
+    text: "Great job detailing our SUV. Very professional and reasonably priced.",
   },
   {
-    name: "Nicolle Mckeag",
+    name: "Nicolle M.",
     rating: 5,
     date: "Google Review",
-    text: "Apex got my car looking better than ever, and this isn't the first time I've gotten it detailed. The owner is very detail oriented and made my car shine inside and out. Turn around time was great and my car was ready in time for my visitors.",
+    text: "Got my car looking better than ever. The team is detail oriented and made my car shine inside and out. Turnaround time was great.",
   },
 ];
 
@@ -431,7 +433,7 @@ export default function DetailingHome() {
   const faqs: Array<{ q: string; a: string; category: string }> = [
     {
       q: "Where are you located?",
-      a: "Our shop is at 1114 E Lakota St in Nixa, MO. We proudly serve customers from Nixa, Ozark, Springfield, and the surrounding Ozarks communities.",
+      a: "Our shop is located in the Metro Area. Serving the greater metro area and surrounding communities.",
       category: "General",
     },
     {
@@ -441,7 +443,7 @@ export default function DetailingHome() {
     },
     {
       q: "How do I book an appointment?",
-      a: "Click any 'Book Your Detail' button to use our online booking — pick your service, day, and time in under a minute. You can also call us directly at 417-527-6165. All scheduling needs to happen before your visit.",
+      a: "Click any Book Your Detail button to use our online booking — pick your service, day, and time in under a minute. You can also call us at (555) 000-0000. All scheduling needs to happen before your visit.",
       category: "General",
     },
     {
@@ -557,7 +559,7 @@ export default function DetailingHome() {
   ];
 
   const serviceCities = [
-    "Nixa", "Ozark", "Springfield", "Republic", "Battlefield",
+    "Downtown", "Northside", "West End", "East Valley", "South Park",
     "Rogersville", "Strafford", "Willard", "Sparta", "Highlandville",
   ];
 
@@ -856,22 +858,24 @@ export default function DetailingHome() {
     setMapChooserOpen(true);
   };
 
+  const [, navigate] = useLocation();
+
   const goToBooking = () => {
-    showDetailingModal();
+    navigate(DETAILING_BRAND.bookPath);
   };
 
   const openGoogleMaps = () => {
-    window.open("https://www.google.com/maps/search/1114+E+Lakota+St,+65714+Nixa,+MO", "_blank", "noopener,noreferrer");
+    window.open("#", "_blank", "noopener,noreferrer");
     setMapChooserOpen(false);
   };
 
   const openAppleMaps = () => {
-    window.open("https://maps.apple.com/?address=1114%20E%20Lakota%20St,%20Nixa,%20MO%2065714", "_blank", "noopener,noreferrer");
+    window.open("#", "_blank", "noopener,noreferrer");
     setMapChooserOpen(false);
   };
 
   return (
-    <div className="detailing-site min-h-screen bg-[#0a0a0a] text-white font-['Mulish'] overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
+    <div className="detailing-site min-h-screen bg-[#0a0a0a] text-white font-['Plus_Jakarta_Sans'] overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
       {/* Texture Overlay */}
       <div className="texture-overlay" />
       <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
@@ -890,8 +894,8 @@ export default function DetailingHome() {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <img
-                src={`${import.meta.env.BASE_URL}apex-detailing-logo.svg`}
-                alt="Apex Detailing Logo"
+                src={`${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg`}
+                alt="Elite Auto Detailing Logo"
                 className="h-16 md:h-24 lg:h-28 w-auto object-contain logo-shine"
                 
               />
@@ -899,9 +903,9 @@ export default function DetailingHome() {
 
             <div className="hidden md:flex items-center space-x-8">
               <a
-                href="tel:417-527-6165"
+                href="tel:+15550000000"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#3496FF] transition-colors"
-                aria-label="Call Apex Detailing"
+                aria-label="Call Elite Auto Detailing"
               >
                 <Phone className="w-4 h-4 text-[#3496FF]" />
                 <span>Call</span>
@@ -951,9 +955,9 @@ export default function DetailingHome() {
 
             <div className="md:hidden flex items-center gap-2">
               <a
-                href="tel:417-527-6165"
+                href="tel:+15550000000"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-white hover:text-[#3496FF] hover:border-[#3496FF] transition-colors"
-                aria-label="Call Apex Detailing"
+                aria-label="Call Elite Auto Detailing"
               >
                 <Phone className="w-5 h-5" />
               </a>
@@ -1017,7 +1021,7 @@ export default function DetailingHome() {
         <div className="absolute inset-0 z-0">
           <img
             src={`${import.meta.env.BASE_URL}detailing/images/hero-2.jpg`}
-            alt="Apex Detailing freshly detailed vehicle"
+            alt="Elite Auto Detailing freshly detailed vehicle"
             className="w-full h-full object-cover opacity-25"
             loading="eager"
             fetchPriority="high"
@@ -1047,7 +1051,7 @@ export default function DetailingHome() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#A886CD]/10 to-[#3496FF]/10 border border-[#A886CD]/30 backdrop-blur-sm mb-6 sm:mb-8 max-w-full">
             <span className="flex h-2 w-2 rounded-full bg-[#3496FF] animate-pulse" />
             <span className="text-[10px] sm:text-sm font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#A886CD] to-[#3496FF] uppercase text-center">
-              Nixa Ozark Springfield, MO Premium Detailing
+              Premium Auto Detailing · Metro Area
             </span>
           </div>
 
@@ -1060,7 +1064,7 @@ export default function DetailingHome() {
 
           <p className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 font-medium px-1">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#A886CD] via-[#A886CD] to-[#3496FF]">Premium auto detailing, ceramic coating, and paint correction</span> services serving
-            <span className="text-[#3496FF] font-bold"> Nixa Ozark Springfield, MO</span>. We bring the showroom shine to your vehicle.
+            <span className="text-[#3496FF] font-bold"> the greater metro area</span>. We bring the showroom shine to your vehicle.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
@@ -1135,7 +1139,7 @@ export default function DetailingHome() {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-6 h-6 text-[#A886CD]" />
-              <span className="font-bold">Shop-Based · Nixa, MO</span>
+              <span className="font-bold">Shop-Based · Metro Area</span>
             </div>
           </div>
 
@@ -1200,7 +1204,7 @@ export default function DetailingHome() {
                         Best Value
                       </span>
                     )}
-                    {service.id === "apex-express-interior-detailing" && (
+                    {service.id === "express-interior-detailing" && (
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#A886CD] to-[#3496FF] text-white group-hover:bg-none group-hover:bg-white group-hover:text-[#0a0a0a] transition-colors">
                         <Zap className="w-3 h-3" /> Express
                       </span>
@@ -1346,50 +1350,42 @@ export default function DetailingHome() {
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight mb-6 sm:mb-8 leading-tight">
                 Welcome to{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#A886CD] to-[#3496FF]">
-                  Apex Detailing
+                  Elite Auto Detailing
                 </span>
               </h3>
 
               <div className="space-y-5 sm:space-y-6 text-gray-400 text-base sm:text-lg mb-8 sm:mb-10">
                 <p>
-                  Where passion, precision, and purpose come together to serve you with excellence. Serving the Nixa Ozark Springfield, MO areas, we specialize in high-quality car detailing that restores beauty, protects value, and reflects the pride you have in your vehicle.
+                  Where passion, precision, and purpose come together to serve you with excellence. Serving the greater metro area and surrounding communities. We specialize in high-quality car detailing that restores beauty, protects value, and reflects the pride you have in your vehicle.
                 </p>
                 <p>
-                  Our dedication to quality and customer satisfaction has helped us become <strong className="text-white">#1 Ranked in Nixa for 2024 and 2025</strong>, a recognition we are truly grateful for.
-                </p>
-                <p className="italic">
-                  Our business is built on <span className="text-[#3496FF] font-semibold">Christian</span> values, with <span className="text-[#3496FF] font-semibold">Christ</span> at the center of everything we do. We believe in working with integrity, serving others with a joyful heart, and honoring <span className="text-[#3496FF] font-semibold">God</span> through the quality of our craft.
-                </p>
-                <p className="italic text-[#A886CD] text-sm mt-4">
-                  "Whatever you do, work at it with all your heart, as working for the Lord, not for men. Colossians 3:23 (NIV)"
+                  Our dedication to quality and customer satisfaction has earned us a <strong className="text-white">5-star reputation</strong> with clients across the metro area — a recognition we work hard to maintain with every vehicle.
                 </p>
                 <p>
-                  Apex Detailing was founded by Michail, who is known for his meticulous nature and commitment to perfection. What started as a personal passion for detailing has grown into a trusted service grounded in faith, excellence, and care.
+                  Elite Auto Detailing was built on a commitment to meticulous craftsmanship and honest service. What started as a passion for automotive care has grown into a trusted shop known for consistency, transparency, and results you can see.
                 </p>
                 <p>
-                  At Apex, we use only premium-grade chemicals and professional techniques to ensure every vehicle gets the attention it deserves — inside and out. Whether it's a deep interior clean, paint correction, or exterior protection, our goal is to go above and beyond your expectations.
+                  We use only premium-grade chemicals and professional techniques to ensure every vehicle gets the attention it deserves — inside and out. Whether it's a deep interior clean, paint correction, or exterior protection, our goal is to exceed your expectations.
                 </p>
                 <p>
-                  <strong className="text-white">Experience the Apex difference — where faith fuels our service and quality drives every detail.</strong>
+                  <strong className="text-white">Experience the Elite difference — where quality drives every detail.</strong>
                 </p>
                 <div className="mt-8 flex items-center gap-5 p-5 rounded-2xl bg-white/[0.03] border border-white/10">
                   <div className="relative shrink-0">
                     <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#A886CD] to-[#3496FF] blur-md opacity-60" />
-                    <img
-                      src={`${import.meta.env.BASE_URL}detailing/images/owner.png`}
-                      alt="Michail Gurov, Founder of Apex Detailing"
-                      className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-white/20"
-                    />
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#A886CD]/30 to-[#3496FF]/30 border-2 border-white/20 flex items-center justify-center">
+                      <Sparkles className="w-10 h-10 text-[#3496FF]" />
+                    </div>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-gray-500 font-bold mb-1">
-                      Meet your detailer
+                      Certified professionals
                     </p>
                     <p className="text-white font-black text-lg sm:text-xl leading-tight">
-                      Michail Gurov
+                      Expert Detailing Team
                     </p>
                     <p className="text-[#A886CD] font-bold text-sm">
-                      Founder &amp; Detailing Specialist
+                      Trained · Insured · Detail-Oriented
                     </p>
                   </div>
                 </div>
@@ -1676,7 +1672,7 @@ export default function DetailingHome() {
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#3496FF] to-[#A886CD] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative flex items-center gap-3">
                 <Instagram className="w-6 h-6" />
-                Follow @apexdetailing_sf
+                Follow @eliteautodetailing
               </span>
             </a>
           </div>
@@ -1834,7 +1830,7 @@ export default function DetailingHome() {
               </span>
             </h3>
             <p className="text-gray-400 text-lg mb-8">
-              See what our clients are saying about Apex Detailing. We maintain a 5-star rating across all platforms.
+              See what our clients are saying about Elite Auto Detailing. We maintain a 5-star rating across all platforms.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -1897,11 +1893,11 @@ export default function DetailingHome() {
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
               Serving the{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#A886CD] to-[#3496FF]">
-                Ozarks
+                Metro Area
               </span>
             </h3>
             <p className="text-gray-400 text-lg">
-              Located in Nixa, Missouri — proudly serving customers from across Greene & Christian Counties. Drop your vehicle off at our shop.
+              Serving the greater metro area and surrounding communities. Drop your vehicle off at our shop.
             </p>
           </div>
 
@@ -1913,24 +1909,24 @@ export default function DetailingHome() {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-[#3496FF]/50 transition-colors"
                 >
                   <MapPin className="w-3.5 h-3.5 text-[#3496FF]" />
-                  <span className="text-sm font-bold text-gray-200">{city}, MO</span>
+                  <span className="text-sm font-bold text-gray-200">{city}</span>
                 </div>
               ))}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <a
-                href="tel:417-527-6165"
+                href="tel:+15550000000"
                 className="flex items-center gap-3 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-[#A886CD]/50 transition-colors"
               >
                 <Phone className="w-5 h-5 text-[#A886CD]" />
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider font-bold">Call</p>
-                  <p className="text-white font-bold">417-527-6165</p>
+                  <p className="text-white font-bold">(555) 000-0000</p>
                 </div>
               </a>
               <a
-                href="https://www.google.com/maps/search/1114+E+Lakota+St,+65714+Nixa,+MO"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-[#3496FF]/50 transition-colors"
@@ -1938,7 +1934,7 @@ export default function DetailingHome() {
                 <MapPin className="w-5 h-5 text-[#3496FF]" />
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider font-bold">Shop</p>
-                  <p className="text-white font-bold">1114 E Lakota St, Nixa</p>
+                  <p className="text-white font-bold">123 Demo Blvd</p>
                 </div>
               </a>
               <div className="flex items-center gap-3 p-5 rounded-xl bg-white/5 border border-white/10">
@@ -2040,7 +2036,7 @@ export default function DetailingHome() {
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6">
                 Ready to Experience <br />
-                The Apex Difference?
+                The Elite Difference?
               </h2>
               <p className="text-xl text-gray-400 mb-10 font-medium">
                 Book your appointment today.
@@ -2075,8 +2071,8 @@ export default function DetailingHome() {
             <div className="col-span-1 md:col-span-2 lg:col-span-1">
               <div className="flex items-center mb-6">
                 <img
-                  src={`${import.meta.env.BASE_URL}apex-detailing-logo.svg`}
-                  alt="Apex Detailing Logo"
+                  src={`${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg`}
+                  alt="Elite Auto Detailing Logo"
                   className="h-14 w-auto object-contain logo-shine"
                   
                 />
@@ -2168,23 +2164,23 @@ export default function DetailingHome() {
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#3496FF] shrink-0 mt-0.5" />
                   <a
-                    href="https://www.google.com/maps/search/1114+E+Lakota+St,+65714+Nixa,+MO"
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hidden md:block hover:text-[#3496FF] transition-colors cursor-pointer text-left"
                   >
-                    <span>Located in the Nixa<br />1114 E Lakota St, 65714</span>
+                    <span>Located in the metro area<br />123 Demo Boulevard, Metro Area</span>
                   </a>
                   <button
                     onClick={openMapChooser}
                     className="md:hidden hover:text-[#3496FF] transition-colors cursor-pointer text-left"
                   >
-                    <span>Located in the Nixa<br />1114 E Lakota St, 65714</span>
+                    <span>Located in the metro area<br />123 Demo Boulevard, Metro Area</span>
                   </button>
                 </li>
                 <li className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
                   <Phone className="w-5 h-5 text-[#A886CD]" />
-                  <a href="tel:417-527-6165" className="hover:text-[#3496FF] transition-colors">417-527-6165</a>
+                  <a href="tel:+15550000000" className="hover:text-[#3496FF] transition-colors">(555) 000-0000</a>
                 </li>
                 <li className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-[#A886CD] shrink-0 mt-0.5" />
@@ -2259,7 +2255,7 @@ export default function DetailingHome() {
 
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
             <p className="text-gray-500 text-sm font-medium">
-              &copy; {new Date().getFullYear()} Apex Detailing. All rights reserved.
+              &copy; {new Date().getFullYear()} Elite Auto Detailing. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6 text-sm text-gray-500 font-medium">
               <button
@@ -2282,9 +2278,9 @@ export default function DetailingHome() {
       {/* Sticky Mobile Action Bar */}
       <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md border-t border-white/10 px-3 py-2 grid grid-cols-2 gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
         <a
-          href="tel:417-527-6165"
+          href="tel:+15550000000"
           className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-white/10 border border-white/15 font-bold text-sm text-white"
-          aria-label="Call Apex Detailing"
+          aria-label="Call Elite Auto Detailing"
         >
           <Phone className="w-4 h-4 text-[#3496FF]" />
           CALL NOW
@@ -2333,7 +2329,7 @@ export default function DetailingHome() {
             {legalModal === "privacy" ? (
               <div className="space-y-4 text-gray-300 text-sm leading-relaxed">
                 <p>
-                  Apex Detailing ("we", "us") respects your privacy. This page explains what limited information we collect when you use this site or contact us, and how we use it.
+                  Elite Auto Detailing ("we", "us") respects your privacy. This page explains what limited information we collect when you use this site or contact us, and how we use it.
                 </p>
                 <div>
                   <h4 className="font-black text-white text-base mb-1">Information We Collect</h4>
@@ -2349,7 +2345,7 @@ export default function DetailingHome() {
                 </div>
                 <div>
                   <h4 className="font-black text-white text-base mb-1">Contact</h4>
-                  <p>Questions about your data? Call <a href="tel:417-527-6165" className="text-[#3496FF] underline">417-527-6165</a> or message us on Instagram or Facebook.</p>
+                  <p>Questions about your data? Call <a href="tel:+15550000000" className="text-[#3496FF] underline">(555) 000-0000</a> or message us on Instagram or Facebook.</p>
                 </div>
               </div>
             ) : (
@@ -2371,7 +2367,7 @@ export default function DetailingHome() {
                 </div>
                 <div>
                   <h4 className="font-black text-white text-base mb-1">Vehicle Condition & Liability</h4>
-                  <p>We take great care with every vehicle. Customers are responsible for removing valuables before service. Pre-existing damage, mechanical issues, or worn materials are not the responsibility of Apex Detailing.</p>
+                  <p>We take great care with every vehicle. Customers are responsible for removing valuables before service. Pre-existing damage, mechanical issues, or worn materials are not the responsibility of Elite Auto Detailing.</p>
                 </div>
                 <div>
                   <h4 className="font-black text-white text-base mb-1">Satisfaction</h4>

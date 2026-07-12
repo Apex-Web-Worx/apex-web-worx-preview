@@ -8,6 +8,7 @@ import PreviewHub from "@/pages/preview-hub";
 import DemoPlaceholder from "@/pages/demo-placeholder";
 import Home from "@/pages/home";
 import DetailingHome from "@/pages/detailing/home";
+import DetailingBooking from "@/pages/detailing/booking";
 import { DetailingModalProvider } from "@/contexts/DetailingModalContext";
 import MenuSelection from "@/pages/menu-selection";
 import MyBooking from "@/pages/my-booking";
@@ -65,6 +66,7 @@ function Router() {
         <DetailingModalProvider>
           <Switch>
             <Route path="/" component={DetailingHome} />
+            <Route path="/book" component={DetailingBooking} />
             <Route component={NotFound} />
           </Switch>
         </DetailingModalProvider>
