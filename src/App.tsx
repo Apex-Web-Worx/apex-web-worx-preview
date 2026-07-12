@@ -11,6 +11,7 @@ import DetailingHome from "@/pages/detailing/home";
 import DetailingBooking from "@/pages/detailing/booking";
 import DetailingBookRedirect from "@/pages/detailing/book-redirect";
 import DetailingAdminDashboard from "@/pages/detailing/admin";
+import DetailingAdminLogin from "@/pages/detailing/admin-login";
 import { DetailingModalProvider } from "@/contexts/DetailingModalContext";
 import MenuSelection from "@/pages/menu-selection";
 import MyBooking from "@/pages/my-booking";
@@ -68,6 +69,7 @@ function Router() {
         <Switch>
           <Route path="/detailing/detailing/book" component={DetailingBookRedirect} />
           <Route path="/detailing/book" component={DetailingBooking} />
+          <Route path="/detailing/admin/login" component={DetailingAdminLogin} />
           <Route path="/detailing/admin" component={DetailingAdminDashboard} />
           <Route path="/detailing" component={DetailingHome} />
         </Switch>

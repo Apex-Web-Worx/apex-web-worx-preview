@@ -1,4 +1,5 @@
-import { Link } from "wouter";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "wouter";
 import {
   Calendar,
   Car,
@@ -10,6 +11,7 @@ import {
   ArrowLeft,
   Phone,
   LayoutDashboard,
+  LogOut,
 } from "lucide-react";
 import DetailingDisclaimer from "@/components/detailing/DetailingDisclaimer";
 import "@/styles/detailing.css";
@@ -19,6 +21,11 @@ import {
   type DetailingBookingStatus,
 } from "@/lib/detailing-demo";
 import { useDetailingModal } from "@/contexts/DetailingModalContext";
+import {
+  getDetailingAdminSession,
+  isDetailingAdminAuthed,
+  logoutDetailingAdmin,
+} from "@/lib/detailing-auth";
 
 const LOGO_URL = `${import.meta.env.BASE_URL}elite-detailing-logo.webp?v=3`;
 
@@ -59,11 +66,35 @@ function formatStatus(status: string) {
 
 export default function DetailingAdminDashboard() {
   const { showDetailingModal } = useDetailingModal();
+  const [, setLocation] = useLocation();
+  const [ready, setReady] = useState(false);
+  const session = getDetailingAdminSession();
+
+  useEffect(() => {
+    if (!isDetailingAdminAuthed()) {
+      setLocation(DETAILING_BRAND.adminLoginPath);
+      return;
+    }
+    setReady(true);
+  }, [setLocation]);
+
+  const handleLogout = () => {
+    logoutDetailingAdmin();
+    setLocation(DETAILING_BRAND.adminLoginPath);
+  };
 
   const pendingCount = DETAILING_ADMIN_BOOKINGS.filter(
     (b) => b.status === "new_inquiry" || b.status === "pending_approval",
   ).length;
   const totalRevenue = DETAILING_ADMIN_BOOKINGS.reduce((s, b) => s + b.totalPrice, 0);
+
+  if (!ready) {
+    return (
+      <div className="detailing-site min-h-screen bg-black text-white flex items-center justify-center">
+        <p className="text-gray-400 text-sm tech-label tracking-widest uppercase">Loading dashboard…</p>
+      </div>
+    );
+  }
 
   return (
     <div className="detailing-site min-h-screen bg-black text-white">
@@ -82,10 +113,25 @@ export default function DetailingAdminDashboard() {
             </Link>
             <img src={LOGO_URL} alt="" aria-hidden="true" className="logo-img logo-nav logo-shine hidden sm:block" />
           </div>
-          <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#00EAFF] tech-label shrink-0">
-            <LayoutDashboard className="w-4 h-4" />
-            Admin Preview
-          </span>
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {session ? (
+              <span className="hidden md:inline text-xs text-gray-500 mr-1">
+                {session.name}
+              </span>
+            ) : null}
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#00EAFF] tech-label">
+              <LayoutDashboard className="w-4 h-4" />
+              <span className="hidden sm:inline">Dashboard</span>
+            </span>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-[#E6007A] transition-colors px-2 py-1"
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="hidden sm:inline">Log Out</span>
+            </button>
+          </div>
         </div>
       </header>
 

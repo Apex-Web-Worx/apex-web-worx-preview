@@ -119,8 +119,8 @@ export default function PreviewHub() {
                       <Link href="/detailing/book" className="hub-btn-outline">
                         Open Booking (Schedule)
                       </Link>
-                      <Link href="/detailing/admin" className="hub-btn-outline">
-                        Open Admin Dashboard
+                      <Link href="/detailing/admin/login" className="hub-btn-outline">
+                        Admin Login
                       </Link>
                     </>
                   )}

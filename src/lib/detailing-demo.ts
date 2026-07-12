@@ -21,9 +21,16 @@ export const DETAILING_BRAND = {
   previewUrl: "https://preview.apexwebworx.com/detailing",
   bookPath: "/detailing/book",
   adminPath: "/detailing/admin",
+  adminLoginPath: "/detailing/admin/login",
 } as const;
 
-export const DETAILING_BUILD = "2026-07-12-admin";
+export const DETAILING_BUILD = "2026-07-12-adminlogin";
+
+export const DETAILING_ADMIN_DEMO = {
+  email: "owner@eliteautodetailing.example",
+  password: "demo2026",
+  name: "Demo Owner",
+} as const;
 
 export type DetailingBookingStatus =
   | "new_inquiry"

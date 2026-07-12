@@ -102,10 +102,10 @@ export default function DetailingAdminPreviewSection() {
               </p>
             </div>
             <Link
-              href="/detailing/admin"
+              href="/detailing/admin/login"
               className="btn-elite-primary text-sm px-5 py-2.5 text-center shrink-0"
             >
-              Open Full Admin Preview
+              Admin Login
             </Link>
           </div>
 

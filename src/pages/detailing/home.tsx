@@ -905,7 +905,7 @@ export default function DetailingHome() {
                   return (
                     <Link
                       key={item}
-                      href={DETAILING_BRAND.adminPath}
+                      href={DETAILING_BRAND.adminLoginPath}
                       className="font-semibold text-xs lg:text-sm tracking-wider uppercase transition-colors relative group whitespace-nowrap text-gray-300 hover:text-white"
                     >
                       {item}
@@ -944,6 +944,9 @@ export default function DetailingHome() {
                 <Phone className="w-4 h-4 text-[#00EAFF] shrink-0" />
                 <span>Call</span>
               </a>
+              <Link href={DETAILING_BRAND.adminLoginPath} className="btn-elite-outline text-sm px-3 py-2 sm:px-4 sm:py-2.5 shrink-0 hidden md:inline-flex">
+                ADMIN LOGIN
+              </Link>
               <Link href={DETAILING_BRAND.bookPath} className="btn-elite-primary text-sm px-4 py-2 sm:px-5 sm:py-2.5 shrink-0 hidden md:inline-flex">
                 BOOK NOW <ChevronRight className="w-4 h-4 ml-1 hidden sm:inline" />
               </Link>
@@ -977,11 +980,11 @@ export default function DetailingHome() {
                 return (
                   <Link
                     key={item}
-                    href={DETAILING_BRAND.adminPath}
+                    href={DETAILING_BRAND.adminLoginPath}
                     onClick={() => setMobileMenuOpen(false)}
                     className="text-left text-gray-300 hover:text-white font-semibold text-lg tracking-wider uppercase"
                   >
-                    {item}
+                    Admin Login
                   </Link>
                 );
               }
@@ -2111,10 +2114,10 @@ export default function DetailingHome() {
                     return (
                       <li key={item}>
                         <Link
-                          href={DETAILING_BRAND.adminPath}
+                          href={DETAILING_BRAND.adminLoginPath}
                           className="hover:text-white hover:translate-x-1 transition-all flex items-center gap-2"
                         >
-                          <ChevronRight className="w-3 h-3 text-[#00EAFF]" /> {item}
+                          <ChevronRight className="w-3 h-3 text-[#00EAFF]" /> Admin Login
                         </Link>
                       </li>
                     );
