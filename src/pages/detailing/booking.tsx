@@ -109,7 +109,7 @@ export default function DetailingBooking() {
   };
 
   return (
-    <div className="detailing-site min-h-screen bg-[#0a0a0a] text-white font-['Plus_Jakarta_Sans'] overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
+    <div className="detailing-site min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
       <div className="texture-overlay" />
       <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
 
@@ -123,7 +123,7 @@ export default function DetailingBooking() {
             Back to site
           </Link>
           <img
-            src={`${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg?v=2`}
+            src={`${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg?v=3`}
             alt="Elite Auto Detailing"
             className="h-10 sm:h-12 w-auto object-contain logo-shine"
           />

@@ -17,14 +17,11 @@
       </feMerge>
     </filter>
   </defs>
-  <!-- Shield + E monogram (distinct from Apex triangle A) -->
   <path d="M44 18 L76 18 C88 18 96 26 96 38 L96 72 C96 88 76 98 60 104 C44 98 24 88 24 72 L24 38 C24 26 32 18 44 18 Z" fill="url(#eliteGrad)" opacity="0.2"/>
   <path d="M44 22 L72 22 C82 22 90 28 90 38 L90 70 C90 82 74 90 60 95 C46 90 30 82 30 70 L30 38 C30 28 36 22 44 22 Z" stroke="url(#eliteGrad)" stroke-width="2.5" fill="none" filter="url(#eliteGlow)"/>
   <path d="M42 38 L42 78 L58 78 L58 58 L70 58 L70 48 L58 48 L58 38 Z" fill="url(#eliteGrad)" filter="url(#eliteGlow)"/>
-  <!-- Car accent line -->
   <path d="M38 88 C46 84 54 82 60 82 C66 82 74 84 82 88" stroke="#3496FF" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-
-  <text x="112" y="46" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="30" font-weight="800" fill="url(#eliteText)" letter-spacing="0.5">ELITE AUTO</text>
-  <text x="112" y="82" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="700" fill="url(#eliteGrad)" letter-spacing="5">DETAILING</text>
-  <text x="112" y="108" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="#7a7a6b" letter-spacing="3.5">DEMO PREVIEW</text>
+  <text x="112" y="46" font-family="'Exo 2', sans-serif" font-size="30" font-weight="800" font-style="italic" fill="url(#eliteText)" letter-spacing="1">ELITE AUTO</text>
+  <text x="112" y="82" font-family="'Orbitron', sans-serif" font-size="20" font-weight="700" fill="url(#eliteGrad)" letter-spacing="6">DETAILING</text>
+  <text x="112" y="108" font-family="'Orbitron', sans-serif" font-size="10" font-weight="600" fill="#7a7a6b" letter-spacing="3.5">DEMO PREVIEW</text>
 </svg>

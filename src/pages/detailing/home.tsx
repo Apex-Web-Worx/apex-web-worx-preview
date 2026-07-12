@@ -26,7 +26,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const LOGO_URL = `${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg?v=2`;
+const LOGO_URL = `${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg?v=3`;
 const BOOKING_LINK = DETAILING_BRAND.bookPath;
 const INSTAGRAM_LINK = DETAILING_BRAND.instagram;
 const FACEBOOK_LINK = "#";
@@ -876,7 +876,7 @@ export default function DetailingHome() {
   };
 
   return (
-    <div className="detailing-site min-h-screen bg-[#0a0a0a] text-white font-['Plus_Jakarta_Sans'] overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
+    <div className="detailing-site min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden selection:bg-[#A886CD] selection:text-white">
       {/* Texture Overlay */}
       <div className="texture-overlay" />
       <DetailingDisclaimer className="fixed top-0 left-0 right-0 z-[60]" />
