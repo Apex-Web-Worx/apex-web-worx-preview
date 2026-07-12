@@ -26,6 +26,7 @@ import {
   Zap,
 } from "lucide-react";
 
+const LOGO_URL = `${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg?v=2`;
 const BOOKING_LINK = DETAILING_BRAND.bookPath;
 const INSTAGRAM_LINK = DETAILING_BRAND.instagram;
 const FACEBOOK_LINK = "#";
@@ -894,7 +895,7 @@ export default function DetailingHome() {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <img
-                src={`${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg`}
+                src={LOGO_URL}
                 alt="Elite Auto Detailing Logo"
                 className="h-16 md:h-24 lg:h-28 w-auto object-contain logo-shine"
                 
@@ -1048,10 +1049,16 @@ export default function DetailingHome() {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+          <img
+            src={LOGO_URL}
+            alt="Elite Auto Detailing"
+            className="h-16 sm:h-20 md:h-24 w-auto object-contain logo-shine mb-6 sm:mb-8"
+          />
+
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#A886CD]/10 to-[#3496FF]/10 border border-[#A886CD]/30 backdrop-blur-sm mb-6 sm:mb-8 max-w-full">
             <span className="flex h-2 w-2 rounded-full bg-[#3496FF] animate-pulse" />
             <span className="text-[10px] sm:text-sm font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#A886CD] to-[#3496FF] uppercase text-center">
-              Premium Auto Detailing · Metro Area
+              {DETAILING_BRAND.name} · {DETAILING_BRAND.tagline}
             </span>
           </div>
 
@@ -2071,7 +2078,7 @@ export default function DetailingHome() {
             <div className="col-span-1 md:col-span-2 lg:col-span-1">
               <div className="flex items-center mb-6">
                 <img
-                  src={`${import.meta.env.BASE_URL}elite-auto-detailing-logo.svg`}
+                  src={LOGO_URL}
                   alt="Elite Auto Detailing Logo"
                   className="h-14 w-auto object-contain logo-shine"
                   
