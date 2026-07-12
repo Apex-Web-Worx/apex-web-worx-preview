@@ -154,6 +154,49 @@
   animation: detail-logo-shine 2.5s ease-in-out infinite;
 }
 
+.detailing-site .logo-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+.detailing-site .logo-nav {
+  height: 2.5rem;
+  max-width: 9rem;
+}
+
+@media (min-width: 640px) {
+  .detailing-site .logo-nav {
+    height: 2.75rem;
+    max-width: 10rem;
+  }
+}
+
+.detailing-site .logo-hero {
+  width: min(100%, 220px);
+}
+
+@media (min-width: 640px) {
+  .detailing-site .logo-hero {
+    width: min(100%, 260px);
+  }
+}
+
+@media (min-width: 768px) {
+  .detailing-site .logo-hero {
+    width: min(100%, 300px);
+  }
+}
+
+.detailing-site .logo-footer {
+  height: 3.5rem;
+  max-width: 12rem;
+  margin-bottom: 1.5rem;
+}
+
 .detailing-site .nav-brand {
   font-family: 'Exo 2', sans-serif;
   font-style: italic;
@@ -229,7 +272,6 @@
 }
 
 .detailing-site nav {
-  top: var(--detail-disclaimer-h);
   height: var(--detail-nav-h);
   padding-top: 0;
 }

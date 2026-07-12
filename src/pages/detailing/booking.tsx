@@ -123,9 +123,9 @@ export default function DetailingBooking() {
             Back to site
           </Link>
           <img
-            src={`${import.meta.env.BASE_URL}elite-detailing-logo.webp?v=2`}
+            src={`${import.meta.env.BASE_URL}elite-detailing-logo.webp?v=3`}
             alt="Elite Detailing"
-            className="h-10 sm:h-12 w-auto object-contain logo-shine"
+            className="logo-img logo-nav logo-shine"
           />
           <a
             href={`tel:${DETAILING_BRAND.phoneTel}`}
