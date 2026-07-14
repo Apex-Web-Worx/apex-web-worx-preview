@@ -3,7 +3,7 @@ import { useDetailingModal } from "@/contexts/DetailingModalContext";
 import DetailingDisclaimer from "@/components/detailing/DetailingDisclaimer";
 import DetailingAdminPreviewSection from "@/components/detailing/DetailingAdminPreviewSection";
 import "@/styles/detailing.css";
-import { DETAILING_BRAND } from "@/lib/detailing-demo";
+import { DETAILING_BRAND, detailingBookHref } from "@/lib/detailing-demo";
 import { Link } from "wouter";
 import {
   Menu,
@@ -196,7 +196,7 @@ const services = [
     description:
       "Restore your paint to a flawless, mirror-like finish. We offer four levels of correction depending on the condition of your vehicle and the result you're after — from a quick gloss refresh to full show-level restoration.",
     icon: <Sparkles className="w-10 h-10 text-[#E6007A]" />,
-    pricing: "$300+",
+    pricing: "$300",
     pricingDetails: [
       "Paint Enhancement — starting at $300: Light machine polish for added gloss, minor haze removal, and better shine. Great for vehicles that just need a refresh.",
       "1-Step Paint Correction — starting at $600: Includes wash, iron removal, clay bar, single-stage machine polish, and sealant. Removes light swirls, haze, and minor defects.",
@@ -662,10 +662,10 @@ export default function DetailingHome() {
   };
 
   const aboutImages = [
-    `${import.meta.env.BASE_URL}detailing/images/hero-1.jpg`,
-    `${import.meta.env.BASE_URL}detailing/images/hero-2.jpg`,
-    `${import.meta.env.BASE_URL}detailing/images/hero-1.jpg`,
-    `${import.meta.env.BASE_URL}detailing/images/hero-2.jpg`,
+    `${import.meta.env.BASE_URL}detailing/images/hero-1.jpg?v=ai1`,
+    `${import.meta.env.BASE_URL}detailing/images/hero-2.jpg?v=ai1`,
+    `${import.meta.env.BASE_URL}detailing/images/hero-1.jpg?v=ai1`,
+    `${import.meta.env.BASE_URL}detailing/images/hero-2.jpg?v=ai1`,
   ];
 
   // Auto-rotate images
@@ -961,9 +961,16 @@ export default function DetailingHome() {
                 <Phone className="w-4 h-4 text-[#00EAFF] shrink-0" />
                 <span>Call</span>
               </a>
-              <Link href={DETAILING_BRAND.adminLoginPath} className="btn-elite-outline text-sm px-3 py-2 sm:px-4 sm:py-2.5 shrink-0 hidden md:inline-flex">
+              <Link href={DETAILING_BRAND.adminLoginPath} className="btn-elite-outline text-sm px-3 py-2 sm:px-4 sm:py-2.5 shrink-0 hidden lg:inline-flex">
                 ADMIN LOGIN
               </Link>
+              <button
+                type="button"
+                onClick={() => showDetailingModal()}
+                className="btn-elite-outline text-sm px-3 py-2 sm:px-4 sm:py-2.5 shrink-0 hidden md:inline-flex"
+              >
+                GIFT CARD
+              </button>
               <Link href={DETAILING_BRAND.bookPath} className="btn-elite-primary text-sm px-4 py-2 sm:px-5 sm:py-2.5 shrink-0 hidden md:inline-flex">
                 BOOK NOW <ChevronRight className="w-4 h-4 ml-1 hidden sm:inline" />
               </Link>
@@ -1016,6 +1023,17 @@ export default function DetailingHome() {
               );
             })}
             <Link
+              href="#gift-cards"
+              onClick={(e) => {
+                e.preventDefault();
+                showDetailingModal();
+                setMobileMenuOpen(false);
+              }}
+              className="btn-elite-outline w-full text-center"
+            >
+              GIFT CARD
+            </Link>
+            <Link
               href={DETAILING_BRAND.adminLoginPath}
               onClick={() => setMobileMenuOpen(false)}
               className="btn-elite-outline w-full text-center"
@@ -1033,49 +1051,36 @@ export default function DetailingHome() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section — photography-led */}
       <section
         id="home"
         className="relative min-h-[calc(100dvh-var(--detail-header-offset))] sm:min-h-screen flex items-center overflow-hidden pt-[var(--detail-header-offset)]"
       >
-        {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src={`${import.meta.env.BASE_URL}detailing/images/hero-2.jpg`}
-            alt="Elite Detailing freshly detailed vehicle"
-            className="w-full h-full object-cover opacity-25"
+            src={`${import.meta.env.BASE_URL}detailing/images/hero-2.jpg?v=ai1`}
+            alt="Elite Detailing freshly detailed luxury interior"
+            className="w-full h-full object-cover object-center opacity-70 sm:opacity-75"
             loading="eager"
             fetchPriority="high"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/40" />
         </div>
-        {/* Soap Bubbles in Header */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-          <div className="soap-bubble absolute bottom-[5%] left-[5%] w-12 h-12" style={{ animationDuration: '16s', animationDelay: '0s' }} />
-          <div className="soap-bubble absolute bottom-[10%] left-[15%] w-16 h-16" style={{ animationDuration: '18s', animationDelay: '1s' }} />
-          <div className="soap-bubble absolute bottom-[8%] right-[10%] w-20 h-20" style={{ animationDuration: '20s', animationDelay: '2s' }} />
-          <div className="soap-bubble absolute bottom-[15%] right-[5%] w-14 h-14" style={{ animationDuration: '17s', animationDelay: '0.5s' }} />
-          <div className="soap-bubble absolute bottom-[3%] left-[40%] w-10 h-10" style={{ animationDuration: '19s', animationDelay: '1.5s' }} />
-          <div className="soap-bubble absolute bottom-[12%] left-[25%] w-6 h-6" style={{ animationDuration: '15s', animationDelay: '0.8s' }} />
-          <div className="soap-bubble absolute bottom-[7%] right-[20%] w-8 h-8" style={{ animationDuration: '17s', animationDelay: '2.5s' }} />
-          <div className="soap-bubble absolute bottom-[20%] left-[60%] w-7 h-7" style={{ animationDuration: '16s', animationDelay: '1.2s' }} />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-40 hidden sm:block" aria-hidden="true">
+          <div className="soap-bubble absolute bottom-[8%] right-[12%] w-14 h-14" style={{ animationDuration: "20s", animationDelay: "0s" }} />
+          <div className="soap-bubble absolute bottom-[15%] left-[10%] w-10 h-10" style={{ animationDuration: "17s", animationDelay: "1s" }} />
         </div>
 
-          <div className="absolute inset-0 z-0 opacity-50">
-          <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-[#E6007A] rounded-full mix-blend-screen filter blur-[100px] animate-[pulse_8s_ease-in-out_infinite]" />
-          <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-[#00EAFF] rounded-full mix-blend-screen filter blur-[100px] animate-[pulse_8s_ease-in-out_infinite_1s]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black" />
-        </div>
-
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center py-6 sm:py-10">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center py-8 sm:py-12">
           <img
             src={LOGO_URL}
             alt="Elite Detailing"
-            className="logo-img logo-hero logo-shine mb-4 sm:mb-5"
+            className="logo-img logo-hero logo-shine mb-4 sm:mb-5 drop-shadow-[0_8px_32px_rgba(0,0,0,0.65)]"
           />
 
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-4 sm:mb-5 drop-shadow-2xl uppercase max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-4 sm:mb-5 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] uppercase max-w-4xl">
             Elevating Your Ride to{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-white to-[#00EAFF]">
               Peak Shine
@@ -1248,7 +1253,7 @@ export default function DetailingHome() {
                     ))}
                   </ul>
                   <Link
-                    href={DETAILING_BRAND.bookPath}
+                    href={detailingBookHref(service.id)}
                     className="mt-auto inline-flex items-center gap-2 font-bold text-sm tracking-widest text-white uppercase group/btn cursor-pointer"
                   >
                     Book Now{" "}

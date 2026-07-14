@@ -24,7 +24,7 @@ export const DETAILING_BRAND = {
   adminLoginPath: "/detailing/admin/login",
 } as const;
 
-export const DETAILING_BUILD = "2026-07-14-ai-reviews";
+export const DETAILING_BUILD = "2026-07-14-hero-polish";
 
 export const DETAILING_ADMIN_DEMO = {
   email: "owner@eliteautodetailing.example",
@@ -138,8 +138,8 @@ export const BOOKING_SERVICES: DemoBookingService[] = [
     slug: "full-detailing",
     name: "Full Detailing",
     description: "Complete interior and exterior transformation with protection.",
-    priceCents: 35000,
-    priceLabel: "From $350",
+    priceCents: 30000,
+    priceLabel: "From $300",
     durationMinutes: 240,
     badge: "value",
   },
@@ -155,8 +155,8 @@ export const BOOKING_SERVICES: DemoBookingService[] = [
   },
   {
     id: "3",
-    slug: "express-interior",
-    name: "Express Interior",
+    slug: "express-interior-detailing",
+    name: "Express Interior Detailing",
     description: "Quick but thorough interior refresh for well-maintained vehicles.",
     priceCents: 10000,
     priceLabel: "From $100",
@@ -196,7 +196,7 @@ export const BOOKING_SERVICES: DemoBookingService[] = [
     name: "Ceramic Coating",
     description: "Long-lasting hydrophobic paint protection.",
     priceCents: 0,
-    priceLabel: "Custom Quote",
+    priceLabel: "Call for Quote",
     durationMinutes: 480,
     badge: "notice",
   },
@@ -210,6 +210,21 @@ export const BOOKING_SERVICES: DemoBookingService[] = [
     durationMinutes: 360,
   },
 ];
+
+export function detailingBookHref(serviceSlug?: string) {
+  if (!serviceSlug) return DETAILING_BRAND.bookPath;
+  return `${DETAILING_BRAND.bookPath}?service=${encodeURIComponent(serviceSlug)}`;
+}
+
+export function findBookingServiceBySlug(slug: string | null | undefined) {
+  if (!slug) return undefined;
+  const normalized = slug.trim().toLowerCase();
+  const aliases: Record<string, string> = {
+    "express-interior": "express-interior-detailing",
+  };
+  const target = aliases[normalized] ?? normalized;
+  return BOOKING_SERVICES.find((s) => s.slug === target || s.slug === normalized);
+}
 
 export const BOOKING_TIME_SLOTS = [
   "8:00 AM",

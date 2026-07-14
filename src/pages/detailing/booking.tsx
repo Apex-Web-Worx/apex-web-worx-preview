@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import "@/styles/detailing.css";
 import DetailingDisclaimer from "@/components/detailing/DetailingDisclaimer";
@@ -9,6 +9,7 @@ import {
   BOOKING_TIME_SLOTS,
   DETAILING_BRAND,
   DETAILING_DISCLAIMER,
+  findBookingServiceBySlug,
   formatDuration,
   todayStr,
   type DemoBookingService,
@@ -70,8 +71,14 @@ export default function DetailingBooking() {
   const { showDetailingModal } = useDetailingModal();
   const calendarDays = useMemo(() => buildCalendarDays(), []);
 
+  const preselected = useMemo(() => {
+    if (typeof window === "undefined") return null;
+    const params = new URLSearchParams(window.location.search);
+    return findBookingServiceBySlug(params.get("service")) ?? null;
+  }, []);
+
   const [step, setStep] = useState<Step>("service");
-  const [selectedService, setSelectedService] = useState<DemoBookingService | null>(null);
+  const [selectedService, setSelectedService] = useState<DemoBookingService | null>(preselected);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [form, setForm] = useState({
@@ -82,6 +89,12 @@ export default function DetailingBooking() {
     notes: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (preselected) {
+      setSelectedService(preselected);
+    }
+  }, [preselected]);
 
   const stepIndex = STEPS.findIndex((s) => s.id === step);
 
@@ -152,6 +165,11 @@ export default function DetailingBooking() {
             <p className="text-gray-400 max-w-xl mx-auto">
               Choose your service, pick a time, and confirm — the same booking flow a production site uses.
             </p>
+            {selectedService && preselected?.id === selectedService.id ? (
+              <p className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#00EAFF]/10 border border-[#00EAFF]/30 text-[#00EAFF]">
+                Preselected: {selectedService.name}
+              </p>
+            ) : null}
           </div>
 
           {/* Progress */}
