@@ -145,7 +145,7 @@ export default function DetailingBooking() {
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">
               Book Your{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Detail
               </span>
             </h1>
@@ -166,7 +166,7 @@ export default function DetailingBooking() {
                   <div
                     className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-colors ${
                       i < stepIndex
-                        ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF] border-transparent"
+                        ? "bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] border-transparent"
                         : i === stepIndex
                           ? "border-[#00EAFF] bg-[#00EAFF]/10"
                           : "border-white/20 bg-white/5"
@@ -181,7 +181,7 @@ export default function DetailingBooking() {
                 {i < STEPS.length - 1 && (
                   <div
                     className={`w-6 sm:w-12 h-0.5 ${
-                      i < stepIndex ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF]" : "bg-white/10"
+                      i < stepIndex ? "bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]" : "bg-white/10"
                     }`}
                   />
                 )}
@@ -214,7 +214,7 @@ export default function DetailingBooking() {
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <h3 className="font-bold text-white">{service.name}</h3>
                           {badge && (
-                            <span className="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+                            <span className="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                               {badge}
                             </span>
                           )}
@@ -419,7 +419,7 @@ export default function DetailingBooking() {
                   <button
                     type="button"
                     onClick={handleSubmit}
-                    className="w-full py-4 rounded-xl font-black uppercase tracking-wide bg-gradient-to-r from-[#E6007A] to-[#00EAFF] hover:shadow-[0_0_30px_rgba(0,234,255,0.4)] transition-all"
+                    className="w-full py-4 rounded-xl font-black uppercase tracking-wide bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] hover:shadow-[0_0_30px_rgba(0,234,255,0.4)] transition-all"
                   >
                     Confirm Booking
                   </button>
@@ -444,7 +444,7 @@ export default function DetailingBooking() {
                   type="button"
                   onClick={goNext}
                   disabled={!canContinue}
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 min-h-[48px] rounded-xl font-black text-sm uppercase tracking-wide bg-gradient-to-r from-[#E6007A] to-[#00EAFF] disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-[0_0_20px_rgba(0,234,255,0.3)] transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 min-h-[48px] rounded-xl font-black text-sm uppercase tracking-wide bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-[0_0_20px_rgba(0,234,255,0.3)] transition-all"
                 >
                   Continue <ChevronRight className="w-4 h-4" />
                 </button>

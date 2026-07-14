@@ -385,7 +385,7 @@ function AddonsSection() {
         {/* Interior Addons */}
         <div>
           <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
               Interior Addons
             </span>
           </h3>
@@ -403,7 +403,7 @@ function AddonsSection() {
         {/* Exterior Addons */}
         <div>
           <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
               Exterior Addons
             </span>
           </h3>
@@ -953,7 +953,7 @@ export default function DetailingHome() {
                     }`}
                   >
                     {item}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] transition-all duration-300 group-hover:w-full" />
                   </a>
                 );
               })}
@@ -1071,10 +1071,12 @@ export default function DetailingHome() {
           <div className="soap-bubble absolute bottom-[6%] left-[45%] w-10 h-10" style={{ animationDuration: '24s', animationDelay: '1s' }} />
         </div>
 
-          <div className="absolute inset-0 z-0 opacity-40">
-          <div className="detail-glow-orb absolute top-[20%] left-[10%] w-96 h-96 bg-[#E6007A] rounded-full mix-blend-screen filter blur-[100px]" />
-          <div className="detail-glow-orb absolute bottom-[20%] right-[10%] w-96 h-96 bg-[#00EAFF] rounded-full mix-blend-screen filter blur-[100px]" style={{ animationDelay: "3s" }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black" />
+          <div className="absolute inset-0 z-0 opacity-45">
+          <div className="detail-glow-orb absolute top-[18%] left-[8%] w-96 h-96 bg-[#E6007A] rounded-full mix-blend-screen filter blur-[100px]" />
+          <div className="detail-glow-orb absolute top-[35%] right-[18%] w-72 h-72 bg-[#A855F7] rounded-full mix-blend-screen filter blur-[90px]" style={{ animationDelay: "2s" }} />
+          <div className="detail-glow-orb absolute bottom-[18%] right-[8%] w-96 h-96 bg-[#00EAFF] rounded-full mix-blend-screen filter blur-[100px]" style={{ animationDelay: "4s" }} />
+          <div className="detail-glow-orb absolute bottom-[30%] left-[30%] w-64 h-64 bg-[#7CFF6B] rounded-full mix-blend-screen filter blur-[110px] opacity-40" style={{ animationDelay: "1s" }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/75 to-black" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center py-6 sm:py-10">
@@ -1086,21 +1088,21 @@ export default function DetailingHome() {
 
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-4 sm:mb-5 drop-shadow-2xl uppercase max-w-4xl">
             Elevating Your Ride to{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-white to-[#00EAFF]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
               Peak Shine
             </span>
           </h1>
 
-          <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-[#E6007A]/30 mb-6 max-w-xl">
-            <span className="flex h-2 w-2 rounded-full bg-[#00EAFF] animate-pulse shrink-0" />
-            <span className="text-[10px] sm:text-xs font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#E6007A] to-[#00EAFF] uppercase tech-label">
+          <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-[#A855F7]/35 mb-6 max-w-xl">
+            <span className="flex h-2 w-2 rounded-full bg-[#7CFF6B] animate-pulse shrink-0" />
+            <span className="text-[10px] sm:text-xs font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] uppercase tech-label">
               {DETAILING_BRAND.tagline}
             </span>
           </p>
 
           <p className="max-w-2xl text-sm sm:text-base md:text-lg text-gray-300 mb-8 font-medium px-1">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#FF1493] to-[#00EAFF]">Premium auto detailing, ceramic coating, and paint correction</span> services serving
-            <span className="text-[#00EAFF] font-bold"> the greater metro area</span>. We bring the showroom shine to your vehicle.
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF2EC8] via-[#A855F7] to-[#00EAFF]">Premium auto detailing, ceramic coating, and paint correction</span> services serving
+            <span className="text-[#38BDF8] font-bold"> the greater metro area</span>. We bring the showroom shine to your vehicle.
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-3xl">
@@ -1167,8 +1169,8 @@ export default function DetailingHome() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 relative border-t border-white/5 bg-[#0a0a0f] overflow-hidden">
-        {/* Soap Bubbles in Services Section Background */}
+      <section id="services" className="py-24 relative border-t border-white/5 bg-[#080812]/80 overflow-hidden">
+        <div className="detail-section-wash" aria-hidden="true" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-60" aria-hidden="true">
           <div className="soap-bubble absolute bottom-[8%] left-[8%] w-12 h-12" style={{ animationDuration: '24s', animationDelay: '0s' }} />
           <div className="soap-bubble absolute bottom-[12%] right-[10%] w-14 h-14" style={{ animationDuration: '28s', animationDelay: '2s' }} />
@@ -1180,7 +1182,7 @@ export default function DetailingHome() {
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">
               Elite{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Services
               </span>
             </h3>
@@ -1212,7 +1214,7 @@ export default function DetailingHome() {
                   <h4 className="text-2xl font-black mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#E6007A] group-hover:to-[#00EAFF] transition-all duration-300 flex items-center flex-wrap gap-2">
                     {service.title}
                     {service.id === "interior-detailing" && (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#E6007A] to-[#00EAFF] text-white group-hover:bg-none group-hover:bg-white group-hover:text-black transition-colors">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] text-white group-hover:bg-none group-hover:bg-white group-hover:text-black transition-colors">
                         <Star className="w-3 h-3" fill="currentColor" /> Most Booked
                       </span>
                     )}
@@ -1222,7 +1224,7 @@ export default function DetailingHome() {
                       </span>
                     )}
                     {service.id === "express-interior-detailing" && (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#E6007A] to-[#00EAFF] text-white group-hover:bg-none group-hover:bg-white group-hover:text-black transition-colors">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] text-white group-hover:bg-none group-hover:bg-white group-hover:text-black transition-colors">
                         <Zap className="w-3 h-3" /> Express
                       </span>
                     )}
@@ -1233,7 +1235,7 @@ export default function DetailingHome() {
                         Starting at
                       </p>
                     )}
-                    <p className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+                    <p className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                       {service.pricing}
                     </p>
                   </div>
@@ -1279,7 +1281,7 @@ export default function DetailingHome() {
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
               Three Simple{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Steps
               </span>
             </h3>
@@ -1291,7 +1293,7 @@ export default function DetailingHome() {
               { step: "03", title: "Drive Happy", desc: "Step into a like-new vehicle and enjoy long-lasting protection and shine.", icon: <Car className="w-7 h-7 text-[#00EAFF]" /> },
             ].map((s) => (
               <div key={s.step} className="relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
-                <div className="text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF] mb-4">{s.step}</div>
+                <div className="text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] mb-4">{s.step}</div>
                 <div className="mb-4">{s.icon}</div>
                 <h4 className="text-xl font-black uppercase tracking-tight mb-2">{s.title}</h4>
                 <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
@@ -1349,7 +1351,7 @@ export default function DetailingHome() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-gradient-to-br from-[#E6007A] to-[#00EAFF] rounded-2xl -z-10 blur-xl opacity-50" />
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-gradient-to-br from-[#E6007A] via-[#A855F7] to-[#00EAFF] rounded-2xl -z-10 blur-xl opacity-50" />
             </div>
 
             <div className="order-1 lg:order-2">
@@ -1358,7 +1360,7 @@ export default function DetailingHome() {
               </h2>
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight mb-6 sm:mb-8 leading-tight">
                 Welcome to{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                   Elite Detailing
                 </span>
               </h3>
@@ -1381,7 +1383,7 @@ export default function DetailingHome() {
                 </p>
                 <div className="mt-8 flex items-center gap-5 p-5 rounded-2xl bg-white/[0.03] border border-white/10">
                   <div className="relative shrink-0">
-                    <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#E6007A] to-[#00EAFF] blur-md opacity-60" />
+                    <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#E6007A] via-[#A855F7] to-[#00EAFF] blur-md opacity-60" />
                     <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#E6007A]/30 to-[#00EAFF]/30 border-2 border-white/20 flex items-center justify-center">
                       <Sparkles className="w-10 h-10 text-[#00EAFF]" />
                     </div>
@@ -1449,7 +1451,7 @@ export default function DetailingHome() {
               See the Difference
             </h2>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-              Before & After <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">Transformations</span>
+              Before & After <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">Transformations</span>
             </h3>
           </div>
 
@@ -1508,7 +1510,7 @@ export default function DetailingHome() {
 
               {/* Handle */}
               <div
-                className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[#E6007A] to-[#00EAFF] cursor-col-resize"
+                className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[#E6007A] via-[#A855F7] to-[#00EAFF] cursor-col-resize"
                 style={{ left: `${sliderPosition}%` }}
               >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center transition-all">
@@ -1562,7 +1564,7 @@ export default function DetailingHome() {
                   onClick={() => setCurrentSliderIndex(idx)}
                   className={`min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-full transition-all ${
                     idx === currentSliderIndex
-                      ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF] scale-110"
+                      ? "bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] scale-110"
                       : "bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Show transformation ${idx + 1}`}
@@ -1585,7 +1587,7 @@ export default function DetailingHome() {
               </h2>
               <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
                 Results That{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                   Speak
                 </span>
               </h3>
@@ -1665,13 +1667,13 @@ export default function DetailingHome() {
                       Finished results
                     </span>
                   )}
-                  <h4 className="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF] opacity-85" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 1px 2px rgba(0,0,0,0.6))' }}>{item.title}</h4>
+                  <h4 className="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] opacity-85" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 1px 2px rgba(0,0,0,0.6))' }}>{item.title}</h4>
                   {item.images && item.images.length > 1 && (
                     <p className="text-xs text-gray-300 mt-2">
                       {item.images.length} {item.images.length === 1 ? 'result' : 'results'}
                     </p>
                   )}
-                  <div className="w-12 h-1 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+                  <div className="w-12 h-1 bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
                 </div>
               </div>
             ))}
@@ -1683,7 +1685,7 @@ export default function DetailingHome() {
               href={INSTAGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 font-black text-white text-base sm:text-lg transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(168,134,205,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] sm:hover:scale-105"
+              className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 font-black text-white text-base sm:text-lg transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(168,134,205,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] sm:hover:scale-105"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00EAFF] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative flex items-center gap-3">
@@ -1736,7 +1738,7 @@ export default function DetailingHome() {
                 
                 {/* Before/After Label */}
                 {selectedGalleryItem.beforeAfter && typeof selectedGalleryItem.images[currentImageIndex] === 'object' && (
-                  <div className="absolute top-6 left-6 bg-gradient-to-r from-[#E6007A] to-[#00EAFF] text-white px-4 py-2 rounded-full font-bold text-lg shadow-lg opacity-85">
+                  <div className="absolute top-6 left-6 bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] text-white px-4 py-2 rounded-full font-bold text-lg shadow-lg opacity-85">
                     {selectedGalleryItem.images[currentImageIndex].label}
                   </div>
                 )}
@@ -1798,7 +1800,7 @@ export default function DetailingHome() {
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
               AI-Generated{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Client Stories
               </span>
             </h3>
@@ -1841,7 +1843,7 @@ export default function DetailingHome() {
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">
               AI-Generated{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Demo Feedback
               </span>
             </h3>
@@ -1856,7 +1858,7 @@ export default function DetailingHome() {
                 { rating: "5h", reviews: "Response", description: "Support Time" },
               ].map((stat, i) => (
                 <div key={i} className="text-center p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-colors">
-                  <p className="text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF] mb-2">
+                  <p className="text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] mb-2">
                     {stat.rating}
                   </p>
                   <p className="text-gray-300 font-bold mb-2">{stat.reviews}</p>
@@ -1908,7 +1910,7 @@ export default function DetailingHome() {
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
               Serving the{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Metro Area
               </span>
             </h3>
@@ -1977,7 +1979,7 @@ export default function DetailingHome() {
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
               Frequently Asked{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Questions
               </span>
             </h3>
@@ -1994,7 +1996,7 @@ export default function DetailingHome() {
                 }}
                 className={`px-4 sm:px-5 py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 border ${
                   activeFaqCategory === cat
-                    ? "bg-gradient-to-r from-[#E6007A] to-[#00EAFF] text-white border-transparent shadow-[0_0_20px_rgba(0,234,255,0.3)]"
+                    ? "bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] text-white border-transparent shadow-[0_0_20px_rgba(0,234,255,0.3)]"
                     : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30 hover:text-white"
                 }`}
               >
@@ -2049,8 +2051,8 @@ export default function DetailingHome() {
       {/* CTA Section */}
       <section className="py-24 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-3xl overflow-hidden bg-[#111] border border-white/10 p-10 md:p-20 text-center">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-full bg-gradient-to-b from-[#E6007A]/20 to-[#00EAFF]/20 blur-3xl" />
+          <div className="relative rounded-3xl overflow-hidden bg-[#111122] border border-[#A855F7]/20 p-10 md:p-20 text-center">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-full bg-gradient-to-b from-[#E6007A]/25 via-[#A855F7]/20 to-[#00EAFF]/25 blur-3xl" />
 
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6">
@@ -2067,7 +2069,7 @@ export default function DetailingHome() {
               </div>
               <Link
                 href={DETAILING_BRAND.bookPath}
-                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 font-black text-white text-lg sm:text-xl transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(230,0,122,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] sm:hover:scale-105 cursor-pointer"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 font-black text-white text-lg sm:text-xl transition-all duration-300 ease-in-out bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(230,0,122,0.4)] hover:shadow-[0_0_60px_rgba(0,234,255,0.6)] sm:hover:scale-105 cursor-pointer"
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00EAFF] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative flex items-center gap-3">
@@ -2300,7 +2302,7 @@ export default function DetailingHome() {
           <Link
             href={DETAILING_BRAND.bookPath}
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-center gap-2 px-3 py-3 min-h-[48px] rounded-lg bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-black text-sm text-white shadow-[0_0_15px_rgba(0,234,255,0.4)]"
+            className="flex items-center justify-center gap-2 px-3 py-3 min-h-[48px] rounded-lg bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] font-black text-sm text-white shadow-[0_0_15px_rgba(0,234,255,0.4)]"
           >
             BOOK NOW
             <ChevronRight className="w-4 h-4" />
@@ -2387,7 +2389,7 @@ export default function DetailingHome() {
 
             <button
               onClick={() => setLegalModal(null)}
-              className="mt-6 w-full py-3 rounded-lg bg-gradient-to-r from-[#E6007A] to-[#00EAFF] font-black text-white"
+              className="mt-6 w-full py-3 rounded-lg bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF] font-black text-white"
             >
               Close
             </button>

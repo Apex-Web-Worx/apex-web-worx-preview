@@ -140,7 +140,7 @@ export default function DetailingAdminDashboard() {
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tight mb-2">
             Booking{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
               Dashboard
             </span>
           </h1>
@@ -167,7 +167,7 @@ export default function DetailingAdminDashboard() {
             <div className="flex items-center gap-2 text-gray-500 text-xs uppercase tracking-widest mb-2 tech-label">
               <DollarSign className="w-4 h-4 text-[#00EAFF]" /> Est. Revenue
             </div>
-            <p className="text-3xl font-black italic bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+            <p className="text-3xl font-black italic bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
               ${totalRevenue.toLocaleString()}
             </p>
           </div>

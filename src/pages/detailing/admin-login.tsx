@@ -64,7 +64,7 @@ export default function DetailingAdminLogin() {
             </span>
             <h1 className="text-3xl font-black italic uppercase tracking-tight mb-2">
               Owner{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]">
                 Login
               </span>
             </h1>
