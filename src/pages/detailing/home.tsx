@@ -260,59 +260,59 @@ const gallery = [
 
   const testimonials = [
     {
-      text: "Elite Detailing detailed our fleet vehicles — two trucks, a sedan, a minivan, and an SUV. Every vehicle looked brand new. We'll definitely be back with our personal cars.",
-      author: "Local Business Client",
-      name: "Local Business Client",
-      location: "Metro Area",
+      text: "Booked a full detail before a long road trip and the car looked flawless — deep gloss outside, fresh cabin inside. Scheduling online was easy and the team finished right on time.",
+      author: "Jordan Hale",
+      name: "Jordan Hale",
+      location: "Sample Review",
     },
-  {
-    name: "Sarah W.",
-    location: "Metro Area",
-    text: "The interior detail was mind-blowing. With two kids, my SUV was a disaster zone. They got out stains I thought were permanent and it smells brand new again.",
-  },
-  {
-    name: "Jennifer M.",
-    location: "Metro Area",
-    text: "They completely restored my headlights and the difference is night and day. Professional, thorough, and they even took care to protect my vehicle. Highly recommend!",
-  },
-];
+    {
+      name: "Priya N.",
+      location: "Sample Review",
+      text: "Kids, snacks, and cup holders full of mystery mess — they handled it. Stains are gone, leather feels soft again, and it still smells clean weeks later.",
+    },
+    {
+      name: "Marcus T.",
+      location: "Sample Review",
+      text: "My headlights were yellow and dull until the restoration. Night driving feels safer and the exterior polish made the paint pop. Worth every dollar.",
+    },
+  ];
 
 const googleReviews = [
   {
-    name: "David S.",
+    name: "Ava R.",
     rating: 5,
-    date: "Google Review",
-    text: "The waxing service was fantastic and very reasonable. Made my BMW X5 look brand new. Extra wheel treatment at no charge. Very professional team that knows detailing inside and out.",
+    date: "AI-generated sample",
+    text: "Paint correction on my dark sedan removed swirls I thought were permanent. Water beads beautifully now and the ceramic-ready finish looks showroom-level.",
   },
   {
-    name: "Larry P.",
+    name: "Chris L.",
     rating: 5,
-    date: "Google Review",
-    text: "Elite Detailing detailed our work vehicles including trucks, sedans, and an SUV. Every vehicle looked brand new. We'll definitely be bringing our personal vehicles back.",
+    date: "AI-generated sample",
+    text: "Used Elite for our small business fleet — vans and pickups alike came back looking brand new. Clear communication and consistent quality across every vehicle.",
   },
   {
-    name: "Mark C.",
+    name: "Elena V.",
     rating: 5,
-    date: "Google Review",
-    text: "Elite Detailing made our Honda look like the day it was new. Highly recommend for anyone looking to restore their vehicle to showroom condition.",
+    date: "AI-generated sample",
+    text: "Interior detail was next-level. They steamed crevices I never think about and left carpets looking like factory new. Booking the follow-up already.",
   },
   {
-    name: "Darrell C.",
+    name: "Noah K.",
     rating: 5,
-    date: "Google Review",
-    text: "Had the exterior of my truck detailed and could not believe how great it looked — like brand new. Top-tier performance and attention to detail. Will definitely be going back.",
+    date: "AI-generated sample",
+    text: "Exterior package on my truck exceeded expectations. Rims, glass, and bodywork all crystal clear. Fair price for this level of care.",
   },
   {
-    name: "Zach M.",
+    name: "Sofia M.",
     rating: 5,
-    date: "Google Review",
-    text: "Great job detailing our SUV. Very professional and reasonably priced.",
+    date: "AI-generated sample",
+    text: "Quick turnaround without cutting corners. Staff walked me through add-ons, stayed transparent on timing, and my SUV has never felt this clean.",
   },
   {
-    name: "Nicolle M.",
+    name: "Diego P.",
     rating: 5,
-    date: "Google Review",
-    text: "Got my car looking better than ever. The team is detail oriented and made my car shine inside and out. Turnaround time was great.",
+    date: "AI-generated sample",
+    text: "Combined headlight restoration with a full exterior wash and wax. Difference at night is huge, and the paint has a deep wet shine I get compliments on.",
   },
 ];
 
@@ -1114,13 +1114,15 @@ export default function DetailingHome() {
             </button>
           </div>
 
-          {/* Google Reviews Badge */}
+          {/* Sample Reviews Badge */}
           <a
-            href={GOOGLE_REVIEWS_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#testimonials"
             className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm hover:border-[#FFA500]/60 transition-colors"
-            aria-label="See our Google reviews"
+            aria-label="See sample AI-generated reviews"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("testimonials");
+            }}
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -1134,7 +1136,7 @@ export default function DetailingHome() {
                 <Star key={s} className="w-3.5 h-3.5 text-[#FFA500]" fill="currentColor" />
               ))}
             </div>
-            <span className="text-gray-300 text-xs sm:text-sm font-medium">on Google</span>
+            <span className="text-gray-300 text-xs sm:text-sm font-medium">AI sample reviews</span>
           </a>
 
           <div className="mt-10 flex flex-wrap justify-center items-center gap-6 sm:gap-8 opacity-80 hover:opacity-100 transition-all duration-500">
@@ -1144,7 +1146,7 @@ export default function DetailingHome() {
             </div>
             <div className="flex items-center gap-2">
               <Award className="w-6 h-6 text-[#00EAFF]" />
-              <span className="font-bold">5.0★ on Google</span>
+              <span className="font-bold">Demo · AI Reviews</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-6 h-6 text-[#E6007A]" />
@@ -1790,12 +1792,12 @@ export default function DetailingHome() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold tracking-widest text-[#E6007A] uppercase mb-3">
-              Testimonials
+              Sample Testimonials
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
-              Client{" "}
+              AI-Generated{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
-                Reactions
+                Client Stories
               </span>
             </h3>
           </div>
@@ -1833,16 +1835,16 @@ export default function DetailingHome() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-20">
             <h2 className="text-sm font-bold tracking-widest text-[#00EAFF] uppercase mb-3">
-              Google Reviews
+              Sample Reviews
             </h2>
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">
-              Trusted by Our{" "}
+              AI-Generated{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E6007A] to-[#00EAFF]">
-                Happy Customers
+                Demo Feedback
               </span>
             </h3>
             <p className="text-gray-400 text-lg mb-8">
-              See what our clients are saying about Elite Detailing. We maintain a 5-star rating across all platforms.
+              These reviews are AI-generated sample content for this demo only — not real Google reviews or customer testimonials.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
