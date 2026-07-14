@@ -242,7 +242,7 @@ const gallery = [
     { src: `${import.meta.env.BASE_URL}detailing/images/interior-before-7.jpg`, label: "Before" },
     { src: `${import.meta.env.BASE_URL}detailing/images/interior-after-7.jpg`, label: "After" },
   ], currentImageIndex: 0 },
-  { id: 4, title: "Exterior Detail", beforeAfter: true, color: "from-pink-950 to-black", thumbnail: `${import.meta.env.BASE_URL}detailing/images/exterior-detail-thumbnail.jpg`, video: `${import.meta.env.BASE_URL}detailing/images/exterior-after-1.jpg`, images: [
+  { id: 4, title: "Exterior Detail", beforeAfter: true, color: "from-pink-950 to-black", thumbnail: `${import.meta.env.BASE_URL}detailing/images/exterior-detail-thumbnail.jpg`, images: [
     { src: `${import.meta.env.BASE_URL}detailing/images/exterior-before-1.jpg`, label: "Before" },
     { src: `${import.meta.env.BASE_URL}detailing/images/exterior-after-1.jpg`, label: "After" },
     { src: `${import.meta.env.BASE_URL}detailing/images/exterior-before-2.jpg`, label: "Before" },
@@ -1601,7 +1601,7 @@ export default function DetailingHome() {
                 className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer w-full"
                 onClick={() => handleGalleryItemClick(item)}
               >
-                {item.video && !failedVideos.has(item.id) ? (
+                {item.video && !failedVideos.has(item.id) && /\.(mp4|webm|mov)(\?|$)/i.test(item.video) ? (
                   <>
                     <video
                       src={item.video}
