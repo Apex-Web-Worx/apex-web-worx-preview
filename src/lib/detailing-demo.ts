@@ -24,7 +24,7 @@ export const DETAILING_BRAND = {
   adminLoginPath: "/detailing/admin/login",
 } as const;
 
-export const DETAILING_BUILD = "2026-07-12-mobile";
+export const DETAILING_BUILD = "2026-07-14-no-ceramic-gallery";
 
 export const DETAILING_ADMIN_DEMO = {
   email: "owner@eliteautodetailing.example",
