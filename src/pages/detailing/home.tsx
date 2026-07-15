@@ -995,7 +995,7 @@ export default function DetailingHome() {
         </div>
 
         <div
-          className={`xl:hidden fixed left-0 right-0 w-full bg-black/98 border-b border-white/10 transition-all duration-300 ease-in-out z-40 ${
+          className={`xl:hidden fixed left-0 right-0 w-full bg-black border-b border-white/10 transition-all duration-300 ease-in-out z-40 ${
             mobileMenuOpen ? "opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none overflow-hidden"
           } ${mobileMenuOpen ? "detail-mobile-drawer" : ""}`}
           style={{ top: "calc(var(--detail-disclaimer-h) + var(--detail-nav-h))" }}

@@ -352,6 +352,8 @@
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  background: #000;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
 }
 
 @media (min-width: 640px) {
