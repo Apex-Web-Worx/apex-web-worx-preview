@@ -34,8 +34,15 @@ export default function DetailingDisclaimer({
   }
 
   return (
-    <div className={`bg-black/95 border-b border-[#E6007A]/20 px-3 sm:px-4 py-2 text-center backdrop-blur-sm ${className}`}>
-      <p className="text-[10px] sm:text-xs text-[#E6007A] font-semibold tracking-wide">
+    <div
+      className={`bg-black/95 border-b border-[#E6007A]/20 px-3 sm:px-4 text-center backdrop-blur-sm ${className}`}
+      style={{
+        paddingTop: "max(0.35rem, env(safe-area-inset-top, 0px))",
+        paddingBottom: "0.35rem",
+        minHeight: "var(--detail-disclaimer-h)",
+      }}
+    >
+      <p className="text-[9px] sm:text-xs text-[#E6007A] font-semibold tracking-wide leading-tight truncate sm:whitespace-normal sm:overflow-visible">
         {DETAILING_DISCLAIMER}
       </p>
       <p className="text-[10px] text-gray-500 mt-0.5 max-w-2xl mx-auto leading-snug hidden sm:block">

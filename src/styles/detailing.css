@@ -16,8 +16,8 @@
   --detail-gradient: linear-gradient(135deg, var(--detail-pink), var(--detail-magenta) 28%, var(--detail-violet) 52%, var(--detail-cyan) 78%, var(--detail-electric));
   --detail-gradient-hot: linear-gradient(90deg, var(--detail-pink), var(--detail-magenta), var(--detail-cyan));
   --detail-gradient-cool: linear-gradient(135deg, var(--detail-violet), var(--detail-cyan), var(--detail-lime));
-  --detail-disclaimer-h: 2.75rem;
-  --detail-nav-h: 3.5rem;
+  --detail-disclaimer-h: calc(2.35rem + env(safe-area-inset-top, 0px));
+  --detail-nav-h: 3.25rem;
   --detail-header-offset: calc(var(--detail-disclaimer-h) + var(--detail-nav-h));
   --detail-sticky-bar-h: 4.25rem;
 
@@ -179,8 +179,8 @@
 }
 
 .detailing-site .logo-nav {
-  height: 2.5rem;
-  max-width: 9rem;
+  height: 2rem;
+  max-width: 7.25rem;
 }
 
 @media (min-width: 640px) {
@@ -289,12 +289,51 @@
 .detailing-site nav {
   height: var(--detail-nav-h);
   padding-top: 0;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.detailing-site .detail-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: var(--detail-nav-h);
+  width: 100%;
+}
+
+.detailing-site .detail-nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.detailing-site .detail-mobile-drawer {
+  max-height: min(70dvh, 28rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
 }
 
 @media (min-width: 640px) {
   .detailing-site {
-    --detail-disclaimer-h: 3.25rem;
+    --detail-disclaimer-h: calc(3.25rem + env(safe-area-inset-top, 0px));
     --detail-nav-h: 4rem;
+  }
+
+  .detailing-site .detail-nav-actions {
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .detailing-site .detail-nav-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.75rem;
   }
 }
 

@@ -919,12 +919,12 @@ export default function DetailingHome() {
         }`}
         style={{ top: "var(--detail-disclaimer-h)" }}
       >
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#E6007A] via-[#00EAFF] to-[#E6007A]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 min-h-[var(--detail-nav-h)] w-full">
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#E6007A] via-[#A855F7] to-[#00EAFF]" />
+        <div className="container mx-auto px-3 sm:px-6 lg:px-8 w-full">
+          <div className="detail-nav-inner">
             <button
               type="button"
-              className="flex items-center justify-start shrink-0 min-w-0"
+              className="flex items-center justify-start shrink-0 min-w-0 max-w-[58%] sm:max-w-none"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               aria-label="Scroll to top"
             >
@@ -959,7 +959,7 @@ export default function DetailingHome() {
               })}
             </div>
 
-            <div className="flex items-center justify-end gap-2 sm:gap-3">
+            <div className="detail-nav-actions">
               <a
                 href="tel:+15550000000"
                 className="hidden xl:inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#00EAFF] transition-colors shrink-0"
@@ -981,17 +981,12 @@ export default function DetailingHome() {
               <Link href={DETAILING_BRAND.bookPath} className="btn-elite-primary text-sm px-4 py-2 sm:px-5 sm:py-2.5 shrink-0 hidden md:inline-flex">
                 BOOK NOW <ChevronRight className="w-4 h-4 ml-1 hidden sm:inline" />
               </Link>
-              <a
-                href="tel:+15550000000"
-                className="md:hidden inline-flex items-center justify-center detail-touch-target rounded-full bg-white/5 border border-white/10 text-white hover:text-[#00EAFF] hover:border-[#00EAFF] transition-colors"
-                aria-label="Call Elite Detailing"
-              >
-                <Phone className="w-5 h-5" />
-              </a>
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="xl:hidden text-white detail-touch-target inline-flex items-center justify-center focus:outline-none"
+                className="xl:hidden text-white detail-touch-target inline-flex items-center justify-center focus:outline-none rounded-lg hover:bg-white/5"
                 aria-label="Toggle menu"
+                aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -1000,35 +995,38 @@ export default function DetailingHome() {
         </div>
 
         <div
-          className={`xl:hidden fixed left-0 right-0 w-full bg-black border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden z-40 ${
-            mobileMenuOpen ? "max-h-[480px] opacity-100 py-4" : "max-h-0 opacity-0 py-0"
-          }`}
+          className={`xl:hidden fixed left-0 right-0 w-full bg-black/98 border-b border-white/10 transition-all duration-300 ease-in-out z-40 ${
+            mobileMenuOpen ? "opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none overflow-hidden"
+          } ${mobileMenuOpen ? "detail-mobile-drawer" : ""}`}
           style={{ top: "calc(var(--detail-disclaimer-h) + var(--detail-nav-h))" }}
         >
-          <div className="flex flex-col space-y-4 px-6">
-            {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ", "Buy Gift Card"].map((item) => {
-              const isGiftCard = item === "Buy Gift Card";
-              const href = isGiftCard ? "#gift-cards" : `#${item.toLowerCase()}`;
+          <div className="flex flex-col gap-1 px-4 sm:px-6 py-3">
+            {["Home", "Services", "About", "Gallery", "Testimonials", "FAQ"].map((item) => {
+              const href = `#${item.toLowerCase()}`;
               return (
                 <a
                   key={item}
                   href={href}
                   onClick={(e) => {
-                    if (isGiftCard) {
-                      e.preventDefault();
-                      showDetailingModal();
-                      setMobileMenuOpen(false);
-                      return;
-                    }
                     e.preventDefault();
                     scrollToSection(item.toLowerCase());
                   }}
-                  className="text-left text-gray-300 hover:text-white font-semibold text-lg tracking-wider uppercase"
+                  className="text-left text-gray-300 hover:text-white font-semibold text-base tracking-wider uppercase py-3 border-b border-white/5 min-h-[44px] flex items-center"
                 >
                   {item}
                 </a>
               );
             })}
+            <button
+              type="button"
+              onClick={() => {
+                showDetailingModal();
+                setMobileMenuOpen(false);
+              }}
+              className="btn-elite-outline w-full text-center mt-3"
+            >
+              GIFT CARD
+            </button>
             <Link
               href={DETAILING_BRAND.adminLoginPath}
               onClick={() => setMobileMenuOpen(false)}
@@ -1039,10 +1037,18 @@ export default function DetailingHome() {
             <Link
               href={DETAILING_BRAND.bookPath}
               onClick={() => setMobileMenuOpen(false)}
-              className="btn-elite-primary mt-2 w-full text-center"
+              className="btn-elite-primary w-full text-center"
             >
               BOOK NOW
             </Link>
+            <a
+              href="tel:+15550000000"
+              className="md:hidden inline-flex items-center justify-center gap-2 mt-1 py-3 min-h-[44px] text-sm font-bold text-[#00EAFF]"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Phone className="w-4 h-4" />
+              Call {DETAILING_BRAND.phone}
+            </a>
           </div>
         </div>
       </nav>
