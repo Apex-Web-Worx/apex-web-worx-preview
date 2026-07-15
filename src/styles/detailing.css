@@ -246,6 +246,42 @@
   box-shadow: 0 0 22px rgba(230, 0, 122, 0.28), 0 0 40px rgba(168, 85, 247, 0.15);
 }
 
+/* Allow Tailwind hide utilities to win over button display rules */
+.detailing-site .hidden.btn-elite-primary,
+.detailing-site .hidden.btn-elite-outline,
+.detailing-site a.hidden,
+.detailing-site button.hidden {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .detailing-site .md\:inline-flex.btn-elite-primary,
+  .detailing-site .md\:inline-flex.btn-elite-outline,
+  .detailing-site a.md\:inline-flex,
+  .detailing-site button.md\:inline-flex {
+    display: inline-flex !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .detailing-site .lg\:inline-flex.btn-elite-primary,
+  .detailing-site .lg\:inline-flex.btn-elite-outline,
+  .detailing-site a.lg\:inline-flex,
+  .detailing-site button.lg\:inline-flex {
+    display: inline-flex !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .detailing-site .xl\:inline-flex {
+    display: inline-flex !important;
+  }
+
+  .detailing-site .xl\:hidden {
+    display: none !important;
+  }
+}
+
 .detailing-site .btn-elite-primary:hover {
   box-shadow: 0 0 28px rgba(0, 234, 255, 0.4), 0 0 48px rgba(124, 255, 107, 0.12);
   transform: translateY(-1px);
